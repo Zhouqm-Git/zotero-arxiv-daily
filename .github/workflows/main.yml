@@ -7,12 +7,15 @@ on:
 jobs:
   calculate-and-send:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # allow the GITHUB_TOKEN to push recommendation snapshots back
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           repository: ${{ vars.REPOSITORY }}
           ref: ${{ vars.REF }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup uv
         uses: astral-sh/setup-uv@v7
@@ -32,3 +35,16 @@ jobs:
           echo "Use custom config: "
           cat config/custom.yaml
           uv run src/zotero_arxiv_daily/main.py
+
+      - name: Commit recommendations
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/recommendations/ 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No recommendation changes to commit."
+          else
+            git commit -m "chore: recommendations $(date -u +%F)"
+            git push
+          fi

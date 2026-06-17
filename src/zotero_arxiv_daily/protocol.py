@@ -36,13 +36,13 @@ class Paper:
         if not self.full_text and not self.abstract:
             logger.warning(f"Neither full text nor abstract is provided for {self.url}")
             return "Failed to generate TLDR. Neither full text nor abstract is provided"
-        
+
         # use gpt-4o tokenizer for estimation
         enc = tiktoken.encoding_for_model("gpt-4o")
         prompt_tokens = enc.encode(prompt)
         prompt_tokens = prompt_tokens[:4000]  # truncate to 4000 tokens
         prompt = enc.decode(prompt_tokens)
-        
+
         response = openai_client.chat.completions.create(
             messages=[
                 {
@@ -55,7 +55,7 @@ class Paper:
         )
         tldr = response.choices[0].message.content
         return tldr
-    
+
     def generate_tldr(self, openai_client:OpenAI,llm_params:dict) -> str:
         try:
             tldr = self._generate_tldr_with_llm(openai_client,llm_params)
@@ -93,7 +93,7 @@ class Paper:
             affiliations = [str(a) for a in affiliations]
 
             return affiliations
-    
+
     def generate_affiliations(self, openai_client:OpenAI,llm_params:dict) -> Optional[list[str]]:
         try:
             affiliations = self._generate_affiliations_with_llm(openai_client,llm_params)
@@ -103,6 +103,53 @@ class Paper:
             logger.warning(f"Failed to generate affiliations of {self.url}: {e}")
             self.affiliations = None
             return None
+
+    def to_recommendation_dict(self) -> dict:
+        """Export a lightweight dict for JSON persistence.
+
+        Drops the heavy ``full_text`` (can be 50KB+) — agents triage via
+        ``tldr`` + ``abstract`` and fetch the full PDF later. Extracts a
+        normalized ``arxiv_id`` (version-stripped) from the URL so callers
+        don't have to re-parse it.
+        """
+        arxiv_id = _extract_arxiv_id(self.url)
+        return {
+            "arxiv_id": arxiv_id,
+            "title": self.title,
+            "authors": list(self.authors) if self.authors else [],
+            "abstract": self.abstract,
+            "url": self.url,
+            "pdf_url": self.pdf_url,
+            "tldr": self.tldr,
+            "affiliations": list(self.affiliations) if self.affiliations else [],
+            "score": round(float(self.score), 4) if self.score is not None else None,
+            "source": self.source,
+        }
+
+
+# Matches both new-style (2405.14867, optionally with /vN) and old-style
+# (cs.AI/0701234) arXiv identifiers. Used for persistence export only —
+# the retriever already knows its own IDs at fetch time.
+_ARXIV_ID_RE = re.compile(
+    r'(?:\d{4}\.\d{4,5}(?:v\d+)?|[a-z\-]+(?:\.[A-Z\-]+)?/\d{7})'
+)
+_VERSION_SUFFIX_RE = re.compile(r'v\d+$')
+
+
+def _extract_arxiv_id(url: str) -> Optional[str]:
+    """Extract a version-stripped arXiv ID from a URL or raw string.
+
+    ``2405.14867v2`` becomes ``2405.14867``; ``cs.AI/0701234`` is unchanged
+    (old-style IDs carry no version suffix).
+    """
+    if not url:
+        return None
+    match = _ARXIV_ID_RE.search(url)
+    if match is None:
+        return None
+    return _VERSION_SUFFIX_RE.sub('', match.group(0))
+
+
 @dataclass
 class CorpusPaper:
     title: str
