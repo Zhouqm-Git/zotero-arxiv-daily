@@ -1,0 +1,297 @@
+{
+  "date": "2026-06-17",
+  "generated_at": "2026-06-17T23:31:19Z",
+  "count": 10,
+  "sources": [
+    "arxiv"
+  ],
+  "papers": [
+    {
+      "arxiv_id": "2606.18250",
+      "title": "Future Dynamic 3D Reconstruction: A 3D World Model with Disentangled Ego-Motion",
+      "authors": [
+        "Nils Morbitzer",
+        "Jonathan Evers",
+        "Artem Savkin",
+        "Thomas Stauner",
+        "Nassir Navab",
+        "Federico Tombari",
+        "Stefano Gasperini"
+      ],
+      "abstract": "Forecasting the evolution of dynamic environments is crucial for autonomous agents. While generative world models have recently achieved high photorealism in 2D video synthesis by mixing ego-motion and environmental dynamics within the image plane, they exhibit physical inconsistencies, such as morphing or vanishing objects, especially over long time horizons. In this paper, we propose FR3D, a world model that predicts a persistent 3D latent representation for future dynamic 3D reconstruction. Unlike prior works that treat the world as a sequence of image-based features, FR3D explicitly decouples the 3D evolution of the scene from the agent's trajectory, treating the inferred ego-motion as a latent proxy for action. This disentanglement resolves the ambiguities between self-motion and world-motion, ensuring geometric consistency into the future. Furthermore, we introduce a teacher-student distillation strategy that leverages the spatial \"common sense\" of off-the-shelf foundation models, leading to robust zero-shot generalization. Extensive experiments demonstrate FR3D's strong performance for future dynamic 3D reconstruction from monocular observations across multiple datasets, even 2 seconds into the future. Project page: https://fr3d-wm.github.io.",
+      "url": "http://arxiv.org/abs/2606.18250v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.18250v1",
+      "tldr": "提出了一种名为FR3D的动态3D重建模型，通过解耦场景的3D演化和主体的轨迹，实现了对未来动态环境的准确预测。",
+      "affiliations": [
+        "Visualais",
+        "BMW Group",
+        "Technical University of Munich (TUM)",
+        "Munich Center for Machine Learning (MCML)"
+      ],
+      "score": 5.2188,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17536",
+      "title": "OmniDrive: An LLM-Choreographed Multi-Agent World Model with Unified Latent Co-Compression for Multi-View Driving Video Generation",
+      "authors": [
+        "Zijie Meng",
+        "Yufei Liu",
+        "Chengqian Ma",
+        "Zhiyu Li",
+        "Jiyuan Liu",
+        "Wenhua Nie",
+        "Bingcai Wei",
+        "Shuqin Chen",
+        "Weichen Xu",
+        "Jiquan Yuan",
+        "Miao Zhang"
+      ],
+      "abstract": "Generative world models for autonomous driving face two unresolved tensions: heterogeneous control injection, where free-form language, HD-maps, trajectories, and camera poses reside in incompatible representational spaces, and post-hoc cross-view fusion, where per-camera latents fail to encode global 3-D geometry. We trace both to a single root cause: the absence of a shared symbolic interlingua aligning language, geometry, and pixels at the latent-token level. We present DRIVE-CHOREO, an LLM-choreographed multi-agent world model that recasts controllable multi-view video generation as latent choreography. Three Qwen2.5-VL agents - a Director parsing user intent into a structured WorldScript, a Cartographer grounding it into spatially-anchored layout tokens, and an Auditor feeding cross-view critiques back as auxiliary supervision - jointly author a single position-aware token sequence. This sequence is co-compressed with the multi-view video via a view-time permutation that enforces inter-camera geometry within the convolutional receptive field of a 3-D VAE. On nuScenes, DRIVE-CHOREO sets new state-of-the-art multi-view consistency and BEV mAP (21.6) with competitive FVD (45.7); a detector trained purely on our synthetic data gains +2.4 NDS on the real validation split, validating downstream utility.",
+      "url": "http://arxiv.org/abs/2606.17536v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17536v1",
+      "tldr": "OmniDrive：一种基于LLM编排的多智能体世界模型，通过统一的潜在共压缩技术实现多视角驾驶视频生成。",
+      "affiliations": [
+        "Peking University",
+        "Korea Advanced Institute of Science and Technology (KAIST)",
+        "Jimei University",
+        "Xiamen University",
+        "Tsinghua University",
+        "Wuhan University",
+        "National Taiwan University",
+        "Wuhan University of Technology"
+      ],
+      "score": 5.0823,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17730",
+      "title": "ActWorld: From Explorable to Interactive World Model via Action-Aware Memory",
+      "authors": [
+        "Zhexiao Xiong",
+        "Yizhi Song",
+        "Hao Kang",
+        "Qing Yan",
+        "Liming Jiang",
+        "Jenson Yang",
+        "Zhoujie Fu",
+        "Stathi Fotiadis",
+        "Angtian Wang",
+        "Zichuan Liu",
+        "Bo Liu",
+        "Yiding Yang",
+        "Xin Lu",
+        "Nathan Jacobs"
+      ],
+      "abstract": "Interactive world models aim to simulate environment dynamics under real-time user actions. However, their action vocabulary is largely confined to navigation: most actions correspond to motion (e.g., walk, turn, look around), while interaction with objects in the scene (e.g., pick up plates, open doors, or trigger physical responses) is either absent, restricted to game domains, or relegated to prompt-to-full-video scenarios. The resulting worlds are visually explorable but not truly actionable. In this work, we present ActWorld, an interactive world model that extends prior navigation-centric generators to support mid-rollout object interaction within a chunk-autoregressive framework. We argue that the navigation-interaction gap stems from two bottlenecks. First, a data bottleneck: the lack of human-object interaction data with accurate, dense labels. Second, a memory bottleneck: recency-biased history compression in existing world models discards the event-transition frames that causally determine subsequent object states, leading to an action-forgetting pathology. On the data side, we construct a 100K interaction video dataset, each annotated with per-chunk captions via chain-of-thought reasoning. On the model side, we introduce a hierarchical action-aware memory design that routes history compression by interaction importance, complemented by a persistent memory bank that maintains event-update and object-identity tokens across long rollouts. Experiments show that ActWorld supports both flexible navigation and rich object interaction within a single model, substantially improving interaction fidelity over navigation-only baselines without sacrificing viewpoint control. Project page is available at https://interactwm.github.io/ActWorld.",
+      "url": "http://arxiv.org/abs/2606.17730v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17730v1",
+      "tldr": "ActWorld通过引入动作感知记忆，扩展了以导航为中心的生成器，以支持在块自回归框架中执行中的对象交互，从而实现可探索和可交互的世界模型。",
+      "affiliations": [
+        "Intelligent Creation, ByteDance",
+        "Washington University in St. Louis"
+      ],
+      "score": 5.0598,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17386",
+      "title": "TerraTransfer: Learning End-to-End Driving Policies Without Expert Demonstrations",
+      "authors": [
+        "Zikang Xiong",
+        "Weixin Li",
+        "Zhouchonghao Wu",
+        "Akshay Rangesh",
+        "Saarth Bonde",
+        "Grantland Hall",
+        "Chen Tang",
+        "Yihan Hu",
+        "Wei Zhan"
+      ],
+      "abstract": "End-to-end autonomous driving has achieved state-of-the-art performance on benchmarks and real-world deployments. Its standard training recipe, however, is expensive across all stages: collecting and labeling millions of driving frames is costly, and closed-loop RL on images is bottlenecked by the per-step cost of photorealistic rendering plus a forward pass through a large vision backbone. Self-play in vectorized simulators changes the economics: millions of rollout steps per second, and a state distribution naturally rich in collisions, near-misses, and recoveries that no driving log contains. Our approach exploits this asymmetry by decoupling learning to drive from learning to see. We pretrain a single policy by self-play, then align its latent space with a pretrained vision backbone, through the action KL divergence and a batch-relational low-rank structural loss. The action target comes from the self-play policy, so alignment never supervises against a logged trajectory: a paired dataset of (image, scene-state) frames suffices, with no need for the curated expert demonstrations that imitation pretraining is built on. On photorealistic 3D Gaussian splatting closed-loop scenarios, the resulting end-to-end policy matches or exceeds prior end-to-end methods.",
+      "url": "http://arxiv.org/abs/2606.17386v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17386v1",
+      "tldr": "通过在模拟器中进行自我博弈来训练一个驾驶策略，然后将预训练的视觉骨干与该策略对齐，从而在不依赖专家演示的情况下实现端到端自动驾驶。",
+      "affiliations": [
+        "UCLA",
+        "UC Berkeley",
+        "Applied Intuition"
+      ],
+      "score": 4.7962,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.18208",
+      "title": "Looped World Models",
+      "authors": [
+        "Hongyuan Adam Lu",
+        "Z. L. Victor Wei",
+        "Qun Zhang",
+        "Jinrui Zeng",
+        "Bowen Cao",
+        "Lingwei Meng",
+        "Mocheng Li",
+        "Zezhong Wang",
+        "Haonan Yin",
+        "Naifu Xue",
+        "Minyu Chen",
+        "Cenyuan Zhang",
+        "Zefan Zhang",
+        "Hao Wei",
+        "Jiawei Zhou",
+        "Haoran Xu",
+        "Hao Yang",
+        "Ronglai Zuo",
+        "Tongda Xu",
+        "Yonghao Li",
+        "Jian Chen",
+        "Hebin Wang",
+        "Zeyu Gao",
+        "Yang Li",
+        "Wei Zhao",
+        "Qimin Zhong",
+        "Siqi Liu",
+        "Yumeng Zhang",
+        "Leyan Cui",
+        "Zhangyu Wang",
+        "Wai Lam"
+      ],
+      "abstract": "Current world models face a fundamental tension: faithful long-horizon simulation demands deep computation, but deeper models are expensive to deploy and prone to compounding errors. We resolve this by introducing Looped World Models (LoopWM), which are the first looped architectures for world modelling. Our method iteratively refines latent environment states through a parameter-shared transformer block. This yield up to 100x parameter efficiency over conventional approaches with adaptive computation that automatically scales depth to match the complexity of each prediction step. Orthogonal to scaling model size and training data, LoopWM establishes iterative latent depth as a new scaling axis for world simulation, which might significantly push the community forward.",
+      "url": "http://arxiv.org/abs/2606.18208v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.18208v1",
+      "tldr": "提出了循环世界模型（LoopWM），通过参数共享的Transformer模块迭代优化潜在环境状态，实现了参数效率提升至传统方法的100倍，为世界模拟开辟了新的尺度维度。",
+      "affiliations": [],
+      "score": 4.7478,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.18235",
+      "title": "EvolveNav: Proactive Preflection and Self-Evolving Memory for Zero-Shot Object Goal Navigation",
+      "authors": [
+        "Qi Chai",
+        "Wenhao Shen",
+        "Nanjie Yao",
+        "Yue Xia",
+        "Kaiyong Zhao",
+        "Jie Ma",
+        "Guosheng Lin",
+        "Hao Wang"
+      ],
+      "abstract": "Zero-Shot Object-Goal Navigation (ZS-OGN) requires embodied agents to explore and locate target objects without any prior training. To this end, recent methods leverage foundation models. But they typically rely on static priors and lack adaptation, which leads to repeated errors and costly trial and error. In this paper, we propose a self-evolving ZS-OGN framework that enables continuous test-time improvement. Specifically, we build an agentic rule memory by extracting actionable knowledge from past trajectories. Then, we propose a retrieval strategy based on upper confidence bound, selecting effective rules by balancing semantic relevance and historical success. In addition, we introduce a memory-guided preflection module that forecasts potential outcomes before action, reducing inefficient exploration. Extensive experiments show that our method outperforms existing zero-shot baselines, achieving a 10.1\\% improvement in success rate with fewer unnecessary steps.",
+      "url": "http://arxiv.org/abs/2606.18235v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.18235v1",
+      "tldr": "提出了EvolveNav框架，通过主动反思和自我进化的记忆机制，显著提高了零样本目标导航的成功率。",
+      "affiliations": [
+        "XGRIDS",
+        "Nanyang Technological University",
+        "Xi'an Jiaotong University",
+        "HKUST(GZ)"
+      ],
+      "score": 4.5845,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.18180",
+      "title": "EgoCS-400K: An Egocentric Gameplay Dataset for World Models",
+      "authors": [
+        "Rongjin Guo",
+        "Dong Liang",
+        "Yuhao Liu",
+        "Fang Liu",
+        "Tianyu Huang",
+        "Gerhard P. Hancke",
+        "Rynson W. H. Lau"
+      ],
+      "abstract": "The shift from video generation to interactive world modeling places new demands on data: beyond captioned videos, world models require temporally aligned video-action-language trajectories grounded in the actions, camera motion, states, and events that drive future scene changes. However, such data is difficult to obtain at scale. Web video datasets offer broad visual coverage but lack executable actions and reliable states; robotic datasets provide action and state supervision but are costly and limited in scene diversity; and existing simulators often lack large-scale human-driven interaction trajectories. In this paper, we introduce EgoCS-400K, a large-scale replay-grounded egocentric Counter-Strike dataset for world models, built from public professional CS and CS2 match demos that preserve human gameplay trajectories and enable parsing, replaying, rendering, and temporal alignment. We extract player states, view directions, movements, keyboard/button inputs, view-angle changes, weapon usage, game events, and round-level context, and render clean first-person videos from the same trajectories. EgoCS-400K contains over 400,000 first-person videos and 10,000 hours of gameplay from more than 1,000 matches and 40,000 rounds, covering 13 maps and 10 player viewpoints per round. It supports a range of interactive visual modeling tasks, including action-conditioned future prediction, state- and event-aware scene rollout, replay-grounded captioning, and agent egocentric action understanding. By connecting visual observations with human actions, camera motion, game states, and events at scale, EgoCS-400K serves as a practical bridge between passive web videos, controllable game simulation, and costly real-world embodied data.",
+      "url": "http://arxiv.org/abs/2606.18180v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.18180v1",
+      "tldr": "EgoCS-400K：一个用于世界模型的基于自我视角的《反恐精英》游戏数据集，包含大量游戏视频和动作数据，支持多种交互式视觉建模任务。",
+      "affiliations": [],
+      "score": 4.582,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17800",
+      "title": "MaineCoon: Pursuing A Real-Time Audio-Visual Social World Model",
+      "authors": [
+        "Lichen Bai",
+        "Tianhao Zhang",
+        "Shitong Shao",
+        "Dingwei Tan",
+        "Qiyu Zhong",
+        "Zhengpeng Xie",
+        "Haopeng Li",
+        "Qinghao Huang",
+        "Dandan Shen",
+        "Tengjiao Ji",
+        "Wei Wang",
+        "Peicheng Wu",
+        "Yuxuan Zhao",
+        "Xiangyu Zhu",
+        "Welly Luo",
+        "Shurui Yang",
+        "Zeke Xie"
+      ],
+      "abstract": "As an increasing majority of global video content is consumed on social platforms for interactive social purposes, video generation models built for social worlds are important but largely overlooked by previous studies. In this work, we define the position of social world models and build a prototype model as the first step towards this goal. While previous world models successfully simulate physical environments or gaming world exploration, they remain fundamentally detached from human-centric social dynamics. To bridge this gap as the first step to social world models, we present MaineCoon, the first real-time audio-visual autoregressive model that has 22B parameters and is capable of real-time streaming generation and sub-second interaction, with a record-breaking frame rate of up to 47.5 FPS, on a single GPU. To the best of our knowledge, MaineCoon is also the first real-time audio-visual generation model specifically optimized for social-interactive applications. To enable efficient and stable training, we introduce several novel techniques into MaineCoon, including self-resampling, cross-modal representation alignment, domain-aware preference optimization, and reinforced online-policy distillation (ROPD). We also design the first agentic streaming inference framework that supports thousand-second-scale or even longer generation while mitigating drift with agentic cache management and prompt planing. These innovations significantly accelerate training while optimizing real-time inference performance. We believe this work not only sets a new state-of-the-art (SOTA) performance benchmark for high-quality, low-latency, and long-horizon audio-visual autoregressive models, but also points out the paradigm shift desired for next-generation AI-native social platforms.",
+      "url": "http://arxiv.org/abs/2606.17800v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17800v1",
+      "tldr": "构建首个22B参数的实时音视频自回归模型MaineCoon，实现社交场景下高质量、低延迟的音视频生成。",
+      "affiliations": [],
+      "score": 4.5567,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.18132",
+      "title": "Knowledge Reutilization in Meta-Reinforcement Learning",
+      "authors": [
+        "Yuan Meng",
+        "Bo Wang",
+        "Juan de los Rios Ruiz",
+        "Xiangtong Yao",
+        "Zhenshan Bing",
+        "Fuchun Sun",
+        "Alois Knoll"
+      ],
+      "abstract": "Meta-reinforcement learning enables fast adaptation by extracting shared structure from related tasks, but existing end-to-end methods often couple task inference with embodiment-specific control. This coupling can obscure non-parametric task semantics, reduce sample efficiency, and limit cross-agent reuse. We propose a meta-knowledge reutilization framework that learns task-level knowledge on a dynamics-simplified agent and transfers it to heterogeneous agents. The framework uses a Bayesian non-parametric prior to organize latent task modes and a high-level policy to generate task-level magnitude guidance. To bridge reusable task knowledge with different embodiments, we introduce a semantic-magnitude interface and a lightweight temporal adaptor, which convert frozen meta-knowledge into temporally aligned subgoals for embodiment-specific low-level controllers. Experiments on multiple locomotion agents show that our framework reduces final-step tracking error by 94.75% -- 99.79% compared with recent state-of-the-art baselines and achieves comparable deployment performance with about 23.8% of their interaction data.",
+      "url": "http://arxiv.org/abs/2606.18132v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.18132v1",
+      "tldr": "提出了一种元知识重用框架，通过在简化动力学代理上学习任务级知识并将其转移到异构代理，提高了元强化学习中的知识重用效率。",
+      "affiliations": [
+        "Tsinghua University, Beijing, China",
+        "State Key Laboratory for Novel Software Technology, Nanjing University, Suzhou, China",
+        "Technical University of Munich, Munich, Germany"
+      ],
+      "score": 4.5445,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17539",
+      "title": "Reinforcing Dual-Path Reasoning in Spatial Vision Language Models",
+      "authors": [
+        "Yatai Ji",
+        "An-Chieh Cheng",
+        "Yang Fu",
+        "Yukang Chen",
+        "Han Zhang",
+        "Zhaojing Yang",
+        "Wei Huang",
+        "Ka Chun Cheung",
+        "Song Han",
+        "Vidya Nariyambut Murali",
+        "Pavlo Molchanov",
+        "Jan Kautz",
+        "Simon See",
+        "Hongxu Yin",
+        "Ping Luo",
+        "Sifei Liu"
+      ],
+      "abstract": "Spatial VLMs have made substantial progress in geometric perception, yet complex spatial reasoning requiring multi-step inference over depth, distance, and scene relations remains challenging. Moreover, different spatial queries call for fundamentally different strategies: some are best addressed through purely linguistic, step-by-step deduction, while others require explicit 3D grounding before quantitative inference. We present Dual-Path Spatial Reasoning via Reinforcement Learning for Spatial VLMs (SR-REAL), a unified framework that equips a spatial VLM with two complementary reasoning paths: Language-Only Reasoning (LOR), which performs step-by-step linguistic deduction, and Detect-Then-Reason (DTR), which detects 3D geometric cues (e.g., centers or bounding boxes) via region tokens before explicit geometric inference. SR-REAL begins with a cold-start supervised fine-tuning stage that constructs LOR and DTR chain-of-thought supervision and exposes a region-to-3D interface, followed by RL that optimizes the policy model with accuracy and format rewards; for DTR, a discrete center-based detection reward further refines geometric alignment. Across diverse spatial benchmarks, SR-REAL significantly outperforms spatial VLM baselines: (i) a single RL-trained model supports both reasoning paths, with DTR excelling in region-aware tasks through precise 3D localization and LOR enhancing general spatial reasoning; (ii) jointly training both paths fosters mutual reinforcement; (iii) high-quality, blended cold-start data is crucial for stable RL optimization; and (iv) the model generalizes across datasets and domains without per-task tuning, demonstrating positive transfer between LOR and DTR.",
+      "url": "http://arxiv.org/abs/2606.17539v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17539v1",
+      "tldr": "该论文提出了一种名为SR-REAL的强化学习框架，通过语言推理和3D几何推理的双路径方法，显著提高了空间视觉语言模型在复杂空间推理任务中的性能。",
+      "affiliations": [],
+      "score": 4.4854,
+      "source": "arxiv"
+    }
+  ]
+}
