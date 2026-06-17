@@ -19,8 +19,6 @@ def _raise_runtime_error() -> None:
 
 
 def test_arxiv_retriever(config, mock_feedparser, monkeypatch):
-    monkeypatch.setattr("zotero_arxiv_daily.retriever.base.sleep", lambda _: None)
-
     # The RSS fixture gives us paper IDs.  After feedparser, the code calls
     # arxiv.Client().results(search) which makes real HTTP requests.  We mock
     # the arxiv Client so the test stays offline.
@@ -88,3 +86,26 @@ def test_run_with_hard_timeout_returns_none_on_failure(monkeypatch):
     )
     assert result is None
     assert "boom" in warnings[0]
+
+
+def test_convert_to_paper_does_not_download_full_text(config):
+    """convert_to_paper must return full_text=None and NOT call any downloader.
+
+    Guard against regressing the expensive full-text download (tar/html/pdf)
+    that used to run for every candidate — the reranker only needs abstract.
+    """
+    from types import SimpleNamespace
+
+    fake_result = SimpleNamespace(
+        title="No Download Paper",
+        authors=[SimpleNamespace(name="Author A")],
+        summary="Abstract only.",
+        pdf_url="https://arxiv.org/pdf/2406.00001",
+        entry_id="https://arxiv.org/abs/2406.00001",
+        source_url=lambda: "https://arxiv.org/src/2406.00001",
+    )
+    retriever = ArxivRetriever(config)
+    paper = retriever.convert_to_paper(fake_result)
+    assert paper.full_text is None
+    assert paper.abstract == "Abstract only."
+    assert paper.pdf_url == "https://arxiv.org/pdf/2406.00001"

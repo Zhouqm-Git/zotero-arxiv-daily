@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.zhouqm.arxiv-daily</string>
+
+    <!-- Fire daily at 22:00 local time (matches the old GitHub Actions cron 0 22 * * *) -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>22</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!-- If the Mac was asleep/off at 22:00, run as soon as it wakes. -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/zhouqm/projects/zotero-arxiv-daily/scripts/run_daily.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/zhouqm/projects/zotero-arxiv-daily</string>
+
+    <!-- Only run in a graphical (Aqua) login session. -->
+    <key>LimitLoadToSessionType</key>
+    <array>
+        <string>Aqua</string>
+    </array>
+
+    <!-- A run can take ~5 min; allow generous headroom. launchd kills at 10m by default. -->
+    <key>TimeoutSeconds</key>
+    <integer>1800</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/zhouqm/Library/Logs/arxiv-daily/plist.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/zhouqm/Library/Logs/arxiv-daily/plist.err.log</string>
+
+    <!-- Do NOT keep alive: this is a daily job. A failed run (network blip,
+         Zotero 503, ...) will simply retry tomorrow. ThrottleInterval guards
+         against launchd's 10s-minimum relaunch should the calendar trigger
+         fire twice (e.g. wake-from-sleep edge cases). -->
+    <key>ThrottleInterval</key>
+    <integer>300</integer>
+</dict>
+</plist>

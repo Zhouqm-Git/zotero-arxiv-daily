@@ -13,8 +13,11 @@ class StubReranker(BaseReranker):
     def __init__(self, sim_matrix: np.ndarray):
         self.config = None
         self._sim = sim_matrix
+        self.last_keys = None
 
-    def get_similarity_score(self, s1, s2):
+    def get_similarity_score(self, s1, s2, s1_keys=None, s2_keys=None):
+        # Record keys so tests can assert the cache keys are propagated.
+        self.last_keys = (s1_keys, s2_keys)
         return self._sim
 
 

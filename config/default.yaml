@@ -1,3 +1,13 @@
 defaults:
   - base
   - custom
+
+# Keep Hydra from changing the working directory to outputs/<date>/<time>/.
+# The app writes/reads relative paths (data/recommendations/, data/embeddings/)
+# against the project root; a chdir would silently break both.
+hydra:
+  job:
+    chdir: false
+  output_subdir: null  # don't write a .hydra/ config dump next to outputs
+  run:
+    dir: .             # don't create an outputs/ tree at all

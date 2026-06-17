@@ -80,6 +80,7 @@ _DEFAULT_COLLECTIONS = [
 
 _DEFAULT_ITEMS = [
     {
+        "key": "STUB0001",
         "data": {
             "title": "Stub Paper 1",
             "abstractNote": "Abstract of stub paper 1.",
@@ -88,6 +89,7 @@ _DEFAULT_ITEMS = [
         },
     },
     {
+        "key": "STUB0002",
         "data": {
             "title": "Stub Paper 2",
             "abstractNote": "Abstract of stub paper 2.",

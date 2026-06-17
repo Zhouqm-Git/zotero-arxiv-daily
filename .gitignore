@@ -17,3 +17,6 @@ models
 test-compose.yml
 outputs
 config/private.yaml
+
+# Local embedding cache (regenerated per machine; not for the repo)
+data/embeddings/

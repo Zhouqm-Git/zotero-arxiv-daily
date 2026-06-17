@@ -3,7 +3,6 @@ from omegaconf import DictConfig
 from ..protocol import Paper, RawPaperItem
 from tqdm import tqdm
 from typing import Type
-from time import sleep
 from loguru import logger
 
 
@@ -33,7 +32,10 @@ class BaseRetriever(ABC):
                 continue
             if paper is not None:
                 papers.append(paper)
-            sleep(1)
+            # No sleep here: convert_to_paper no longer downloads full text
+            # (it only reads abstract from the API response), so there is
+            # nothing to rate-limit. The 1s sleep used to throttle tar/html/pdf
+            # downloads and cost ~5 min/run for 300 papers — pure waste now.
         return papers
 
 registered_retrievers = {}

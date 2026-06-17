@@ -1,0 +1,203 @@
+{
+  "date": "2026-06-17",
+  "generated_at": "2026-06-17T09:01:29Z",
+  "count": 10,
+  "sources": [
+    "arxiv"
+  ],
+  "papers": [
+    {
+      "arxiv_id": "2606.17627",
+      "title": "Divide, Deliberate, Decide: A Multi-Agent Framework for Fine-Grained Egocentric Action Recognition",
+      "authors": [
+        "Alessandro Sottovia",
+        "Alessandro Torcinovich",
+        "Oswald Lanz"
+      ],
+      "abstract": "Fine-grained action recognition in egocentric video is challenging for Vision-Language Models (VLMs): actions often differ only in small visual cues, and a single model tends to be biased toward a subset of these cues. We propose Divide, Deliberate, Decide, a fully-local, zero-shot multi-agent framework in which (i) a VLM orchestrator chunks the video and proposes a top-k candidate label list per segment, (ii) an ensemble of heterogeneous VLM specialists, drawn from different open model families, engages in a structured deliberation that includes a peer-consultation round of questions, and (iii) agent rankings are aggregated with a Borda count and the orchestrator re-ranks its own prediction in light of the specialists' evidence. The entire pipeline runs locally with no fine-tuning. Experiments show that our method positively improves zero-shot action recognition performance over the baseline, highlighting the influence of a heterogeneous deliberation step, showing that the gain stems from decorrelated model priors rather than from additional compute.",
+      "url": "http://arxiv.org/abs/2606.17627v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17627v1",
+      "tldr": "提出了一种名为“划分、审议、决定”的多智能体框架，用于细粒度自摄视频动作识别，通过异构审议步骤有效提升了零样本动作识别性能。",
+      "affiliations": [],
+      "score": 4.4657,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17480",
+      "title": "GeneralVLA-2: Geometry-Aware Reconstruction and Governed Memory for Robot Planning",
+      "authors": [
+        "Haoyu Wang",
+        "Guoqing Ma",
+        "Zeyu Zhang",
+        "Yandong Guo",
+        "Boxin Shi",
+        "Hao Tang"
+      ],
+      "abstract": "Generalist vision-language-action systems need object-centric 3D evidence and reusable manipulation experience to plan reliable robot trajectories. GeneralVLA provides a hierarchical interface for converting language and RGB-D observations into 3D end-effector paths, but two bottlenecks remain. First, monocular SAM3D-style object reconstruction can hallucinate pose and unseen geometry, while manipulation benefits from stable object shape when calibrated multi-view observations are available. Second, the original KnowledgeBank mainly retrieves semantically similar snippets and appends new knowledge, which makes it difficult to control memory quality, conflicts, confidence, and geometric relevance. To address the first challenge, we introduce GeoFuse-MV3D, a geometry-prior-guided MV-SAM3D reconstruction branch that verifies external geometry cues with input-view masks, applies soft visual-hull support, performs axis-wise refinement, and fuses only geometry while preserving appearance. To address the second challenge, we upgrade KnowledgeBank into a governed long-term memory system with explicit quality, confidence, lifecycle, verifier, and conflict metadata, together with precision-oriented retrieval. Finally, we evaluate the reconstruction branch on GSO-30 and the memory module on Terminal-Bench 2.0 and SWE-Bench Verified; GeoFuse-MV3D improves over the MV-SAM3D baseline by reducing CD and LPIPS by 2.20% and 2.02% while increasing PSNR and SSIM by 2.36% and 1.03%, and KnowledgeBank improves over ReasoningBank by 4.53% on Terminal-Bench SR and 3.73% on SWE-Bench resolve rate, while reducing AS by 4.95% and 5.65%, respectively. Code: https://github.com/AIGeeksGroup/GeneralVLA-2. Website: https://aigeeksgroup.github.io/GeneralVLA-2.",
+      "url": "http://arxiv.org/abs/2606.17480v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17480v1",
+      "tldr": "通用视觉语言动作系统GeneralVLA-2通过几何感知重建和受控记忆解决机器人规划中的瓶颈问题，显著提升了物体重建和知识库检索的准确性。",
+      "affiliations": [],
+      "score": 4.4336,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17524",
+      "title": "Learning to Refine Hidden States for Reliable LLM Reasoning",
+      "authors": [
+        "Chia-Hsuan Hsu",
+        "Jui-Ming Yao"
+      ],
+      "abstract": "Large language models show strong reasoning ability, but their internal reasoning process can remain unstable in complex multi-step settings, where early hidden-state errors may propagate to incorrect predictions. We propose ReLAR, a reinforcement-guided latent refinement framework that iteratively updates hidden representations before decoding. ReLAR maintains a compact latent reasoning state and uses learned depth and action controllers to adaptively determine both the number and direction of refinement steps. The controllers are trained with a policy gradient objective based on step-wise likelihood improvement, enabling efficient input-dependent reasoning without explicit chain-of-thought generation. Experiments on medical, mathematical, multi-hop reasoning, and open-ended generation benchmarks show that ReLAR improves accuracy, generation quality, and reasoning stability with substantially lower inference overhead than explicit reasoning baselines.",
+      "url": "http://arxiv.org/abs/2606.17524v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17524v1",
+      "tldr": "本论文提出了一种名为ReLAR的强化学习辅助隐藏状态微调框架，有效提升大语言模型在复杂推理任务中的可靠性和准确性。",
+      "affiliations": [],
+      "score": 4.4312,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.18249",
+      "title": "Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification",
+      "authors": [
+        "Wujian Peng",
+        "Lingchen Meng",
+        "Yuxuan Cai",
+        "Xianwei Zhuang",
+        "Yuhuan Yang",
+        "Rongyao Fang",
+        "Chenfei Wu",
+        "Junyang Lin",
+        "Zuxuan Wu",
+        "Shuai Bai"
+      ],
+      "abstract": "Unified Multimodal Modeling aims to integrate visual understanding and generation within a single system. However, existing approaches typically rely on two disparate visual tokenizers, which splits the representation space and hinders truly unified modeling. We propose UniAR, a unified autoregressive framework where a single discrete visual tokenizer serves as the key bridge between understanding and generation, enabling a shared context in which the model can directly interpret its own generated visual tokens without additional re-encoding. UniAR adapts a pretrained vision encoder with multi-level feature fusion and a lookup-free bitwise quantization scheme, preserving both high-level semantics and low-level details while scaling the effective visual vocabulary at minimal cost. Building on this, the unified autoregressive model adopts parallel-bitwise-prediction to jointly predict spatially grouped, multi-level visual codes, substantially reducing visual sequence length and accelerating generation. Finally, a diffusion-based visual decoder operates on discrete visual tokens to decode high-fidelity images. Through large-scale pre-training, followed by supervised fine-tuning and reinforcement learning, UniAR achieves state-of-the-art performance on image generation and image editing while remaining competitive on multimodal understanding benchmarks. The project page is available at https://sharelab-sii.github.io/uniar-web.",
+      "url": "http://arxiv.org/abs/2606.18249v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.18249v1",
+      "tldr": "通过单一视觉分词器实现视觉理解与生成的统一，UniAR模型在图像生成和编辑上取得了最先进的性能。",
+      "affiliations": [],
+      "score": 4.4122,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17257",
+      "title": "Pulling The REINS: Training-Free Safety Alignment of Video Diffusion Models via Representation Steering",
+      "authors": [
+        "Rohit Kundu",
+        "Arindam Dutta",
+        "Sarosij Bose",
+        "Athula Balachandran",
+        "Amit K. Roy-Chowdhury"
+      ],
+      "abstract": "Open-weight video diffusion models can generate photorealistic unsafe content, from violence to misinformation, yet existing defenses either require expensive safety fine-tuning that degrades general capability, or apply external filters that are trivially bypassed by adversarial prompts. We present REINS (REpresentation-space INference-time Safety steering), a training-free method that aligns video diffusion models at inference time by steering their internal representations toward safe generation. Our key finding is that safety-relevant structure is linearly encoded in the hidden-state activations of video diffusion transformers, and a single direction, discovered via Supervised PCA on binary safety labels, suffices to separate safe from unsafe generation trajectories. At inference, adding this direction to hidden states at an intermediate transformer layer redirects generation from harmful content to semantically related safe alternatives, with no weight updates, no concept enumeration, and negligible computational overhead. Through mechanistic analysis, we reveal that while safety information accumulates monotonically with transformer depth, steering effectiveness peaks at intermediate layers (~50% depth), exposing a fundamental tradeoff between information availability and downstream propagation capacity. We evaluate REINS across 9 video diffusion models, multiple parameter scales (1.3B-5B), and both text-to-video and image-to-video generation, to our knowledge, the broadest safety evaluation suite in the video generation literature.",
+      "url": "http://arxiv.org/abs/2606.17257v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17257v1",
+      "tldr": "通过引导视频扩散模型的内部表示，REINS在推理时实现无训练的安全对齐，有效防止生成有害内容。",
+      "affiliations": [],
+      "score": 4.3483,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17591",
+      "title": "Closing the Feedback Loop: From Experience Extraction to Insight Governance in Verbal Reinforcement Learning",
+      "authors": [
+        "Yanwei Cui",
+        "Xing Zhang",
+        "Yulong Zhang",
+        "Li Shao",
+        "Xiaofeng Shi",
+        "Guanghui Wang",
+        "Peiyang He"
+      ],
+      "abstract": "Training-free verbal reinforcement learning enables LLM agents to learn from world feedback -- objective signals such as dynamic task outcomes, market returns, or demand forecasts -- by extracting verbal rules from experience and injecting them as context, updating the agent's behavior without parameter changes. However, in non-stationary environments these agents face a retention-forgetting dilemma: retaining stale insights causes negative transfer, while discarding them causes catastrophic forgetting when conditions recur. We identify four requirements for navigating this dilemma -- outcome-driven evaluation, persistent structured evidence, non-monotonic knowledge lifecycle, and compositional governance -- and show that existing methods invest heavily in experience extraction while underinvesting in insight governance. We propose a three-layer architecture -- rules, evidence, and skills -- connected by a feedback-driven curation loop that closes the governance gap. Rules capture distilled experience from world outcomes; evidence logs track each rule's reliability across episodes; skills govern which rules to apply, how to resolve conflicts, and when to abstain. On financial forecasting as a case study, where world feedback is naturally abundant, noisy, and non-stationary, we show that the same accumulated experience either degrades performance below the zero-shot baseline or dramatically improves accuracy and risk-adjusted returns, depending on whether the curation loop is present.",
+      "url": "http://arxiv.org/abs/2606.17591v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17591v1",
+      "tldr": "通过构建规则、证据和技能三层架构，并利用反馈驱动的治理循环，本文提出了一种解决非平稳环境中强化学习代理保留-遗忘困境的方法，显著提升了金融预测等领域的性能。",
+      "affiliations": [],
+      "score": 4.3145,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17680",
+      "title": "EnvRL: Learn from Environment Dynamics in Agentic Reinforcement Learning",
+      "authors": [
+        "Zhitong Wang",
+        "Songze Li",
+        "Hao Peng",
+        "Shuzheng Si",
+        "Yi Wang",
+        "Maosong Sun",
+        "Juanzi Li"
+      ],
+      "abstract": "Reinforcement learning (RL) has emerged as a powerful paradigm for training Large Language Models (LLMs) as agents. However, conventional RL methods for long-horizon agentic tasks often struggle with sparse outcome rewards. Intuitively, this overlooks the rich environment dynamics information contained in rollout interaction trajectories. We argue that the interaction experience inherently serves as an implicit supervision signal, reveals the underlying transition mechanisms of the environment, and enables the agent to construct a more accurate internal model of the environment.. Therefore, in this work, we investigate how to leverage this additional signal to improve policy learning. Specifically, we propose EnvRL, a framework that incorporates environment dynamics learning into agentic RL via two auxiliary objectives: state prediction and inverse dynamics. By jointly optimizing with the primary RL objective, we encourage the agent to internalize environment dynamics from its own interaction experience. Extensive experiments on two long-horizon agentic benchmarks demonstrate that EnvRL achieves significant improvements on success-rates over RL-only baselines, e.g., when trained with GRPO, lifting Qwen-2.5-1.5B-Instruct from 72.8% to 77.4% on ALFWorld, and from 56.8% to 67.0% on WebShop.",
+      "url": "http://arxiv.org/abs/2606.17680v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17680v1",
+      "tldr": "本文提出了一种名为EnvRL的框架，通过结合环境动态学习来提高强化学习中的策略学习，显著提升了长期目标任务的成功率。",
+      "affiliations": [],
+      "score": 4.2941,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17279",
+      "title": "Training LLMs with Reinforcement Learning over Digital Twin Representations for Reasoning-Intensive Surgical VideoQA",
+      "authors": [
+        "Yiqing Shen",
+        "Han Zhang",
+        "Mathias Unberath"
+      ],
+      "abstract": "Surgical video question answering requires multi-step reasoning across semantic, spatial, and temporal dimensions. Existing methods architecturally compress videos into discrete token representations and couple visual perception with reasoning. This approach fragments continuous spatial-temporal relationships and has been shown to restrict multi-step reasoning capabilities. We introduce a reinforcement learning (RL) framework that trains large language models (LLMs) to decouple perception from reasoning by operating over digital twin representations constructed from surgical foundation models. Additionally, we introduce hierarchical representations across frame, temporal window, and procedure levels with probabilistic uncertainty estimates. Finally, we propose a novel reward that combines format validation with accuracy assessment through clinical plausibility evaluation and uncertainty-aware calibration for training. To demonstrate the capabilities of this approach, we introduce REAL-Colon-Reason, a colonoscopic benchmark with 2000 question-answer pairs across three complexity levels. We achieve state-of-the-art performance on REAL-Colon-Reason and two existing surgical VideoQA benchmarks REAL-Colon-VQA and EndoVis18-VQA.",
+      "url": "http://arxiv.org/abs/2606.17279v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17279v1",
+      "tldr": "利用数字孪生表示和强化学习训练LLM进行推理密集型手术视频问答，显著提升了多步推理能力并达到最先进的性能水平。",
+      "affiliations": [],
+      "score": 4.2738,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17321",
+      "title": "ProCUA-SFT Technical Report",
+      "authors": [
+        "Jaehun Jung",
+        "Ximing Lu",
+        "Brandon Cui",
+        "Muhammad Khalifa",
+        "Shaokun Zhang",
+        "Hao Zhang",
+        "Jin Xu",
+        "Amala Sanjay Deshmukh",
+        "Karan Sapra",
+        "Andrew Tao",
+        "Yejin Choi",
+        "Jan Kautz",
+        "Mingjie Liu",
+        "Yi Dong"
+      ],
+      "abstract": "Training computer-use agents (CUAs) -- models that interact with graphical desktops through screenshots and keyboard/mouse actions -- requires large-scale, diverse trajectory data collected in full desktop environments. The largest public resource, AgentNet (22.5K human trajectories), leads to negative transfer when used for supervised fine-tuning (SFT): continuing training UI-TARS 7B on AgentNet causes OSWorld success rate to fall from 26.3% to 8-10%. We present ProCUA-SFT, a dataset of 3.1M step-level SFT samples distilled from 93K synthetic trajectories across 2,484 application combinations. The dataset is produced by a fully automated pipeline that (i) synthesizes grounded tasks on live desktops seeded with real-world content -- 912 spreadsheets from SpreadsheetBench, approximately 10K permissively-licensed presentations from Zenodo10K, and multi-application OSWorld configs -- and (ii) verifies each task's feasibility through binary precondition checking before rollout. A single VLM (Kimi-K2.5) serves as goal generator, precondition judge, and trajectory executor, eliminating planner-actor capability gaps. Each trajectory is expanded into step-prefix samples that exactly reproduce the context layout seen at inference time. Fine-tuning UI-TARS 7B on ProCUA-SFT for one epoch yields 45.0% on OSWorld -- an 18.7 percentage-point improvement over the base model and over 35% above AgentNet-trained counterparts. A subset of ProCUA was incorporated into the training data for the Nemotron 3 Nano Omni model, contributing to its computer-use capabilities.",
+      "url": "http://arxiv.org/abs/2606.17321v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17321v1",
+      "tldr": "该论文提出了一种名为ProCUA-SFT的数据集，通过自动化合成和验证任务来训练计算机使用代理，显著提升了在OSWorld上的任务完成率。",
+      "affiliations": [],
+      "score": 4.2711,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.17482",
+      "title": "SPHINX: First Explain, Then Explore",
+      "authors": [
+        "Nguyen Do",
+        "Tue M. Cao",
+        "Tien Van Do",
+        "András Hajdu",
+        "Tamás Bérczes",
+        "My T. Thai"
+      ],
+      "abstract": "Generating adversarial driving scenarios is critical for evaluating and improving autonomous vehicle decision-making systems in simulation. Recent approaches, such as ChatScene and LLM-Attacker, rely primarily on the prior knowledge of Large Language Models and Vision-Language Models to generate driving scenarios procedurally. We argue that adversarial scenes should be generated based on the failure diagnosis (e.g., indecisiveness, multi-frame inconsistency) of the driving policy to specifically address the policy's weaknesses instead of relying on prior assumptions. In this paper, we propose SPHINX, a closed-loop framework for adversarial scenario synthesis guided by a simple principle: first explain, then explore. Beyond blindly exploring the scenario space, SPHINX leverages explainable artificial intelligence methods to analyze the policy, identifying key visual concepts and their influence on policy outputs, and the uncertainty of the decisions. Given the interpretable evidence extracted from the policy's own decision process, we use a vision language model to rationalize and criticize failure modes of the current policy. These critics are then used to generate targeted adversarial scenarios for policy retraining and improvement. We demonstrate that SPHINX can highlight an interpretable account of policy failures while other adversarial scene generation cannot. Across the evaluated benchmarks and test suites, SPHINX can be applied to diverse state-of-the-art autonomous vehicle architectures and yields consistent robustness improvements over existing scenario-generation methods.",
+      "url": "http://arxiv.org/abs/2606.17482v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.17482v1",
+      "tldr": "SPHINX提出了一种基于政策失败诊断生成对抗驾驶场景的新框架，通过先解释后探索的原则，提高了自动驾驶决策系统的鲁棒性。",
+      "affiliations": [],
+      "score": 4.2405,
+      "source": "arxiv"
+    }
+  ]
+}

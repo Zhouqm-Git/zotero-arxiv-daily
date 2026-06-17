@@ -9,6 +9,11 @@ from zotero_arxiv_daily.executor import Executor
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 dotenv.load_dotenv()
 
+# job.chdir=False keeps Hydra from changing the working directory to
+# outputs/<date>/<time>/. The app relies on relative paths
+# (data/recommendations/, data/embeddings/) resolving against the project
+# root, and the recommendation-history filter reads data/recommendations/*.json
+# — a stray cwd would silently break both writes and reads.
 @hydra.main(version_base=None, config_path="../../config", config_name="default")
 def main(config:DictConfig):
     # Configure loguru log level based on config
@@ -19,7 +24,7 @@ def main(config:DictConfig):
         level=log_level,
         format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
     )
-    
+
     for logger_name in logging.root.manager.loggerDict:
         if "zotero_arxiv_daily" in logger_name:
             continue
@@ -27,7 +32,7 @@ def main(config:DictConfig):
 
     if config.executor.debug:
         logger.info("Debug mode is enabled")
-    
+
     executor = Executor(config)
     executor.run()
 

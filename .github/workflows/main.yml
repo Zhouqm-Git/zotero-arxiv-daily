@@ -1,8 +1,9 @@
 name: Send emails daily
+# Scheduling now runs locally via launchd (see scripts/com.zhouqm.arxiv-daily.plist).
+# This workflow is kept as a manual fallback for when the Mac is offline for long
+# stretches — trigger it from the Actions tab with workflow_dispatch.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 22 * * *'
 
 jobs:
   calculate-and-send:

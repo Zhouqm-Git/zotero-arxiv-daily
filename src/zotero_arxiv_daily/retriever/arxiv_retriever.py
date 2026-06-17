@@ -157,23 +157,22 @@ class ArxivRetriever(BaseRetriever):
         return raw_papers
 
     def convert_to_paper(self, raw_paper: ArxivResult) -> Paper:
-        title = raw_paper.title
-        authors = [a.name for a in raw_paper.authors]
-        abstract = raw_paper.summary
-        pdf_url = raw_paper.pdf_url
-        full_text = extract_text_from_tar(raw_paper)
-        if full_text is None:
-            full_text = extract_text_from_html(raw_paper)
-        if full_text is None:
-            full_text = extract_text_from_pdf(raw_paper)
+        # NOTE: full_text is intentionally NOT downloaded here.
+        # The reranker embeds only the abstract (see reranker/base.py), and
+        # TLDR generation falls back to the abstract when full_text is None
+        # (see protocol.Paper._generate_tldr_with_llm). Downloading tar/html/pdf
+        # for ~300 candidates took ~30 min and the result was only ever used by
+        # the top-N TLDR/affiliation prompts. We now skip it entirely; if a
+        # downstream skill needs the PDF (e.g. uploading to Zotero), it can
+        # fetch on demand via pdf_url.
         return Paper(
             source=self.name,
-            title=title,
-            authors=authors,
-            abstract=abstract,
+            title=raw_paper.title,
+            authors=[a.name for a in raw_paper.authors],
+            abstract=raw_paper.summary,
             url=raw_paper.entry_id,
-            pdf_url=pdf_url,
-            full_text=full_text,
+            pdf_url=raw_paper.pdf_url,
+            full_text=None,
         )
 
 

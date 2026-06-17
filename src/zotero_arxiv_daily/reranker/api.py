@@ -3,7 +3,7 @@ from openai import OpenAI
 import numpy as np
 @register_reranker("api")
 class ApiReranker(BaseReranker):
-    def get_similarity_score(self, s1: list[str], s2: list[str]) -> np.ndarray:
+    def get_similarity_score(self, s1: list[str], s2: list[str], s1_keys: list[str] | None = None, s2_keys: list[str] | None = None) -> np.ndarray:
         client = OpenAI(api_key=self.config.reranker.api.key, base_url=self.config.reranker.api.base_url)
         batch_size = self.config.reranker.api.get("batch_size") or 64
         all_texts = s1 + s2

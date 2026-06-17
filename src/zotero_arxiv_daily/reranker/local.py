@@ -4,7 +4,7 @@ import warnings
 import numpy as np
 @register_reranker("local")
 class LocalReranker(BaseReranker):
-    def get_similarity_score(self, s1: list[str], s2: list[str]) -> np.ndarray:
+    def get_similarity_score(self, s1: list[str], s2: list[str], s1_keys: list[str] | None = None, s2_keys: list[str] | None = None) -> np.ndarray:
         from sentence_transformers import SentenceTransformer
         if not self.config.executor.debug:
             from transformers.utils import logging as transformers_logging
