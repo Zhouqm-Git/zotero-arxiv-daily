@@ -36,7 +36,12 @@ The app follows a linear pipeline orchestrated by `Executor` (`src/zotero_arxiv_
 3. **Retrieve new papers** — fetches from configured sources (arXiv RSS, bioRxiv/medRxiv REST API)
 4. **Rerank** — scores candidates by weighted similarity to corpus (newer Zotero papers weighted higher)
 5. **Generate TLDRs + affiliations** — via OpenAI-compatible LLM API
-6. **Render + send email** — HTML email via SMTP
+6. **Persist recommendations** — writes `data/recommendations/{date}.json` + `data/recommendations/latest.json` (committed back by the GitHub Action so an agent can query them via a raw GitHub URL)
+7. **Render + send email** — HTML email via SMTP
+
+### Recommendation snapshots
+
+`Executor.export_recommendations()` (`src/zotero_arxiv_daily/executor.py`) serializes the reranked `Paper` list (via `Paper.to_recommendation_dict()` in `src/zotero_arxiv_daily/protocol.py`) to JSON. The `full_text` field is intentionally dropped to keep snapshots small; agents triage on `tldr` + `abstract` and fetch the full PDF later. `latest.json` is always written — even when there are zero papers — so callers can distinguish "no run yet" from "no papers today".
 
 ### Plugin Systems
 

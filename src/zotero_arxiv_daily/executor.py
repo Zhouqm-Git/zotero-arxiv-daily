@@ -5,12 +5,20 @@ from .utils import glob_match
 from .retriever import get_retriever_cls
 from .protocol import CorpusPaper
 import random
-from datetime import datetime
+from datetime import datetime, timezone
+from pathlib import Path
+import json
 from .reranker import get_reranker_cls
 from .construct_email import render_email
 from .utils import send_email
 from openai import OpenAI
 from tqdm import tqdm
+
+# Directory where recommendation snapshots are written. The GitHub Action
+# commits this path back to the repo so an MCP tool can read it via a raw
+# GitHub URL. ``latest.json`` is always overwritten; per-date files give
+# history.
+RECOMMENDATIONS_DIR = Path("data/recommendations")
 
 
 def normalize_path_patterns(patterns: list[str] | ListConfig | None, config_key: str) -> list[str] | None:
@@ -62,6 +70,27 @@ class Executor:
             paths=c['paths']
         ) for c in corpus]
     
+    def export_recommendations(self, papers: list) -> None:
+        """Persist today's reranked papers as JSON for agent consumption.
+
+        Writes both ``data/recommendations/{YYYY-MM-DD}.json`` (history)
+        and ``data/recommendations/latest.json`` (default query target).
+        Always writes ``latest.json`` — even when ``papers`` is empty —
+        so an agent can distinguish "no run yet" from "no papers today".
+        """
+        RECOMMENDATIONS_DIR.mkdir(parents=True, exist_ok=True)
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        envelope = {
+            "date": today,
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "count": len(papers),
+            "sources": list(self.retrievers.keys()),
+            "papers": [p.to_recommendation_dict() for p in papers],
+        }
+        for path in (RECOMMENDATIONS_DIR / f"{today}.json", RECOMMENDATIONS_DIR / "latest.json"):
+            path.write_text(json.dumps(envelope, indent=2, ensure_ascii=False), encoding="utf-8")
+            logger.info(f"Wrote {len(papers)} recommendations to {path}")
+
     def filter_corpus(self, corpus:list[CorpusPaper]) -> list[CorpusPaper]:
         if self.include_path_patterns:
             logger.info(f"Selecting zotero papers matching include_path: {self.include_path_patterns}")
@@ -116,8 +145,11 @@ class Executor:
                 p.generate_tldr(self.openai_client, self.config.llm)
                 p.generate_affiliations(self.openai_client, self.config.llm)
         elif not self.config.executor.send_empty:
-            logger.info("No new papers found. No email will be sent.")
+            logger.info("No new papers found. Persisting empty recommendations; no email will be sent.")
+            self.export_recommendations(reranked_papers)
             return
+        # Persist recommendations (history + latest) for agent consumption.
+        self.export_recommendations(reranked_papers)
         logger.info("Sending email...")
         email_content = render_email(reranked_papers)
         send_email(self.config, email_content)
