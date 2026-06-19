@@ -1,243 +1,255 @@
 {
   "date": "2026-06-19",
-  "generated_at": "2026-06-19T00:28:48Z",
+  "generated_at": "2026-06-19T23:48:50Z",
   "count": 10,
   "sources": [
     "arxiv"
   ],
   "papers": [
     {
-      "arxiv_id": "2606.18960",
-      "title": "Mem-World: Memory-Augmented Action-Conditioned World Models for Persistent Robot Manipulation",
+      "arxiv_id": "2606.20104",
+      "title": "Sensorimotor World Models: Perception for Action via Inverse Dynamics",
       "authors": [
-        "Zirui Zheng",
-        "Jiaqian Yu",
-        "Xiongfeng Peng",
-        "jun shi",
-        "Mingyi Li",
-        "Chao Zhang",
-        "Weiming Li",
-        "Dong Wang",
-        "Huchuan Lu",
-        "Xu Jia"
+        "Petr Ivashkov",
+        "Randall Balestriero",
+        "Bernhard Schölkopf"
       ],
-      "abstract": "Action-conditioned world models have emerged as a promising paradigm for robot learning, offering a scalable alternative to costly real-world experimentation by generating action-consistent video rollouts. However, persistent world modeling remains challenging in manipulation: frequent end-effector occlusions and rapid wrist-camera motion make the current observation insufficient for predicting future views, causing models to forget or hallucinate scene details seen in earlier frames. Existing memory retrieval strategies often fail to identify informative history in dynamic manipulation scenarios. To address this limitation, we propose Mem-World, a memory-augmented multi-view action-conditioned world model. At its core, we present W-VMem, a 4D wrist-view-centered surfel-indexed memory that anchors historical observations to temporally evolving surface elements. By explicitly modeling when and where scene elements are observed, W-VMem enables geometry-aware retrieval of relevant history frames conditioned on future actions. During generation, relevant history frames are selected via surfel-based rendering and scoring, providing informative and non-redundant context for prediction. Extensive experiments show that Mem-World generates persistent rollouts in complex manipulation scenarios, enables more reliable policy evaluation than Ctrl-World, improving the Pearson correlation with real-world performance by 14.5\\%, and supports effective policy improvement through synthetic data generation, increasing success rates from 58\\% to 72\\% on long-horizon tasks.",
-      "url": "http://arxiv.org/abs/2606.18960v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.18960v1",
-      "tldr": "Mem-World通过引入W-VMem内存模块，实现记忆增强的多视角动作条件世界模型，有效解决了机器人操作中持久世界建模的难题，提高了长期策略评估和训练的可靠性。",
-      "affiliations": [],
-      "score": 5.0117,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2606.18955",
-      "title": "Motion-Focused Latent Action Enables Cross-Embodiment VLA Training from Human EgoVideos",
-      "authors": [
-        "Runze Xu",
-        "Yiluo Zhang",
-        "Jian Wang",
-        "Yu Wang",
-        "Jincheng Yu"
-      ],
-      "abstract": "Training generalist Vision-Language-Action(VLA) models typically requires massive, diverse robotic datasets with high-fidelity action annotations. While egocentric human manipulation videos are abundant and capture significant environmental diversity, the absence of action labels makes them difficult to use in conventional training paradigms. To address this, we propose a latent-action-based framework designed to extract general action priors from unlabeled human videos. The architecture features a Hybrid Disentangled VQ-VAE that decouples motion dynamics from environmental backgrounds through physical masks, enabling the construction of a cross-embodiment action codebook. By pre-training on human videos with the codebook, the VLM backbone learns deep representations of action intent. For adaptation to specific embodiments, we introduce an intent-perception decoupling strategy where the VLM predicts the action intent while a separate frozen visual encoder provides state-specific features to the action expert, thereby reducing action hallucinations. Results in simulation and real-world environments show that our method, pre-trained exclusively on unlabeled human videos, performs competitively with state-of-the-art VLA models trained on massive annotated datasets, requiring only 50 trajectories for downstream adaptation.",
-      "url": "http://arxiv.org/abs/2606.18955v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.18955v1",
-      "tldr": "利用无标签的人类视频数据，该研究提出了一种基于潜在动作的框架，从人类视频中提取通用动作先验，从而实现跨实体视觉语言动作（VLA）模型的训练。",
-      "affiliations": [],
-      "score": 4.855,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2606.18558",
-      "title": "MolmoMotion: Forecasting Point Trajectories in 3D with Language Instruction",
-      "authors": [
-        "Jianing Zhang",
-        "Chenhao Zheng",
-        "Yajun Yang",
-        "Max Argus",
-        "Rustin Soraki",
-        "Winson Han",
-        "Taira Anderson",
-        "Chun-Liang Li",
-        "Shuo Liu",
-        "Jiafei Duan",
-        "Zhongzheng Ren",
-        "Jieyu Zhang",
-        "Ranjay Krishna"
-      ],
-      "abstract": "Motion forecasting is central to visual intelligence: agents must anticipate how objects will move in order to plan actions, reason about physical interactions, and synthesize realistic futures. We argue that 3D points in world coordinates provide a general representation that is class-agnostic, view-stable, compact, and directly useful for downstream tasks. We formalize the task of goal-conditioned 3D point motion forecasting: given a short visual history, a set of 3D query points on an object of interest, and a language description of the intended goal, the model predicts the future 3D trajectory of each point. We introduce a full stack to study this task at scale: (1) MolmoMotion-1M is a large corpus of action-described, object-grounded 3D point trajectories annotated from 1.16M unconstrained videos; (2) PointMotionBench is a human-verified benchmark spanning 111 object categories and 61 motion types; and (3) MolmoMotion is a general motion forecasting model that supports both autoregressive coordinate prediction and flow-matching-based trajectory generation. MolmoMotion accurately predicts diverse motion patterns with different language instructions, and significantly outperforms existing motion prediction baselines on PointMotionBench. Finally, we show that the learned 3D motion prior transfers well to downstream applications: it improves training efficiency and generalization for robot manipulation, and its predicted trajectories provide effective motion guidance for generative models to synthesize videos with more realistic object motion.",
-      "url": "http://arxiv.org/abs/2606.18558v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.18558v1",
-      "tldr": "MolmoMotion：利用语言指令预测3D点轨迹，显著超越现有运动预测方法，并能有效应用于机器人操作和视频生成等下游任务。",
-      "affiliations": [],
-      "score": 4.7668,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2606.19297",
-      "title": "Does VLA Even Know the Basics? Measuring Commonsense and World Knowledge Retention in Vision-Language-Action Models",
-      "authors": [
-        "Nikita Kachaev",
-        "Andrey Moskalenko",
-        "Matvey Skripkin",
-        "Nikita Kurlaev",
-        "Daria Pugacheva",
-        "Albina Burlova",
-        "Mikhail Kolosov",
-        "Denis Shepelev",
-        "Andrey Kuznetsov",
-        "Elena Tutubalina",
-        "Aleksandr I. Panov",
-        "Alexey K. Kovalev",
-        "Vlad Shakhuro"
-      ],
-      "abstract": "Embodied Vision-Language-Action (VLA) models are typically obtained by fine-tuning powerful pretrained VLMs on robotics data, yet it is unclear how much commonsense and factual knowledge they retain after adaptation. Failures on knowledge-sensitive tasks are ambiguous, conflating missing knowledge with poor generalization of low-level control. We introduce Act2Answer, a lightweight protocol that adapts VLM knowledge benchmarks to VLA evaluation by requiring agents to answer through action. Each question becomes a short tabletop episode where the agent performs a single object-placement action to select among candidate answers, yielding an action-grounded success rate with reduced control confounds. We curate a test suite of such environments across diverse commonsense and world-knowledge categories and introduce layerwise intent probing to localize answer-relevant information across the VLM backbone and action head. In a large-scale study of 7 VLA models and 9 VLM baselines, we systematically rank models across categories, finding that VLAs show solid performance on simple concepts while exhibiting larger gaps on richer semantic categories relative to their source VLMs, that VQA co-training is associated with better knowledge retention, and that answer-relevant signals peak in middle VLA layers but attenuate in upper layers. Act2Answer is available at https://tttonyalpha.github.io/act2answer/.",
-      "url": "http://arxiv.org/abs/2606.19297v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.19297v1",
-      "tldr": "该研究通过引入Act2Answer协议，评估了视觉-语言-动作（VLA）模型在常识和世界知识方面的保留情况，发现VLA模型在简单概念上表现良好，但在更丰富的语义类别上与源VLM存在较大差距。",
+      "abstract": "Perception for action suggests that representations of the world should be shaped not by visual fidelity alone, but by their relevance for actions. At the same time, latent JEPA-style world models advocate learning compact predictive states from high-dimensional observations to facilitate the prediction of future states, but end-to-end training of these models is nontrivial because representations may collapse if our only goal is to construct a latent state that is easy to predict. We introduce a sensorimotor world model (SMWM): a latent world model trained end-to-end with inverse dynamics regularization. This single regularizer addresses both issues: it prevents representation collapse and induces action-aligned representations. By forcing latent states to preserve information about the action underlying a transition, it biases the model toward the controllable degrees of freedom of the environment while discarding uncontrollable distractors. This yields stable latent world models trained from offline, reward-free trajectories, without frozen encoders, exponential moving averages, or complex latent regularizers. Empirically, SMWM learns compact, interpretable latent spaces and enables competitive planning performance across simple 2D and 3D control tasks.",
+      "url": "http://arxiv.org/abs/2606.20104v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.20104v1",
+      "tldr": "提出了一种基于逆动力学正则化的传感器-运动世界模型（SMWM），通过保留与动作相关的信息来防止表示崩溃，从而实现有效的感知与行动。",
       "affiliations": [
-        "FusionBrain Lab",
-        "Domain-specific NLP Group",
-        "CogAI Lab",
-        "ISP RAS",
-        "IAI MSU",
-        "NUST MISIS",
-        "MIRAI",
-        "Applied AI Institute",
-        "Lomonosov MSU",
-        "Generalizable AI Systems",
-        "HSE University"
+        "Department of Computer Science, Brown University, Providence, RI, USA",
+        "ELLIS Institute, Tübingen, Germany",
+        "Max Planck Institute for Intelligent Systems, Tübingen, Germany",
+        "ETH Zürich, Zürich, Switzerland"
       ],
-      "score": 4.6656,
+      "score": 5.1183,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2606.19341",
-      "title": "Native Active Perception as Reasoning for Omni-Modal Understanding",
+      "arxiv_id": "2606.19531",
+      "title": "ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?",
       "authors": [
-        "Zhenghao Xing",
-        "Ruiyang Xu",
-        "Yuxuan Wang",
-        "Jinzheng He",
-        "Ziyang Ma",
-        "Qize Yang",
-        "Yunfei Chu",
-        "Jin Xu",
-        "Junyang Lin",
-        "Chi-Wing Fu",
-        "Pheng-Ann Heng"
+        "Yuyang Zhang",
+        "Wenyao Zhang",
+        "Zekun Qi",
+        "He Zhang",
+        "Haitao Lin",
+        "Jingbo Zhang",
+        "Yao Mu",
+        "Xiaokang Yang",
+        "Wenjun Zeng",
+        "Xin Jin"
       ],
-      "abstract": "Passive models for long video understanding typically rely on a \"watch-it-all\" paradigm, processing frames uniformly regardless of query difficulty, causing computational cost to grow with video duration. Although interactive frameworks have emerged, they often rely on global pre-scanning, and their context cost still scales with video length. We propose OmniAgent, the first native omni-modal agent that formulates video understanding as a POMDP-based iterative Observation-Thought-Action cycle. OmniAgent executes on-demand actions to selectively distill audio-visual cues into a persistent textual memory, effectively decoupling reasoning complexity from raw video duration. To operationalize this, we introduce (1) Agentic Supervised Fine-Tuning to bootstrap native active perception via best-of-N trajectory synthesis with dual-stage quality control, and (2) Agentic Reinforcement Learning with TAURA (Turn-aware Adaptive Uncertainty Rescaled Advantage), which leverages turn-level entropy to steer credit assignment toward pivotal discovery turns. Crucially, OmniAgent exhibits positive test-time scaling, where performance improves as the number of reasoning turns increases, validating the efficacy of active perception. Empirical results across ten benchmarks (e.g., VideoMME, LVBench) demonstrate that OmniAgent achieves state-of-the-art performance among open-source models. Notably, on LVBench, our 7B agent outperforms the 10$\\times$ larger Qwen2.5-VL-72B (50.5% vs. 47.3%).",
-      "url": "http://arxiv.org/abs/2606.19341v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.19341v1",
-      "tldr": "提出OmniAgent，首个将视频理解建模为基于POMDP的迭代观察-思考-行动循环的原生多模态智能体，有效解耦推理复杂性与视频时长，实现长视频理解的可扩展推理。",
+      "abstract": "World Action Models (WAMs) commonly rely on video generation to bridge visual world modeling and robot control. However, video-based WAMs face three coupled limitations: dense multi-frame future tokens make inference costly, full video prediction spends capacity on action-irrelevant temporal and appearance details, and long-horizon future imagination may introduce errors that mislead action prediction. These issues raise a simple question: Does world action model really need video generation? We propose ImageWAM, a simple WAM framework that repurposes pretrained image editing models for robot action prediction. In contrast to video generation, image editing provides a better-matched prior: it only needs to model a target-frame transformation, focuses on action-relevant current-to-target visual differences, and grounds task instructions to localized visual changes through edit pretraining. In practice, ImageWAM does not decode the target frame at inference time; instead, it conditions a flow-matching action expert on the KV caches produced by image-editing denoising, using them as a compact world-action context. ImageWAM outperforms standard VLA baselines and matching competitive WAMs without additional policy pretraining across different simulator and real-world experiments. It also reduces FLOPs to 1/6 and latency to 1/4 of video-based WAMs. Attention analysis further shows that editing caches focus on task-relevant change regions, supporting image editing as an effective alternative to video-based world-action modeling.",
+      "url": "http://arxiv.org/abs/2606.19531v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.19531v1",
+      "tldr": "ImageWAM提出了一种基于图像编辑模型进行机器人动作预测的新框架，通过专注于当前状态与目标状态之间的视觉差异，实现了高效的动作预测，且比基于视频生成的WAM模型减少了计算量和延迟。",
       "affiliations": [
-        "Qwen Team, Alibaba Group",
+        "Zhongguancun Academy",
+        "Eastern Institute of Technology",
         "Shanghai Jiao Tong University",
-        "Nanyang Technological University",
-        "The Chinese University of Hong Kong"
+        "Tsinghua University",
+        "Tencent Robotics X"
       ],
-      "score": 4.5694,
+      "score": 5.0625,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2606.18688",
-      "title": "Dual-Channel Grounded World Modeling (DCGWM): Structural Prevention of Objective Interference Collapse via Heterogeneous External Grounding with Inward-Only Gradient Flow",
+      "arxiv_id": "2606.20274",
+      "title": "Lagrange: An Open-Vocabulary, Energy-Based Sparse Framework for Generalized End-to-End Driving",
       "authors": [
-        "Akshay Hazare"
+        "Shihao Ji",
+        "HongXi Li",
+        "Zihui Song",
+        "Mingyu Li"
       ],
-      "abstract": "Joint Embedding Predictive Architectures (JEPAs) are a leading approach to world model representation learning. We identify a failure mode in JEPA-based world models grounded against two qualitatively distinct external signals: physical dynamics (sparse, high-magnitude, constraint-satisfying gradient corrections) and social-behavioral dynamics (diffuse, distribution-matching corrections). We term this Objective Interference Collapse (OIC): we argue that joint learning in a shared latent space causes the dominant channel to systematically collapse the subordinate channel's representational subspace, in a manner not resolvable by loss weighting alone. We propose Dual-Channel Grounded World Modeling (DCGWM), designed to structurally prevent OIC through a partitioned latent space (physical subspace Z_p, behavioral subspace Z_b) with inward-only gradient flow. A Physical Grounding Channel updates only Z_p via VICReg-style alignment to physical measurements; a Social-Behavioral Grounding Channel updates only Z_b via alignment to trajectories from an emergent multi-agent simulation. An Inter-Channel Interface Module couples the subspaces at the task level without cross-subspace gradients. An Asymmetric Grounding Adherence Loss penalizes rollout drift with a hard hinge for physical violations and a soft KL for behavioral divergence. A Generative Rendering Layer is architecturally isolated from the latent world model. We present three theoretical results: the partition removes the gradient-interference pathway implicated in OIC; each grounded subspace inherits anti-collapse guarantees from its alignment objective; and generative isolation is necessary under a stated assumption on the generative objective's geometry. This manuscript establishes the problem formulation and architecture; experimental validation is ongoing and will be reported in a future revision.",
-      "url": "http://arxiv.org/abs/2606.18688v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.18688v1",
-      "tldr": "提出了一种名为DCGWM的模型，通过异构外部归一化与仅向内梯度流来结构性地防止客观干扰崩溃，以解决联合嵌入预测架构在物理和社会行为动态建模中的问题。",
+      "abstract": "Scaling end-to-end autonomous driving to complex, open-world environments requires perceptual models that generalize to anomalous scenarios and planners that produce kinematically valid trajectories. Existing paradigms face a distinct dichotomy between representational efficiency and generalization capacity. Dense models (e.g., occupancy networks), while geometrically robust, incur critical computational bottlenecks and struggle with high-level semantic reasoning. Conversely, sparse, query-based planners are efficient but reliant on closed-set definitions, rendering them vulnerable to out-of-distribution (OOD) events. Although recent Vision-Language-Action (VLA) models offer open-vocabulary reasoning, their autoregressive, discrete token generation fundamentally conflicts with the continuous, high-frequency control requirements of vehicle dynamics. To address this, we propose Lagrange, an open-vocabulary, computationally sparse driving framework based on Masked Latent Fields (MLF). Rather than relying on dense volumetric reconstructions or closed-set query mechanisms, Lagrange exploits Vision-Language Models (VLMs) to encode class-agnostic object proposals into continuous semantic visual tokens. We introduce an intent-driven masked cross-attention module that temporally filters irrelevant entities, decoding the attended tokens into an implicit continuous energy field defined over spatial coordinates. By framing decision-making as a Lagrangian action minimization problem spanning this energy field, we enforce strict compliance with vehicle kinematics while executing collision avoidance. Extensive offline evaluations on both standard (nuScenes) and long-tail (CODA) benchmarks demonstrate that Lagrange establishes a promising framework for robust, interpretable, and kinematically feasible open-world autonomy.",
+      "url": "http://arxiv.org/abs/2606.20274v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.20274v1",
+      "tldr": "Lagrange提出了一种基于能量场的开放词汇稀疏驾驶框架，通过将视觉语言模型与能量模型结合，实现了对复杂开放世界环境的鲁棒、可解释和运动学可行的自动驾驶。",
       "affiliations": [],
-      "score": 4.4863,
+      "score": 5.0457,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2606.19253",
-      "title": "OneCanvas: 3D Scene Understanding via Panoramic Reprojection",
+      "arxiv_id": "2606.20545",
+      "title": "Current World Models Lack a Persistent State Core",
       "authors": [
-        "Bartłomiej Baranowski",
-        "Dave Zhenyu Chen",
-        "Matthias Nießner"
+        "Jinpeng Lu",
+        "Dexu Zhu",
+        "Haoyuan Shi",
+        "Linghan Cai",
+        "Guo Tang",
+        "Yinda Chen",
+        "Jie Cao",
+        "Duyu Tang",
+        "Yi Zhang",
+        "Yong Dai",
+        "Xiaozhu Ju"
       ],
-      "abstract": "Existing approaches to 3D scene understanding in Vision-Language Models (VLMs) either rely on complex, model-specific geometry encoders or large training budgets in pursuit of spatial reasoning. Instead, OneCanvas aggregates patch features from all views onto a single equirectangular panoramic canvas. Namely, each patch is unprojected to a 3D world coordinate using its depth and camera pose, then placed on the canvas at the continuous longitude and latitude of that point as seen from the canvas origin, with no rasterization or aggregation across overlapping views. A 3D position embedding of the patch's metric coordinates is added to its feature, restoring the depth lost when collapsing the world position to an angular canvas coordinate. Patches from all frames thus share one spatial coordinate system with no fusion or major architectural modifications of the backbone. The pretrained VLM consumes this representation as if it were an ordinary image. Because the canvas can be centered on any pose of interest, the same representation directly supports situated reasoning from a specific viewpoint, a common requirement in robotics and embodied AI. Thanks to this representation, we can also introduce a spatial pretraining curriculum: by procedurally placing patch features of objects, drawn from real images, at chosen 3D world positions on an otherwise empty canvas, we generate on-the-fly supervision spanning a broad range of spatial reasoning tasks, with answer distributions controlled to reduce spatial reasoning shortcuts. OneCanvas achieves state-of-the-art accuracy on SQA3D and VSI-Bench, and generalizes to out-of-distribution data on SPBench, using an order of magnitude less training compute than the strongest competing methods.",
-      "url": "http://arxiv.org/abs/2606.19253v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.19253v1",
-      "tldr": "OneCanvas通过将不同视角的图像片段投影到统一的球面画布上，实现了视觉语言模型在3D场景理解上的突破，大幅降低了训练成本并提高了准确率。",
-      "affiliations": [
-        "Technical University of Munich",
-        "Huawei"
-      ],
-      "score": 4.4831,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2606.18888",
-      "title": "Generative-Model Predictive Planning for Navigation in Partially Observable Environments",
-      "authors": [
-        "Thomas Quilter",
-        "Yifan Zhu",
-        "Guorui Quan",
-        "Mingfei Sun",
-        "Samuel Kaski"
-      ],
-      "abstract": "Navigation in partially observable environments presents a significant challenge for autonomous agents, requiring effective decision-making with limited sensory information in unknown environments. Belief-based methods, particularly those using neural networks to approximate the belief space, often fail to capture the inherent multimodality of belief spaces, especially in high-dimensional cases with perceptual aliasing. While generative models present a compelling alternative, they typically require substantial data or expert demonstrations and lack explicit mechanisms for long-term planning. In this paper, we introduce BeliefDiffusion, a novel framework that combines the benefits of both generation and planning. BeliefDiffusion leverages diffusion models to explicitly characterize multimodal belief distributions and utilizes Model Predictive Control (MPC) to simultaneously plan ahead. It consists of two steps: (1) Imagining plausible environment configurations based on observation history and (2) Planning efficient navigation strategies across an aggregated configurations. Through extensive experiments in synthetic map environments, we demonstrate that BeliefDiffusion significantly outperforms both model-free reinforcement learning baselines and other generative approaches in navigation success rate and path efficiency. Our results validate that explicitly incorporating multimodal belief representations into planning enables more robust navigation in partially observable settings.",
-      "url": "http://arxiv.org/abs/2606.18888v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.18888v1",
-      "tldr": "提出了一种名为BeliefDiffusion的新框架，结合了生成模型和规划的优势，通过扩散模型显式地描述多模态信念分布，并利用模型预测控制（MPC）同时进行规划，有效提升了部分可观察环境中的导航成功率。",
-      "affiliations": [
-        "Aalto University",
-        "University of Manchester"
-      ],
-      "score": 4.4789,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2606.18441",
-      "title": "Reasoning as Intersection: Consensus-Frame Alignment for Visual Focus in Video-MLLMs",
-      "authors": [
-        "Chengwen Liu",
-        "Zhe Huang",
-        "Jisheng Dang",
-        "Hong Peng",
-        "Qi Tian",
-        "Tat-Seng Chua"
-      ],
-      "abstract": "Reinforcement learning has improved the reasoning ability of large language models, but applying outcome-only rewards to video multimodal large language models (Video-MLLMs) provides limited guidance on which visual evidence should support the answer. Inspired by multisensory integration, where consistent cues can enhance the salience and reliability of perceptual estimates, we introduce Consensus Frame GRPO (CF-GRPO), a temporal-annotation-free process-level reward framework for evidence-aware video reasoning. CF-GRPO constructs a consensus frame prior from intrinsic video cues, including temporal coverage, scene-transition cues, and query-conditioned visual relevance. It then computes a model-side frame-use score from visual and response representations and optimizes their agreement through the Consensus Frame Reward (CFR). With salience-aware sparse aggregation and distribution sharpening, CFR provides a high-contrast reward signal without requiring human temporal annotations. Experiments show that VideoCFR achieves competitive performance across complex video reasoning benchmarks and improves several metrics over representative Video-MLLM and RL baselines, while the consensus prior provides an interpretable view of the evidence frames emphasized during training. The implementation is available at https://github.com/1Pansy/VideoCFR.",
-      "url": "http://arxiv.org/abs/2606.18441v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.18441v1",
-      "tldr": "本文提出了一种基于共识框架的视觉注意力方法，通过优化模型与视觉证据帧的一致性来提高视频-多模态大语言模型（Video-MLLMs）的推理能力。",
+      "abstract": "World models are increasingly regarded as a decisive step toward artificial general intelligence, yet modeling the physical world demands more than rendering convincing frames on demand: it requires an internal world state that keeps evolving over time, decoupled from observation, so that objects endure and events run to their conclusions whether or not a camera is watching, much as the moon holds to its orbit when no one is looking. This requirement is a blind spot of existing benchmarks, which reward surface properties such as fidelity, motion, and camera controllability while never asking whether a generated world keeps evolving once it is unobserved. We introduce \\textbf{WRBench}, the first systematic diagnostic benchmark that treats camera motion as an intervention on observability and resolves evaluation into a human-calibrated chain that asks whether the camera executes the requested interaction, whether the scene stays continuous and identifiable while in view, and whether a returning target remains consistent with the event that was set in motion. Across 9{,}600 videos from 23 models spanning four control paradigms, one finding proves stubborn: current systems maintain the observed world as a tracking shot, resuming a returning target in the state at which it was abandoned rather than advancing the event while it went unseen. Because this failure recurs across control paradigms, model families, and increments of scale, robust world-state evolution does not follow from cleaner imagery, tighter control, richer geometric priors, or sheer parameter count We therefore argue that the stability of the physical state kernel and the consistency of worldlines under viewpoint intervention should become first-class objectives of world-model design, so that a world model captures how the world will unfold rather than how the next frame appears.",
+      "url": "http://arxiv.org/abs/2606.20545v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.20545v1",
+      "tldr": "当前世界模型缺乏持续状态核心，即无法在未被观察时维持世界状态的连续性和一致性。",
       "affiliations": [],
-      "score": 4.4585,
+      "score": 4.7457,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2606.18943",
-      "title": "Physics-IQ Verified",
+      "arxiv_id": "2606.20189",
+      "title": "HilDA: Hierarchical Distillation with Diffusion for Advancing Self-Supervised LiDAR Pre-trainin",
       "authors": [
-        "Tim Rädsch",
-        "Yuki M Asano",
-        "Hilde Kuehne",
-        "Stefan Bauer",
-        "Priyank Jaini",
-        "Robert Geirhos",
-        "Carsten T. Lüth"
+        "Maciej Wozniak",
+        "Jesper Ericsson",
+        "Hariprasath Govindarajan",
+        "Truls Nyberg",
+        "Thomas Gustafsson",
+        "Patric Jensfelt",
+        "Olov Andersson"
       ],
-      "abstract": "Video generative models ( VGMs) have become a new frontier that can be used not just for video generation but for a multitude of downstream tasks, including world modeling. To advance these tasks, a good video model must understand the physical reality of the world. Evaluating this understanding is an emerging field and has led to the Physics-IQ benchmark, which quantifies this explicitly by comparing model-generated videos to real-world videos of physical experiments. In this work, we present a systematic audit of the Physics-IQ benchmark, expose shortcomings and propose three solutions that sharpen how we can measure physical understanding of VGMs. Specifically, we improve prompt and ground-truth quality to reduce the influence of confounding factors and further introduce a sample-level scoring system that weights each sample and metric equally. Our resulting benchmark, Physics-IQ Verified, refines 57.6\\% of all samples and improves over 34.8\\% of prompts. In a comparison study using six image-to-video generative models, we observe moderate but meaningful ranking changes (Kendall's $τ= 0.46$). We hope Physics-IQ Verified advances the community by providing a more reliable signal toward physically accurate VGMs. The code for the benchmark can be accessed at https://github.com/google-deepmind/physics-iq-benchmark",
-      "url": "http://arxiv.org/abs/2606.18943v1",
-      "pdf_url": "https://arxiv.org/pdf/2606.18943v1",
-      "tldr": "提出了“Physics-IQ Verified”基准，通过改进提示和基准质量，以及引入样本级评分系统，提升了视频生成模型对物理现象的理解度评估。",
+      "abstract": "Leveraging Vision Foundation Models (VFMs) for camera-to-LiDAR knowledge distillation offers a promising solution to the scarcity of annotated data needed to represent the immense geometric and kinematic diversity of real-world autonomous driving (AD). However, current approaches typically treat VFMs as black-box teachers, relying exclusively on frame-wise feature similarity. Consequently, they do not fully exploit the teacher's layer-wise semantic structure and global context, as well as the rich spatiotemporal information inherent in LiDAR sequences. We propose HilDA, a self-supervised pretraining framework for LiDAR backbones that better captures the semantic what and geometric where needed for driving tasks. HilDA combines hierarchical distillation comprising multi-layer distillation for progressive semantic alignment and global context distillation for scene-level semantics, with a temporal occupancy diffusion objective promoting spatiotemporal consistency. Models pre-trained with HilDA achieve state-of-the-art results on cross-modal distillation benchmarks and outperform models trained via prior distillation approaches on 3D object detection, scene flow, and semantic occupancy prediction. Code available at: https://maxiuw.github.io/hilda.",
+      "url": "http://arxiv.org/abs/2606.20189v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.20189v1",
+      "tldr": "HilDA：通过结合分层蒸馏和扩散方法，该论文提出了一种新的自监督LiDAR预训练框架，在跨模态蒸馏基准和3D目标检测、场景流和语义占用预测等下游任务中实现了最先进的结果。",
       "affiliations": [
-        "Technical University of Munich",
-        "University of Technology Nuremberg",
-        "Google DeepMind",
-        "Helmholtz AI, Munich",
-        "Anates Labs",
-        "Tuebingen AI Center, University of Tuebingen"
+        "TRATON AB, Sweden",
+        "Qualcomm Auto Ltd Sweden Filial",
+        "Linköping University, Sweden",
+        "KTH Royal Institute of Technology, Sweden"
       ],
-      "score": 4.4193,
+      "score": 4.6507,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.19889",
+      "title": "SurgVista: Long-Horizon Surgical World Modeling with Plausible Instrument-Tissue Dynamics",
+      "authors": [
+        "Wentao Pan",
+        "Wuyang Li",
+        "Shengyuan Liu",
+        "Xinyu Liu",
+        "Hengyu Liu",
+        "Yixuan Yuan"
+      ],
+      "abstract": "Scaling robot policy learning for autonomous surgery is challenging, as expert demonstrations are expensive and in vivo exploration poses substantial safety risks. Surgical world models address this by generating realistic, action-conditioned future frames from an initial observation, but existing methods exhibit two persistent failure modes: spatial interaction incoherence, where visible instrument contact fails to induce spatially consistent tissue deformation, and temporal fidelity collapse, where prediction errors compound across autoregressive rollouts and progressively corrupt visual quality. We present SurgVista, a surgical world model that mitigates both failures through two training recipes. Deformation Consistency Regularization extracts scene-point trajectories from training videos and enforces cross-frame coherence through latent contrastive learning, strengthening physically consistent instrument-tissue dynamics. Drift Adaptation Training mitigates long-horizon drift by perturbing conditioning frames with online prediction residuals and photometric augmentations calibrated to long-horizon drift statistics, sustaining visual fidelity over extended rollouts. To enable rigorous evaluation, we further introduce SurgWorld-Bench, featuring diverse procedure types, long-range rollouts, and decoupled metrics for instrument-motion accuracy and tissue-response fidelity. Extensive experiments show that SurgVista consistently outperforms state-of-the-art methods across visual quality, temporal consistency, and interaction fidelity, with gains widening as the prediction horizon grows.",
+      "url": "http://arxiv.org/abs/2606.19889v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.19889v1",
+      "tldr": "SurgVista通过两种训练方法缓解了手术世界模型中的空间交互不一致和时序保真度下降问题，实现了物理上一致的长期手术场景模拟。",
+      "affiliations": [
+        "The Chinese University of Hong Kong",
+        "Imperial College London",
+        "EPFL"
+      ],
+      "score": 4.6497,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.20515",
+      "title": "S-Agent: Spatial Tool-Use Elicits Reasoning for Spatial Intelligence",
+      "authors": [
+        "Yalun Dai",
+        "Hao Li",
+        "Shulin Tian",
+        "Runmao Yao",
+        "Yuhao Dong",
+        "Fangzhou Hong",
+        "Zhaoxi Chen",
+        "Fangfu Liu",
+        "Baoliang Tian",
+        "Dingwen Zhang",
+        "Tao Wang",
+        "Kim-Hui Yap",
+        "Ziwei Liu"
+      ],
+      "abstract": "Real-world spatial intelligence requires reasoning over a continuous and evolving 3D world, yet existing VLMs and tool-augmented agents largely remain tied to static, stateless inference from isolated visual observations. We introduce \\textbf{\\textsc{S-Agent}}, a spatial tool-use agentic paradigm for understanding and reasoning over continuous multi-view images and videos. By formulating spatial reasoning as spatio-temporal evidence accumulation rather than isolated frame-level prediction, \\textsc{S-Agent} reshapes spatial perception into scene-centric understanding beyond frame-centric recognition. Specifically, \\textsc{S-Agent} casts the VLM as a semantic planner that decides what evidence is needed, while a hierarchy of spatial tools and experts grounds objects in 2D, lifts them into 3D geometric evidence, and aggregates this evidence into high-level spatial knowledge (\\textit{e.g.}, counting, measurement, orientation, and relative position). Additionally, a temporal memory mechanism, including Scene Memory for maintaining the evolving scene state and Agent Memory for accumulating reasoning context, enables evidence integration across frames and reasoning steps. Comprehensive experiments on multi-view and video spatial reasoning benchmarks show that \\textsc{S-Agent} consistently improves both open-source and closed-source VLMs in a training-free manner. Beyond inference-time augmentation, supervised fine-tuning (SFT) on \\textsc{S-Agent}-generated spatial trajectories \\textsc{S-300K} yields \\textsc{S-Agent-8B}, a compact spatial agent that significantly surpasses similar-scale baselines (e.g., Qwen3-VL-8B) and performs comparably to advanced closed-source models (e.g., GPT-5.4 and Gemini 3).",
+      "url": "http://arxiv.org/abs/2606.20515v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.20515v1",
+      "tldr": "S-Agent：通过空间工具使用来激发对空间智能的推理。",
+      "affiliations": [
+        "NTU",
+        "THU",
+        "NWPU",
+        "ByteDance",
+        "Ropedia"
+      ],
+      "score": 4.6427,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.19584",
+      "title": "Language-Instructed Vision Embeddings for Controllable and Generalizable Perception",
+      "authors": [
+        "Chengzhi Mao",
+        "Xudong Lin",
+        "Wen-Sheng Chu"
+      ],
+      "abstract": "Vision foundation models are typically trained as static feature extractors, placing the burden of task adaptation onto large downstream models. We propose an alternative paradigm: instead of solely feeding visual features into language models, we use language itself to dynamically guide the vision encoder. Our method, Language-Instructed Vision Embeddings (LIVE), leverages language as high-level guidance to produce task-centric embeddings at inference time, removing the need for task-specific retraining. This enables the encoder to focus on contextually relevant aspects of the input, yielding more controllable and generalizable representations. Empirically, LIVE reduces visual hallucinations (+34 points on MMVP), surpasses vision-language models with orders of magnitude more parameters on visual question answering, and generalizes to unseen instructions and tasks -- offering a direct path toward adaptive, instruction-driven visual intelligence.",
+      "url": "http://arxiv.org/abs/2606.19584v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.19584v1",
+      "tldr": "提出一种语言引导视觉嵌入（LIVE）方法，通过语言指令动态引导视觉编码器，实现任务特定嵌入，无需重新训练，从而提高视觉感知的灵活性和泛化能力。",
+      "affiliations": [],
+      "score": 4.627,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.20521",
+      "title": "HumanScale: Egocentric Human Video Can Outperform Real-Robot Data for Embodied Pretraining",
+      "authors": [
+        "Juncheng Ma",
+        "Jianxin Bi",
+        "Yufan Deng",
+        "Xuanran Zhai",
+        "Kewei Zhang",
+        "Ye Huang",
+        "Bo Liang",
+        "Shukai Gong",
+        "Jiankai Tu",
+        "Xiaotian Tang",
+        "Jiaxin Li",
+        "Kaiqi Chen",
+        "Duomin Wang",
+        "Yuqi Wang",
+        "Bingyi Kang",
+        "Eric Huang",
+        "Zhiyang Dou",
+        "Zhen Dong",
+        "Enze Xie",
+        "Wojciech Matusik",
+        "Tat-Seng Chua",
+        "Daquan Zhou"
+      ],
+      "abstract": "Embodied foundation models are expected to benefit from data scaling like large language models, but face a much tighter data bottleneck. Teleoperated real-robot trajectories remain the dominant pretraining source due to their precise action supervision and embodiment alignment, yet their scalability is limited by high collection cost, acquisition difficulty, and low behavioral and environmental diversity. These limitations have sparked interest in egocentric human video as a scalable, substantially lower-cost, and more diverse alternative for embodied model pretraining. However, its effectiveness compared to teleoperated real-robot data remains underexplored. To address this question, we conduct a systematic study comparing egocentric human video and teleoperated real-robot trajectories as pretraining data sources for embodied foundation models, under fixed post-training and validation protocols. Surprisingly, we find that egocentric data, when processed through a carefully designed filtering and labeling pipeline, is not merely a viable substitute for model pretraining but can lead to superior performance. With the same amount of pretraining data, models pretrained on egocentric data achieve a 24% lower validation loss on real-robot action prediction, as well as 52.5% and 90% higher success rates on in-distribution and out-of-distribution real-robot task execution, respectively. This finding verifies a scalable paradigm for embodied foundation models: pretrain on egocentric human video to learn diverse world representations, then adapt with a small amount of labeled real-robot data for action-space alignment. We hope this study encourages broader exploration of egocentric data and offers guidance for data quality assessment before costly robot data collection.",
+      "url": "http://arxiv.org/abs/2606.20521v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.20521v1",
+      "tldr": "研究发现，使用自制的滤波和标记管道处理的以人为中心的视频数据，不仅可作为模型预训练的可行替代品，还能带来更优的性能。",
+      "affiliations": [
+        "PKU, NUS, MIT, UCSB, NVIDIA"
+      ],
+      "score": 4.57,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2606.20083",
+      "title": "Holo-World: Unified Camera, Object and Weather Control for Video World Model",
+      "authors": [
+        "Xiangchen Yin",
+        "Wenzhang Sun",
+        "Jiahui Yuan",
+        "Zijie Liu",
+        "Yinda Chen",
+        "Wei Li",
+        "Dachun Kai",
+        "Chunfeng Wang",
+        "Xiaoyan Sun"
+      ],
+      "abstract": "Video world models are moving toward preserving an observed world under controllable camera and object motion while allowing its environmental state to change. Yet these controls remain isolated, and weather generation typically relies on a source video or reconstructed scene that already specifies future structure. We study a first-frame-anchored source-to-state setting, where the model starts from a single image and follows explicit camera and object controls and an optional weather instruction, then generates a video that either preserves the source world or transfers it to a target weather state. To address these challenges, we first build HoloStateData, a state video dataset that turns diverse videos into unified control samples for camera, object, and weather supervision. Second, we introduce Holo-World, a unified controllable video world model that jointly controls scene from a single image. Its Unified Scene Adapter factorizes world preservation and weather transfer into distinct parameter subspaces, using rendered background, geometry buffers, and object controls to maintain controlled scene structure while modeling weather-dependent appearance and particle effects. Additionally, Scene-Weather Decomposed CFG guides scene and weather residuals separately, strengthening target weather effects without over-amplifying the full condition. Quantitative and qualitative experiments demonstrate that Holo-World maintains precise camera and object control with consistent scene structure while transferring scenes into diverse target weather state, outperforming video-to-video weather editing baselines on weather-state generation. Our project page is available at \\url{https://xiangchenyin.github.io/Holo-World/}.",
+      "url": "http://arxiv.org/abs/2606.20083v1",
+      "pdf_url": "https://arxiv.org/pdf/2606.20083v1",
+      "tldr": "Holo-World：一种基于单张图片，联合控制摄像机、物体和天气的视频世界模型，能够精确地控制摄像机和物体，同时将场景转换到不同的目标天气状态。",
+      "affiliations": [],
+      "score": 4.5119,
       "source": "arxiv"
     }
   ]
