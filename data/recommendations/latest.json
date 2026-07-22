@@ -1,218 +1,269 @@
 {
   "date": "2026-07-22",
-  "generated_at": "2026-07-22T00:18:34Z",
+  "generated_at": "2026-07-22T23:09:08Z",
   "count": 10,
   "sources": [
     "arxiv"
   ],
   "papers": [
     {
-      "arxiv_id": "2607.16602",
-      "title": "PAVXploreRL: Physical-Action-Visual World Model Reinforcement Learning with Action Exploration",
+      "arxiv_id": "2607.19191",
+      "title": "ABot-World-0: Infinite Interactive World Rollout on a Single Desktop GPU",
       "authors": [
-        "Han Wang",
-        "Zijun Wang",
-        "Shuoshuo Xue",
-        "Rui Cao",
-        "Fenjiao Cheng",
-        "Xiaodang Liang",
-        "Roy Ka-Wei Lee"
+        "Fan Jiang",
+        "Zhaoxu Sun",
+        "Mengchao Wang",
+        "Ziyu Zhu",
+        "Chiyu Wang",
+        "Yunpeng Zhang",
+        "Wenlin Liu",
+        "Yun Wang",
+        "Xue Zheng",
+        "Rui Sun",
+        "Junfeng Ni",
+        "Hongyu Pan",
+        "Zhongxu Sun",
+        "Fei Yu",
+        "Zengye Ge",
+        "Mengmeng Du",
+        "Nianfei Fan",
+        "Mingchao Sun",
+        "Yu Liu",
+        "Yongchang",
+        "Yanqing Zhu",
+        "Jiahang Wang",
+        "Ning Ying",
+        "Yuze Xuan",
+        "Di Yang",
+        "Zhicheng Liu",
+        "Zhe Gao",
+        "Tingbing Xu",
+        "Jiacheng Sui",
+        "Wenjin Yang",
+        "Junnan Lai",
+        "Shufeng Liu",
+        "Yuan Liu",
+        "Zheng Zhou",
+        "Yingliang Peng",
+        "Dawei Cao",
+        "Kaifeng Sheng",
+        "Yuxiang Cai",
+        "Fei Lu",
+        "Mu Xu",
+        "Ning Guo"
       ],
-      "abstract": "Action-conditioned world models are a key component of embodied AI, serving as scalable policy evaluators that reduce reliance on expensive real-world rollouts. To accurately capture diverse action-induced dynamics, such models should satisfy three key objectives-Physical Plausibility (P), Action Adherence (A), and Visual Fidelity (V), collectively referred to as PAV-while remaining robust to both in-distribution (ID) expert demonstrations and out-of-distribution (OOD) actions. However, existing methods primarily rely on ID action-video pairs and pixel-level reconstruction losses, which do not explicitly optimize PAV objectives and generalize poorly beyond expert data. To address this, we propose PAVXploreRL, a reinforcement learning framework built on a pretrained latent world model that explicitly optimizes PAV objectives through reward-driven training. To improve action generalization, our method jointly leverages ID trajectories and noise-driven OOD action exploration, without paired video supervision. Experiments show that PAVXploreRL consistently outperforms pretrained baselines, achieving a 5.6% average gain across benchmarks and producing higher-quality PAV properties. As a policy evaluator, it also yields more reliable performance estimates and reduces the overestimation bias of prior expert-only world models such as Ctrl-World. Code: https://github.com/Social-AI-Studio/PAVXploreRL",
-      "url": "http://arxiv.org/abs/2607.16602v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.16602v1",
-      "tldr": "PAVXploreRL通过在预训练的潜在世界模型上构建强化学习框架，通过奖励驱动的训练显式优化PAV目标，从而在动作泛化方面取得了显著成果。",
+      "abstract": "We present ABot-World-0, an action-conditioned video world model for real-time, long-horizon closed-loop interaction, supported by a multi-source data infrastructure spanning AAA games, simulation engines, and internet videos to learn controllable world dynamics. WorldExplorer performs agent-driven collection guided by training feedback, while a unified pipeline applies 14 deterministic quality checks, VLM-based assessment, and synchronized action and text annotation. We progressively distill a bidirectional action-conditioned teacher into a causal student through teacher forcing and ODE distillation, and introduce LongForcing to align long student self-rollouts with an extended-horizon teacher, mitigating accumulated distribution shift and autoregressive drift. Raw keyboard actions provide a unified control interface for scene roaming and third-person character interaction, while reference-character memory provides persistent appearance cues for identity consistency during third-person rollouts. For deployment, we co-design a streaming inference stack with a lightweight VAE decoder, efficient attention, memory-aware scheduling, and low-bit DiT inference. Across optimized low-bit configurations, ABot-World-0 streams 720P video at up to 16 FPS on a single NVIDIA RTX 5090 desktop GPU, with 1.2s action-to-first-frame latency and approximately 19GiB peak VRAM. Experiments on WorldRoamBench and extended interactive rollouts demonstrate competitive controllability and coherent long-horizon world evolution.",
+      "url": "http://arxiv.org/abs/2607.19191v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.19191v1",
+      "tldr": "ABot-World-0：在单台桌面GPU上实现无限交互式世界展开，支持实时、长周期的闭环交互。",
       "affiliations": [],
-      "score": 5.3965,
+      "score": 5.4901,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.17806",
-      "title": "PGN: Design and Implementation of a Vision-Language Navigation System Based on Pangu Multimodal Foundation Model",
+      "arxiv_id": "2607.19343",
+      "title": "Masked Visual Actions for Unified World Modeling",
       "authors": [
-        "Li Xian",
-        "Mingxi Li",
-        "Yizheng Wang",
-        "Yiming Shen",
-        "Qi Chen",
-        "Zhuoling Xiao"
+        "Hadi Alzayer",
+        "Wenlong Huang",
+        "Haonan Chen",
+        "Christopher Luey",
+        "Lvmin Zhang",
+        "Maneesh Agrawala",
+        "Gordon Wetzstein",
+        "Li Fei-Fei",
+        "Yilun Du",
+        "Jiajun Wu",
+        "Jia-Bin Huang"
       ],
-      "abstract": "Vision-Language Navigation (VLN) requires an embodied agent to interpret a natural-language instruction and predict actions from temporally ordered visual observations. Adapting a multimodal large language model to VLN requires visual-language alignment, compact temporal inputs, action-space grounding, and stable training on the target hardware. This technical report presents PGN (Pangu Navigator), an offline VLN action-prediction system built on OpenPangu-7B. Training proceeds in two stages. First, PGMM aligns a frozen EVA-ViT-G/14 vision encoder with the frozen language backbone by training a Q-Former and a two-layer MLP projector. Second, PGN adapts the aligned model to expert navigation trajectories using five-observation windows, epoch-dependent temporal sampling, and a reasoning-then-action output format; this stage freezes the aligned visual pathway and updates three structural-token embeddings and LoRA adapters. The implementation combines mixed-precision computation, selective FP32 computation, and DeepSpeed ZeRO-2 on eight Ascend 910B NPUs. Under teacher-forced, open-loop evaluation on 500 held-out expert trajectories, V9 reports a 62.29% Normalized Action Match (NAM) and a 100.00% Non-empty Rate (NER). These metrics quantify offline expert-action alignment rather than closed-loop navigation success; evaluating error accumulation, path efficiency, and goal completion remains future work.",
-      "url": "http://arxiv.org/abs/2607.17806v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.17806v1",
-      "tldr": "该论文提出了一种基于Pangu多模态基础模型的视觉语言导航系统PGN，通过两阶段训练实现视觉与语言的对齐，并在专家导航轨迹上进行了适配，以预测导航动作。",
+      "abstract": "Video models absorb rich priors over how the visual world moves, interacts, and responds to contact, making them promising substrates for robotic world modeling. The central challenge is how to communicate action to such models in a form aligned with the visual space in which they learned these interaction priors, yet still grounded in physical manipulation. We introduce Masked Visual Actions, a pixel-space control interface that expresses action as a partially revealed trajectory of an arbitrary entity in a video. Revealing robot motion makes the model act as a forward dynamics model that predicts the scene's response to low-level robot actions, while revealing desired object motion makes the same model recover robot behavior consistent with that outcome. Finetuned with only 15 hours of masked examples from real videos and simulation, a single checkpoint achieves strong visual fidelity and controllability across diverse scenes and multiple embodiments. In downstream manipulation settings, the model produces imagined rollouts whose outcomes correlate with real-world execution for policy evaluation, improves decision making by ranking candidate futures in model-based planning, and supports inverse modeling by synthesizing robot motion from desired object motion.",
+      "url": "http://arxiv.org/abs/2607.19343v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.19343v1",
+      "tldr": "提出了一种名为“掩码视觉动作”的新方法，通过在像素空间中表达动作，使预训练视频模型能够模拟与不同机器人实体和场景的交互，从而提高机器人世界建模的准确性和可控性。",
       "affiliations": [
-        "University of Electronic Science and Technology of China"
+        "Stanford University",
+        "University of Maryland, College Park",
+        "Harvard University"
       ],
-      "score": 5.1447,
+      "score": 5.3076,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.16204",
-      "title": "Masked Diffusion Language Models are Strong and Steerable Text-Based World Models for Agentic RL",
+      "arxiv_id": "2607.18367",
+      "title": "AlayaWorld: Interactive Long-Horizon World Modeling -- Full Technical Report",
       "authors": [
-        "Darshan Deshpande"
+        "AlayaWorld Team",
+        "Kaipeng Zhang",
+        "Chuanhao Li",
+        "Yifan Zhan",
+        "Yongtao Ge",
+        "Yuanyang Yin",
+        "Jiaming Tan",
+        "Kang He",
+        "Liaoyuan Fan",
+        "Mingliang Zhai",
+        "Ruicong Liu",
+        "Xiaojie Xu",
+        "Xuangeng Chu",
+        "Zhen Li",
+        "Zhengyuan Lin",
+        "Zhixiang Wang",
+        "Zian Meng",
+        "Zihui Gao"
       ],
-      "abstract": "Recent growth in reinforcement learning (RL) has surfaced a need for diverse, specialized training environments. Hand-curated environments with fixed task and reward difficulties become ineffective signals as model performance improves, and sparse rewards over long horizons induce mode collapse on specific workflows or tool structures. World models that simulate environment states have matched pure rollout performance, making them promising for scaling diversity on-demand. However, autoregressive (AR) world models suffer from a left-to-right bias preventing conditioning on globally interdependent state anchors such as tool schemas, prior turns, and expected outcomes. We (i) formalize text-based world modeling as a steerable transition-dynamics problem decomposed into initial state, task context, tool schemas, domain rules, and steering directives, and (ii) curate 239,403 grounded state-action trajectories spanning nine open-source environments and twelve frontier model families. We compare AR LMs and masked diffusion language models (MDLMs), showing MDLMs, via bidirectional anchor-aware denoising, achieve better coherence, groundedness, and empirically validated rollout diversity than LLMs over 4x their parameter size, at comparable inference latency. We introduce a plug-and-play GRPO training framework with deterministic state checks, and perform zero-shot transfer ablations on three OOD environments (ScienceWorld, ALFWorld, AppWorld) across three 1.2B-7B agent backbones (LFM2.5, Qwen3, Mistral), achieving up to 47% absolute gains over baselines without environment-specific fine-tuning. We further conduct behavioral analysis of failure modes under adversarial scenarios and human evaluation on realism, outcome correctness, and training utility. We open-source our work to encourage research in this direction.",
-      "url": "http://arxiv.org/abs/2607.16204v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.16204v1",
-      "tldr": "本文提出了一种基于文本的、可操控的扩散语言模型，用于增强强化学习环境模型，显著提高了模型的多样性和表现力。",
-      "affiliations": [
-        "Patronus AI"
-      ],
-      "score": 4.982,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2607.17038",
-      "title": "Reward-Driven LLM Agent Workflows: Synthesizing POMDP Routing and Self-Correction for Autonomous Decision-Making",
-      "authors": [
-        "Amez Amanj Ali",
-        "Kuo-Kun Tseng"
-      ],
-      "abstract": "This paper addresses key technical challenges in current large language model (LLM) agent applications, including long-horizon planning, sparse reward attribution, and dynamic environmental interaction, by designing and optimizing an intelligent agent workflow. The proposed architecture is based on the synthesis of core AI paradigms: Visual, Language, Generative, Graph, Multimodal, Reinforcement, and Agent Intelligence. Unlike conventional baseline models that rely on static prompting and lack robust perception-action loops, our approach introduces a Partially Observable Markov Decision Process (POMDP) routing mechanism. This mechanism is augmented with an internal, self-correcting reward model that evaluates decision trajectories before execution. By integrating multimodal inputs and advanced reinforcement learning principles (such as proximal policy optimization and value function approximation), the agent maintains long-term structural memory and dynamically adapts its reasoning pathways to mitigate error accumulation. Empirical experiments on the ALFWorld embodied simulation environment and the WebShop online navigation benchmark demonstrate a 24.5% absolute improvement in task success rate and trajectory efficiency over mainstream baselines like the standard ReAct framework. Comprehensive ablation studies confirm the significant contribution of the reward-driven critique module in suppressing hallucination rates. This research bridges theoretical foundations of reinforcement learning and graph-based memory with autonomous agent workflows. Ultimately, the resulting architecture offers a practical, scalable reference framework for developing artificial intelligence technologies in complex, multi-step autonomous systems. Code is available at https://github.com/01Amez/RLAW_Implementation.",
-      "url": "http://arxiv.org/abs/2607.17038v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.17038v1",
-      "tldr": "该论文提出了一种基于奖励驱动的LLM智能体工作流程，通过融合POMDP路由和自我校正机制，解决了LLM代理应用中的长期规划、稀疏奖励分配和动态环境交互等关键技术挑战。",
+      "abstract": "Unlike conventional video game development, which relies on labor-intensive pipelines for asset production, animation, physics, and programming, video world models generate interactive environments from user inputs instantly. It enable us to create customized, explorable, and continuously evolving virtual world from text, an image, or video. Realizing this vision requires four tightly coupled capabilities: interaction, persistent spatiotemporal consistency, stable long-horizon generation, and efficient response. We present AlayaWorld, an interactive long-horizon video world model that generates 24-fps video at 540p and 720p. Built on a 15B video diffusion transformer, AlayaWorld generates short latent chunks autoregressively under camera trajectories and switchable text prompts. Its bounded visual context combines a persistent sink frame, compressed temporal history, geometry-aligned spatial memory, and recent-frame conditioning. To reduce long-term drift, the model is trained with corrupted histories and prediction residuals collected from its own roll-outs. We further introduce a discrete autoregressive distillation formulation that combines distribution-matching distillation, self-forcing++, and consistency distillation, reducing inference from approximately 30 sampling steps to four steps per chunk. On iWorld-Bench, AlayaWorld achieves the best performance over long-horizon generation. Conceived as a full-stack, open-source, and long-term project, AlayaWorld is intended to provide an extensible foundation for future research on interactive video world models.",
+      "url": "http://arxiv.org/abs/2607.18367v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.18367v1",
+      "tldr": "AlayaWorld：一种交互式长时程视频世界模型，能够从文本、图像或视频中即时生成交互式环境，并实现个性化、可探索和持续演变的虚拟世界。",
       "affiliations": [],
-      "score": 4.8447,
+      "score": 5.0038,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.16314",
-      "title": "Depth-Regularized JEPA World Models Learn More Transferable Representations from Real Outdoor Robot Data",
+      "arxiv_id": "2607.18715",
+      "title": "DWM: Separating World Effects from Actions in Latent World Models",
       "authors": [
-        "Usman M. Khan"
+        "Yi-Ge Zhang",
+        "Tianqi Du",
+        "Qi Zhang",
+        "Yisen Wang"
       ],
-      "abstract": "World models, especially based on JEPA architectures, have been shown to learn robust dynamics of various environments. However, learning from visually complex real-world data remains a challenge, especially in unpredictable outdoor environments. We introduce depth as a geometric prior during training in learning more robust latent dynamics directly from robot video data and handling visual complexity. This combines depth supervision with an isotropy-inducing latent regularizer (SIGReg), maximizing task-agnostic latent diversity while constraining how that diversity is organized, with the combined objective targeting the highest-entropy representation consistent with scene geometry. To satisfy this greater complexity without increasing inference time, we also add training-only overparameterization. Training an 18M-parameter model on video from a real agricultural robot, we evaluate with frozen-representation visual odometry probes, predictor-based surprise detection, and multi-step latent rollout fidelity. Compared to the baseline LeWM, our method lowers visual odometry probe error by 33%, substantially increases surprise-score separation both in-domain and on the out-of-domain TartanGround benchmark, and improves multi-step rollout fidelity under domain shift, with gains that grow with rollout horizon. Notably, we also see improvements in surprise-score separation on physics understanding that is not directly tied to 3D geometry, such as lighting and shadows. These results show that a lightweight training-time geometric prior makes a compact JEPA world model more useful and more transferable on real outdoor data with strong underlying representations, without adding inference overhead. Our work suggests that depth as a physically grounded prior can enhance world model generalization on a variety of tasks.",
-      "url": "http://arxiv.org/abs/2607.16314v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.16314v1",
-      "tldr": "通过引入深度作为几何先验，该研究从真实室外机器人视频数据中学习更鲁棒的潜在动力学，并处理视觉复杂性，从而提高了JEPA世界模型在真实户外数据上的可迁移性和实用性。",
-      "affiliations": [
-        "Aigen"
-      ],
-      "score": 4.8146,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2607.16409",
-      "title": "Think, Plan, Paint: Layout-Aware Reasoning for Controllable Image Generation in Unified Models",
-      "authors": [
-        "Junhao Liu",
-        "Jian-Wei Zhang",
-        "Tao Huang",
-        "Miles Yang",
-        "Zhao Zhong",
-        "Liefeng Bo"
-      ],
-      "abstract": "Unified Multimodal Large Language Models (MLLMs) offer a promising paradigm for unifying visual understanding and generation, yet they still struggle to follow complex spatial instructions and logical constraints in controllable image generation. To address this gap, we present ATLAS, a unified framework that equips MLLMs with a human-like \"Think, Plan, and Paint\" paradigm. We adopt layout as the shared representation that connects the three stages, enabling the model to reason about spatial requirements, plan explicit object arrangements, and render the final image. We further improve plan-to-image fidelity with reinforcement-learning-based layout alignment. We instantiate ATLAS at 7B and 80B scales, achieving state-of-the-art performance among MLLMs on image generation benchmarks and an average 65.31% improvement over existing layout-based unified MLLMs. On spatially related tasks, ATLAS obtains an average 23.06% gain over the base models. Through the same layout interface, ATLAS also supports instruction-guided editing and multimodal grounding. We further introduce ATLAS-Reasoning, a benchmark for evaluating generation under complex spatial instructions.",
-      "url": "http://arxiv.org/abs/2607.16409v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.16409v1",
-      "tldr": "ATLAS框架通过“思考、计划、绘制”模式，结合布局感知推理，实现了在统一模型中可控的图像生成。",
-      "affiliations": [
-        "TsingHua University",
-        "Hunyuan, Tencent",
-        "Peking University"
-      ],
-      "score": 4.7089,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2607.17884",
-      "title": "ST-Veto: Spatio-Temporal Token Veto for Diffusion MLLMs via Taylor Prediction and Visual Grounding",
-      "authors": [
-        "Keuntae Kim",
-        "Beomseok Lee",
-        "Hyunwoo Kim",
-        "Yong Suk Choi"
-      ],
-      "abstract": "Vision Language Models (VLMs) achieve strong reasoning with Chain-of-Thought (CoT) prompting but incur high sequential-generation cost, error accumulation, and limited self-correction. Diffusion Multimodal Large Language Models (dMLLMs) unmask tokens in an order-agnostic process, improving efficiency and enabling iterative refinement, yet their reasoning and how to enhance it remain underexplored. We propose a training-free method, Spatio-Temporal Token Veto (ST-Veto), which leverages the ability to observe all token positions at each diffusion step. Rather than relying only on current-step confidence, ST-Veto vetoes temporally unstable tokens via second-order Taylor prediction of confidence dynamics and filters weakly grounded tokens using image-attention mass, swapping them with safer candidates. Across multiple dMLLMs and multimodal reasoning benchmarks, ST-Veto consistently outperforms standard decoding policies and prior VLM reasoning methods, improving accuracy by up to 9% with no additional training or generation cost. Analyses show that ST-Veto steers generation toward higher-confidence, better-grounded paths.",
-      "url": "http://arxiv.org/abs/2607.17884v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.17884v1",
-      "tldr": "ST-Veto通过结合泰勒预测和视觉锚定，提出一种无需训练的解码方法，提高了扩散多模态大型语言模型的推理能力。",
-      "affiliations": [
-        "KT Corporation",
-        "LG Electronics",
-        "Hanyang University"
-      ],
-      "score": 4.6552,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2607.18046",
-      "title": "SEE: Structure-aware Exploring \\& Exploiting for Long-horizon GUI Agent Trajectory Synthesis",
-      "authors": [
-        "Zhuohang Fan",
-        "Beichen Zhang",
-        "Yuanfa Li",
-        "Changqiao Wu",
-        "Wei Liu",
-        "Jian Luan",
-        "Weigang Zhang"
-      ],
-      "abstract": "Graphical User Interface (GUI) agents powered by vision-language models hold promise for automating real-world mobile tasks. However, progress is limited by the lack of high-coverage, long-horizon interaction trajectories collected from element-rich and rapidly evolving apps. Existing pipelines often rely on costly human demonstrations or on-policy framework, which tends to over-sample common flows while missing rare transitions and complex multi-step procedures. To address this problem, we propose SEE, a two-stage data synthesis framework consisting of (i) an efficient exploration stage that builds an explicit UI transition graph over screens and elements, and (ii) a graph-based synthesis stage that composes diverse multi-step trajectories via planning and controlled sampling. This design yields reproducible and explainable data generation, while explicitly preventing spurious cycles and enabling long-horizon composition. Across multiple real-world apps, SEE produces trajectories with an average length of 14.8 steps while avoiding spurious loops, and agents fine-tuned on SEE achieve improved task success and generalization to unseen screens. We will publicly release our synthesis code and dataset.",
-      "url": "http://arxiv.org/abs/2607.18046v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.18046v1",
-      "tldr": "提出了一种名为SEE的数据合成框架，用于生成长时程GUI代理轨迹，通过结构感知探索和利用，解决现有方法在处理复杂应用和长轨迹数据方面的不足。",
+      "abstract": "Latent world models underpin much of modern model-based control, yet current action-conditioned formulations supervise\n  the next-latent transition with a single, undifferentiated target, forcing a monolithic learning signal to absorb every\n  source of state change. In real world, however, transitions arise from two heterogeneous sources: an action-driven\n  component induced by the agent, and an action-invariant world effect -- the change that would still occur under a null\n  action, dictated by the environment's intrinsic dynamics (e.g., gravity-driven sliding, inertia, contact rebound, and\n  persistent drift). Fusing them into a single target entangles the two inside the latent transition, prevents the model\n  from attributing observed changes to their underlying causes, and undermines the transferability of the learned\n  dynamics. We introduce DWM (Decomposed World Model), a supervision-level framework that operationalizes this\n  decomposition. DWM augments the predictor of a latent world model with an auxiliary world head, regularized by a\n  normalized world-contrastive objective to be action-invariant, while the original pred head is coupled to it via an\n  orthogonality constraint; together, the two signals induce an explicit additive decomposition of the predicted\n  transition into an action-invariant and a complementary action-driven component, without altering the underlying\n  architecture or inference pipeline. To evaluate DWM under persistent world effects, we construct W-variants of three\n  standard control benchmarks -- PushT-W, Reacher-W, and TwoRoom-W -- each instantiating a distinct action-invariant\n  dynamic. DWM matches strong baselines on the flat counterparts and delivers a mean absolute improvement of 13.1% in CEM\n  planning success across the W-variants.",
+      "url": "http://arxiv.org/abs/2607.18715v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.18715v1",
+      "tldr": "本文提出了一种名为DWM（分解世界模型）的新框架，用于在潜在世界模型中分离动作影响和世界效应，从而提高模型对动作和世界动力学变化的解释性和迁移能力。",
       "affiliations": [],
-      "score": 4.5354,
+      "score": 4.6259,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.17523",
-      "title": "Thinking in Video: Can Video Generators Really Reason About the Real World?",
+      "arxiv_id": "2607.19288",
+      "title": "No Training, Better Flights: Test-Time Scaled VLMs for UAV Navigation",
       "authors": [
-        "Yongheng Zhang",
-        "Guang Yang",
-        "Ruihan Hou",
-        "Qiguang Chen",
-        "Ziang Liu",
-        "Xiaolong Liu",
-        "Manman Zhang",
-        "Yanchao Hao",
-        "Zheng Wei",
-        "Hao Wu",
-        "Libo Qin",
-        "Peishan Dai",
-        "Yinghui Li",
-        "Di Yin",
-        "Xing Sun"
+        "Feinan Cheng",
+        "Dongliang Xu",
+        "Wenli Nong",
+        "Zhiheng Zhang",
+        "Ang Liu",
+        "Tianyu Wang",
+        "Yue Yao"
       ],
-      "abstract": "Recent advances in world models and video generation have given rise to an emerging reasoning paradigm that leverages video generative models to simulate, predict, and reason about real-world dynamics. We redefine this paradigm as Thinking in Video, where video is not merely an output artifact but a medium for constructing, extending, and verifying causal thought. However, this promise remains unverified: convincing rollouts may reflect memorized appearances rather than causal understanding, while existing metrics separate perceptual fidelity from semantic logic. To evaluate whether video generators support such reasoning, we introduce the Causal-Generative Dual-Judge (CGDJ), auditing World Model Consistency from two perspectives. Explicit Causal Perception tests whether a generator reads a video scenario as a reasoning problem through spatio-temporal flattened visual question answering, while Implicit Generative Perception-Prediction Gap evaluates whether it renders the causal consequence as a consistent future video. Applying CGDJ to representative open- and closed-source generators reveals a clear Perception-Prediction Gap: open-source models produce plausible dynamics despite near-zero explicit causal perception, whereas advanced closed-source systems show stronger but still limited alignment between reasoning and generation. Further analysis exposes audio-visual misalignment, where models verbalize correct causal logic more reliably than they render it, challenging the \"world simulator\" narrative.",
-      "url": "http://arxiv.org/abs/2607.17523v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.17523v1",
-      "tldr": "这项研究探讨了视频生成模型是否能够真正理解现实世界，通过引入因果生成双重评判（CGDJ）框架，评估了模型在显式因果感知和隐式生成预测方面的能力，发现当前模型在视觉动态和因果理解之间仍存在差距。",
+      "abstract": "Test-time scaling offers a promising method to improve the inference performance of Vision-Language Models (VLMs) without additional training. Existing approaches to vision-language navigation (VLN) for Unmanned Aerial Vehicle (UAV) typically relies on a single inference pass, which can falter in complex environments by producing suboptimal or unsafe trajectories. In this paper, we explore a simple and effective approach to apply test-time scaling to VLN for UAV. We enhance navigation reasoning through an iterative refinement process that requires no extra model training, guiding the model to re-evaluate its initial navigation plan for better accuracy and safety. Our method first prompts the model to generate multiple parallel candidates and then performs a self-correction step, achieving deeper and more robust planning without changing the underlying model. To further strengthen decision-making, we design a multi-criteria scoring function to evaluate the refined candidates based on safety, goal alignment, and forward-progress. This simple yet powerful combination enables a frozen UAV navigation VLMs to self-correct and generate more accurate and reliable flight plans, achieving SOTA performance in this task.",
+      "url": "http://arxiv.org/abs/2607.19288v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.19288v1",
+      "tldr": "该论文提出了一种通过测试时缩放来改进无人机视觉语言模型导航性能的方法，无需额外训练，通过迭代优化生成更精确、更安全的飞行路径。",
       "affiliations": [
-        "Central South University",
+        "China University of Petroleum (East China)",
+        "Institution2",
+        "Shandong University",
+        "MBZUAI",
+        "Institution1"
+      ],
+      "score": 4.587,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2607.18716",
+      "title": "Continual Video-MLLM Adaptation over Evolving Domains",
+      "authors": [
+        "Rui Cheng",
+        "Meixing Shi",
+        "Yuxiang Cai",
+        "Jingcai Guo",
+        "Jianwei Yin",
+        "Zhi Chen"
+      ],
+      "abstract": "Video multimodal large language models have shown strong capability in video understanding, yet their adaptation to sequentially evolving domains remains underexplored. In real-world deployments, video data often arrives continuously from heterogeneous domains, requiring the model to acquire new domain-specific knowledge without overwriting previously learned capabilities. Existing continual learning methods typically rely on shared adaptation spaces, which can induce severe cross-domain interference and catastrophic forgetting. We propose Distribution-Aware Expert Routing, a parameter-efficient framework for continual Video-MLLM adaptation over evolving domains. DAER maintains domain-isolated lightweight experts while keeping the pretrained Video-MLLM backbone frozen, thereby decoupling domain-specific adaptation from the general multimodal knowledge of the pretrained model. To enable fine-grained specialization, we introduce an intra-domain distribution-aware routing mechanism that matches each input to expert-level prototype reservoirs using MMD. To address the absence of task identities at inference time, we further propose an inter-domain routing mechanism that performs prototype matching in a discriminative subspace for robust domain identification. In addition, we introduce adaptive domain merging to improve parameter scalability and adopt a two-stage optimization strategy to stabilize expert specialization during continual learning. We evaluate DAER by curating a domain-incremental benchmark built from ten VidQA datasets covering diverse visual environments and reasoning demands. Experiments on two strong Video-MLLM backbones show that DAER consistently outperforms prior methods.",
+      "url": "http://arxiv.org/abs/2607.18716v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.18716v1",
+      "tldr": "提出了一种名为DAER的参数高效框架，用于视频多模态大型语言模型在持续变化的领域中的自适应调整，有效解决了跨领域干扰和灾难性遗忘问题。",
+      "affiliations": [],
+      "score": 4.5042,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2607.19341",
+      "title": "ExpertVerse: A General-Purpose Benchmark for Expert-Level Reasoning in Knowledge-Intensive Visual Synthesis",
+      "authors": [
+        "Yuan Wang",
+        "Yongchao Du",
+        "Mengting Chen",
+        "Jinsong Lan",
+        "Xuetao Feng",
+        "Xiaoyong Zhu"
+      ],
+      "abstract": "Recent advances in multimodal generative models have enabled instruction-based image generation to move beyond semantic manipulation to knowledge-driven visual reasoning. However, these methods focus on explicit commonsense reasoning, shallow causal understanding, and direct knowledge recall, failing at knowledge-intensive generation. We develop \\textbf{ExpertVerse}, a capability-centric benchmark to evaluate generative models via knowledge-intensive lens. ExpertVerse stratifies reasoning generation across an orthogonal taxonomy of \\textit{9 cognitive capabilities} and \\textit{8 expert disciplines}, yielding \\textit{58 sub-disciplines}. We curate 1,611 expert-annotated instances covering single-image editing, multi-image composition, and text-to-image generation. We further develop an automated workflow to produce \\textbf{ExpertVerse-100K}, a large-scale dataset with reasoning traces and knowledge-anchored rationale annotations. Based on this, we train \\textbf{KnowThinker} with RL fine-tuning, a VLM reasoning engine with world knowledge that jointly generates thinking processes and refined instructions. Towards the cross-modal credit misalignment and multi-objective gradient conflicts in multi-reward optimization, we propose a tailored Bootstrapped Pareto Policy Optimization (BPPO), which synergizes Bootstrapping Reward Rectification (BRR) and Conflict-Aware Pareto Advantage Fusion (CPAF). Extensive results of both open-source and proprietary models exposes critical reasoning deficits, highlighting imperative for knowledge-intensive benchmarks towards next-generation visual generation.",
+      "url": "http://arxiv.org/abs/2607.19341v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.19341v1",
+      "tldr": "开发ExpertVerse，一个以能力为中心的知识密集型视觉合成推理基准，用于评估生成模型在复杂视觉推理任务中的表现。",
+      "affiliations": [
         "Tsinghua University",
-        "Tencent"
+        "Alibaba Group"
       ],
-      "score": 4.5247,
+      "score": 4.4312,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.16560",
-      "title": "From Modalities to Propositions: A Language-Centric Framework for Multimodal Intelligence",
+      "arxiv_id": "2607.18664",
+      "title": "DeforM: Reasoning-Guided Physics-Aware Video Generation via Spatial-Temporal Masking",
       "authors": [
-        "Nadine Chang",
-        "Maying Shen",
-        "Shizhe Diao",
-        "Jialiang Wang",
-        "Jingde Chen",
-        "Thomas Breuel",
-        "Pavlo Molchanov",
-        "Rafid Mahmood",
-        "Jose M. Alvarez"
+        "Yunyi Li",
+        "Yu Qiao",
+        "Yaohui Wang",
+        "Xinyuan Chen"
       ],
-      "abstract": "We propose a language representation for multimodal data in which any observation, whether image, video, or text, is expressed as a bag of atomic propositions, simple statements about the entities, actions, and relations in a scene. A global semantic codebook unifies these into a shared vocabulary of canonical atomic propositions, placing every modality and observation into one interpretable space that spans fine grained facts to high level concepts and composes into richer ones. This brings interpretability with reasoning, cross-modal understanding and retrieval, and compositionality that enables complex multimodal understanding, rich data curation and complex structured retrieval. We demonstrate the framework on autonomous driving and open-world data.",
-      "url": "http://arxiv.org/abs/2607.16560v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.16560v1",
-      "tldr": "提出了一种基于语言表示的多模态数据处理框架，将任何观察结果（图像、视频或文本）表示为原子命题的集合，并通过全局语义代码簿实现跨模态理解和检索。",
+      "abstract": "Video generation models achieve high visual quality but often struggle to generate physics-aware videos. Unlike rigid-body motion, which can be described by explicit trajectories or formulas, complex deformation dynamics remain challenging to synthesize. We observe that a lack of physical reasoning for localizing dynamic areas allows irrelevant regions to dilute the model's attention, leading to generation failure. In this paper, we propose DeforM, a reasoning-guided image-to-video generation framework that directs the model's focus toward physics-critical regions. To reason about and localize these critical regions, we introduce a VLM-guided physical reasoning module, DeforM-Reason, to identify target objects and generate spatial-temporal masks. For physical guidance, we develop two alternative strategies: DeforM-Free for training-free mechanism analysis and DeforM-Injection as a powerful training-based generator. Experimental results demonstrate that DeforM improves the realism of generated deformation scenarios, outperforming baseline models in both visual quality and physical consistency.",
+      "url": "http://arxiv.org/abs/2607.18664v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.18664v1",
+      "tldr": "DeforM：通过时空掩码引导的推理指导物理感知视频生成，通过物理推理模块精确定位物理关键区域，提高生成视频的物理真实性和视觉质量。",
+      "affiliations": [],
+      "score": 4.39,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2607.18703",
+      "title": "Generative World Renderer at the Speed of Play",
+      "authors": [
+        "Guixu Lin",
+        "Zheng-Hui Huang",
+        "Siqi Yang",
+        "Ming-Hsuan Yang",
+        "Kaipeng Zhang",
+        "Zhixiang Wang"
+      ],
+      "abstract": "Generative world renderer AlayaRenderer receives structured world states exported from physics engines and synthesizes RGB frames. Unlike models that generate frames from text/control-hints prompts, AlayaRenderer preserves scene structure without altering the underlying world dynamics. This demonstrates an alternative path toward interactive world modeling and user-controllable play. However, the original AlayaRenderer is too computationally expensive for real-time deployment. This technical report introduces AlayaRenderer-Flash, a real-time-oriented generative forward world renderer that pushes AlayaRenderer from 0.56 FPS to 31.54 FPS, reaching the speed of play. AlayaRenderer-Flash reformulates the original renderer as a few-step autoregressive streaming model and introduces lightweight distilled codecs for efficient latent encoding and frame reconstruction. It retains the teacher model's G-buffer and text-prompt interfaces while enabling continuous rendering over input streams of unbounded length. We evaluate AlayaRenderer-Flash on G-buffer streams across content preservation, temporal consistency, cross-window stability, prompt controllability, and runtime efficiency. Our results show that AlayaRenderer-Flash substantially reduces inference cost while preserving the core rendering capabilities of the teacher model. By integrating AlayaRenderer-Flash with a physics engine, we build a fully playable generative world running at 30 FPS.",
+      "url": "http://arxiv.org/abs/2607.18703v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.18703v1",
+      "tldr": "AlayaRenderer-Flash通过优化算法和轻量级编码器，将AlayaRenderer的渲染速度从0.56 FPS提升到31.54 FPS，实现了实时交互式世界建模。",
       "affiliations": [
-        "University of Ottawa",
-        "NVIDIA"
+        "University of California, Merced",
+        "Alaya Lab"
       ],
-      "score": 4.4945,
+      "score": 4.3597,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2607.18985",
+      "title": "Athena-Brain Technical Report: An Efficient Robot Brain for General Intelligence and Embodied Interactio",
+      "authors": [
+        "Jialian Li",
+        "Junhong Liu",
+        "Yuchen Cao",
+        "Weiran Guo",
+        "Jiaming Song",
+        "Xutao Wang",
+        "Yi Zhao",
+        "Jiangpin Liu",
+        "Jie Chen"
+      ],
+      "abstract": "Large language models (LLMs) have demonstrated remarkable capabilities in language understanding, reasoning, and world knowledge. As embodied agents become increasingly capable, there is a growing demand for compact models that can serve as an on-device brain, preserving the broad general intelligence of LLMs while enabling effective high-level interaction with embodied environments. Existing approaches, however, often prioritize either general-purpose intelligence or specialized embodied capabilities, making it challenging to satisfy both requirements within a single model. We present \\textbf{Athena-Brain-8B}, an 8B LLM designed to serve as an on-device brain for embodied intelligence for embodied intelligence. Through a multi-stage post-training pipeline consisting of General Supervised Fine-Tuning, General Reinforcement Learning, Embodied Expert training, and Model Merge, Athena-Brain-8B maintains strong general capabilities while acquiring strong high-level embodied interaction capabilities and generating concise responses for efficient embodied interaction. Experimental results demonstrate the effectiveness of Athena across both general and embodied evaluations. Compared with the corresponding Qwen3-8B thinking model, Athena-Brain-8B achieves comparable performance on general language and reasoning benchmarks while generating substantially shorter responses. On in-domain embodied benchmarks, Athena-Brain-8B consistently outperforms models of similar scale and surpasses several substantially larger frontier models evaluated zero-shot, demonstrating that compact language models can effectively integrate strong general intelligence with embodied capabilities.",
+      "url": "http://arxiv.org/abs/2607.18985v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.18985v1",
+      "tldr": "雅典娜大脑：一种兼顾通用智能和具身交互的高效机器人大脑。",
+      "affiliations": [
+        "TsingHua University"
+      ],
+      "score": 4.2929,
       "source": "arxiv"
     }
   ]
