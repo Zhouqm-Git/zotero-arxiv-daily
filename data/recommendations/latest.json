@@ -1,238 +1,235 @@
 {
   "date": "2026-07-30",
-  "generated_at": "2026-07-30T00:04:26Z",
+  "generated_at": "2026-07-30T23:41:55Z",
   "count": 10,
   "sources": [
     "arxiv"
   ],
   "papers": [
     {
-      "arxiv_id": "2607.25487",
-      "title": "CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model",
+      "arxiv_id": "2607.27205",
+      "title": "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM",
       "authors": [
-        "Minhyeok Lee",
-        "Chiyoung Kim",
-        "Chanhoe Gu",
-        "Seongrok Kim",
-        "Sanghyuk Roy Choi",
-        "Donghwan Hwang",
-        "Donghun Ryu",
-        "Seokhyun Kim"
+        "Hengyi Xie",
+        "Chenfei Yao",
+        "Xianjin Wu",
+        "Xuanyang Xi",
+        "Yiping Tang",
+        "Di Xu",
+        "Yingying Zhu",
+        "Dingkang Liang",
+        "Xiang Bai",
+        "Han Ding"
       ],
-      "abstract": "Vision-Language-Action (VLA) models translate natural-language commands into robot action sequences, but leading systems on the LIBERO-Plus robustness benchmark use three- to seven-billion-parameter backbones whose memory demands can exceed embedded robotic budgets. We present CoTinyVLA, a 0.9B-parameter action model on a Qwen3.5-0.8B backbone that obtains that robustness by structuring supervision instead of enlarging the model. Three components target different axes of the problem: dual-view temporal input of 16 history frames per step with textual camera and time markers; hierarchical chain-of-thought (CoT) distillation from a 35B teacher into an episode-level Plan and a chunk-level Think span over task phase, gripper state and next subaction; and paraphrase augmentation expanding 40 base commands into 800 variants. On LIBERO-Plus, spanning 10,030 perturbed tasks across seven perturbation dimensions, CoTinyVLA reaches 90.8% on Spatial, 87.3% on Object, 86.6% on Goal and 80.7% on Long, leading the strongest 7B baseline on all four suites by 4.7, 2.8, 15.9 and 3.0 points, with every margin interval excluding zero. The gains concentrate on the hardest axes of the benchmark: across the eleven published baselines none exceeds 53.2% on Robot Initial States in any suite, whereas CoTinyVLA reaches 73.6% on Goal against 39.9% for the strongest baseline. Ablations show the three components to be separable by perturbation axis, and at a matched image budget how frames are divided between the two cameras and across time accounts for 8.6 points on its own. Closed-loop inference peaks at 2.25 GiB of allocated GPU memory, and paired interventions show the episode Plan to be load-bearing: replacing it with an empty or contradictory span costs 40 to 45 points of success. Structured supervision thus lets a 0.9B backbone exceed all of them. Code: https://github.com/BrainJellyPie/CoTinyVLA",
-      "url": "http://arxiv.org/abs/2607.25487v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.25487v1",
-      "tldr": "CoTinyVLA通过结构化监督而非扩大模型规模，实现了0.9B参数的视觉-语言-动作模型，在LIBERO-Plus基准测试中超越了所有7B参数的基线。",
-      "affiliations": [
-        "Chung-Ang University, Republic of Korea"
-      ],
-      "score": 5.365,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2607.26037",
-      "title": "Wonder: Video World Model Done Better",
-      "authors": [
-        "Jiacong Xu",
-        "Hanwen Jiang",
-        "Zhixin Shu",
-        "Kalyan Sunkavalli",
-        "Vishal M. Patel",
-        "Yiqun Mei"
-      ],
-      "abstract": "We present Wonder, a general-purpose video world model for real-time, camera-controllable world exploration. Given an image or a conditional video, Wonder constructs a playable world where users can navigate interactively by moving the camera, discovering unseen regions, and revisiting previously observed areas in real time and over a long-term horizon. Achieving this capability requires a system-level co-design of control method, memory mechanism, and training strategy. We introduce a novel camera conditioning with a dense coordinate field whose renderings provide spatially aligned motion and orientation cues, allowing the model to interpret camera motion directly as visual evidence. To support fast and precise memory retrieval over a growing generation context, we propose an efficient sparse attention-based memory mechanism, enabling the model to selectively attend to a small set of relevant context tokens at inference time, regardless of actual context length. We further develop several techniques to rectify the self-forcing-style distillation pipeline, improving the student model's ability to respect control signals, as well as maintaining diverse generation modes and long-term memory from the teacher. Together, these components enable Wonder to synthesize diverse, minute-scale videos at 16 FPS while preserving coherent geometry, appearance, and dynamics across long rollouts. Beyond image-to-video generation, Wonder naturally supports video-conditioned generation, allowing existing dynamic scenes to be re-shot in real time.",
-      "url": "http://arxiv.org/abs/2607.26037v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.26037v1",
-      "tldr": "提出Wonder，一个能够实时、摄像机可控进行世界探索的通用视频世界模型。",
-      "affiliations": [
-        "Johns Hopkins University",
-        "Adobe Research"
-      ],
-      "score": 5.1165,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2607.25236",
-      "title": "VisualPatchWorld: Code World Models as Latent Structured Representations for Planning",
-      "authors": [
-        "Jiaxin Bai",
-        "Jiaxuan Xiong"
-      ],
-      "abstract": "Different research lines use the term world model in different ways, yet they share a common aim: to capture how the world evolves under action in a form that supports perception, simulation, and planning. Two prominent realizations are neural predictors that learn dynamics in continuous vector spaces, and hand-built physics engines that expose explicit state and physical laws. Neural predictors scale from data but leave the form of the dynamics implicit; physics engines are inspectable and editable but difficult to construct at scale. We introduce VisualPatchWorld (VPW), which represents world dynamics as code. VPW first selects a qualitative dynamical form with short active probes, then fits that form's free parameters from recorded state-action traces by minimizing multi-step prediction error. The resulting programs can be rolled forward like a simulator, inspected in source form, and used inside model-predictive control; image-derived scene graphs can supply the live state at replan time. Across comparisons with prior code-based world models, VPW attains 69.0% mean planning success and exceeds the strongest code baseline by 23.5 points. The largest gains arise when choosing the correct qualitative dynamics is essential. Under the same planner, the induced models approach ground-truth engine success on navigation and grasp-rich control; a residual gap remains for contact-rich pushing, and checking a shortlist of promising plans in the engine closes most of that gap. These results establish a practical route toward automatically constructed code world models that are useful for planning. Code is available at https://github.com/HKBU-KnowComp/VisualPatchWorld/.",
-      "url": "http://arxiv.org/abs/2607.25236v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.25236v1",
-      "tldr": "视觉PatchWorld通过将世界动态表示为代码，实现了对可执行代码世界模型的自动构建，有助于规划。",
-      "affiliations": [
-        "Hong Kong Baptist University"
-      ],
-      "score": 5.0358,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2607.24904",
-      "title": "Mage-VL: An Efficient Codec-Native Streaming Multimodal Foundation Model",
-      "authors": [
-        "Senqiao Yang",
-        "Kaichen Zhang",
-        "Zhaoyang Jia",
-        "Jinghao Guo",
-        "Yifei Shen",
-        "Xinjie Zhang",
-        "Xiaoyi Zhang",
-        "Haoqing Wang",
-        "Xiao Li",
-        "Peng Zhang",
-        "Xiang An",
-        "Yin Xie",
-        "Zhening Liu",
-        "Xun Guo",
-        "Jiahao Li",
-        "Shicheng Zheng",
-        "Jinglu Wang",
-        "Zongyu Guo",
-        "Wenxuan Xie",
-        "Zihan Zheng",
-        "Yuxuan Luo",
-        "Bin Li",
-        "Yan Lu"
-      ],
-      "abstract": "Standard vision-language models (VLMs) suffer from Moravec's paradox: they excel at complex offline visual reasoning but struggle with simple streaming perception tasks and process them inefficiently. We present Mage-VL, an efficient codec-native streaming foundation model for real-time multimodal understanding and interaction. At its core, our custom tokenizer, Mage-ViT, replaces uniform frame sampling by selectively encoding dynamic, entropy-rich regions using motion vectors and residual energy across sparse anchor (I) and predicted (P) frames. Operating at a 16 x 16 patch level, this reduces visual token consumption by over 75% while preserving spatiotemporal context. Trained from scratch on approximately 560M unlabeled images and 100M unlabeled video frames, Mage-ViT matches or outperforms flagship encoders trained on billions of image-text pairs. We establish AI4AI data pipelines encompassing prompt-code joint optimization for multimodal captioning and AI-driven performance diagnosis to guide training recipes. Furthermore, through a bio-inspired dual-system architecture - a lightweight System 1 event gate and a causal System 2 decoder - Mage-VL enables proactive streaming perception. Extensive evaluations show that Mage-VL-4B matches Qwen3-VL-4B on static tasks while achieving strong gains in video understanding and 2D/3D spatial reasoning, with up to a 3.5x wall-clock inference speedup, and comprehensively surpasses the 15B Phi-4-reasoning-vision baseline. Beyond model artifacts, we deliver seven key empirical findings covering pre-training data efficiency, variable-resolution scaling, codec system acceleration, VideoQA SFT redundancy, motion-spatial synergy, AI4AI data pipelines, and Zero-Vision SFT for multimodal RL.",
-      "url": "http://arxiv.org/abs/2607.24904v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.24904v1",
-      "tldr": "Mage-VL：一种高效的视频流多模态基础模型，通过选择性编码动态区域，在保持时空上下文的同时，将视觉标记消耗降低75%以上。",
+      "abstract": "Vision-language-action (VLA) models commonly adopt an LLM-centric $V \\to L \\to A$ pathway, where visual observations are projected into the representation space of a large language model before being decoded into robot actions. Although effective, this design incurs substantial computation and memory overhead at every policy invocation. In this work, we introduce TurboVLA, a new VLA paradigm that reformulates the conventional $V \\to L \\to A$ pathway as a direct $V + L \\to A$ mapping. Instead of using a large language model as the central interface between perception and action, TurboVLA independently encodes visual observations and language instructions, directly exchanges information between them through lightweight bidirectional vision-language interaction, and predicts continuous action chunks with a compact decoder. This simple design constructs task-conditioned representations directly from visual and linguistic features, significantly reducing the computational and memory costs of VLA inference. On LIBERO, TurboVLA achieves 97.7% average success with only 0.2B parameters, 31.2 ms inference latency, and 0.9 GB inference VRAM on a consumer-grade RTX 4090, matching or outperforming substantially larger VLA policies. These results establish TurboVLA as a simple and effective alternative to the prevailing LLM-centric VLA paradigm, offering a new perspective on how vision, language, and action can be connected for efficient robotic manipulation. Code is available at https://github.com/H-EmbodVis/TurboVLA.",
+      "url": "http://arxiv.org/abs/2607.27205v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.27205v1",
+      "tldr": "TurboVLA模型通过直接将视觉和语言信息映射为动作，有效降低了视觉-语言-动作模型的计算和内存成本。",
       "affiliations": [],
-      "score": 5.0171,
+      "score": 5.3943,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.25984",
-      "title": "Schrödinger's Cat: Probabilistic Representation and Prediction of Potential Scene Kinematics",
+      "arxiv_id": "2607.26452",
+      "title": "CG-World: A Large-Scale World-State Dataset and Protocol for World Models",
       "authors": [
-        "Timy Phan",
-        "Jannik Wiese",
-        "Björn Ommer"
+        "Yiming Cai",
+        "Fangjie Yu",
+        "Meiqing Yu",
+        "Ziyue Shi",
+        "Pengfei Yuan",
+        "Yong Guo"
       ],
-      "abstract": "Predicting how a scene may evolve from partial observations requires reasoning about multiple possible futures rather than committing to a single trajectory. Existing approaches either generate appearance-dominated video predictions or sample a small number of trajectories without explicitly modeling the distribution of possible motion. We introduce Goal-Aware Representations of Future kInEmatic Latent Distributions (GARFIELD), a probabilistic model of scene kinematics that learns a structured spatio-temporal latent representation of the distribution over possible futures given an image and optional spatio-temporally sparse constraints. The same latent representation enables both joint sampling of all trajectories and direct access to the underlying motion distribution through an efficient deterministic density decoder. As a result, uncertainty about future motion can be localized to specific scene elements and timesteps and progressively refined through additional constraints. Experiments demonstrate strong motion planning performance competitive with large video generation models while sampling trajectories $97\\times$ faster. Our method further estimates motion densities two orders of magnitude faster than Monte-Carlo sampling from motion generation models, enabling interactive exploration and uncertainty-aware planning.",
-      "url": "http://arxiv.org/abs/2607.25984v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.25984v1",
-      "tldr": "提出了一种名为GARFIELD的概率模型，能够根据图像和时空稀疏约束，学习场景运动分布的结构化时空潜在表示，实现快速且高效的场景运动规划和不确定性感知规划。",
+      "abstract": "World models must learn the joint dynamics of states, actions, events, and observations, yet existing video, robotics, and simulation datasets usually capture only part of this structure. We introduce CG-World, a large-scale world-state dataset and protocol derived from industrial computer graphics production pipelines. CG-World explicitly records intermediate states, including multimodal semantics, spatial structure, skeletal and controller states, motion curves, camera and lighting parameters, physics caches, contact events, and multi-pass renderings. CG-World v1 contains approximately 850,000 temporally aligned segments of 1-5 seconds. It separates latent states, observations, relations, events, and branch metadata, and organizes them into unified spatiotemporal samples. To support intervention learning and counterfactual reasoning, CG-World defines a branch lineage covering factual trajectories, observation interventions, action interventions, mechanism interventions, and strict counterfactual branches, with intervention targets, invariants, and alternative outcomes explicitly recorded. We evaluate the dataset on geometry-conditioned video generation, action prediction, and closed-loop vision-language-action policy transfer. Results show that CG-World provides reusable structured supervision for controlled generation, action modeling, and embodied policy transfer. We plan to expand CG-World through continued data collection and community collaboration toward a shared data infrastructure for world models, Physical AI, and embodied intelligence.",
+      "url": "http://arxiv.org/abs/2607.26452v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.26452v1",
+      "tldr": "CG-World是一个大规模世界状态数据集和协议，旨在支持世界模型研究，它通过记录中间状态和多种干预方式，提供结构化的监督，以促进控制生成、动作建模和具身策略迁移。",
       "affiliations": [
-        "CompVis @ LMU Munich, Munich Center for Machine Learning (MCML)"
+        "University of New South Wales",
+        "CGyear World Model Lab",
+        "Tsinghua University"
       ],
-      "score": 4.7988,
+      "score": 5.2406,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.25537",
-      "title": "Visual prompt engineering for video models",
+      "arxiv_id": "2607.27036",
+      "title": "Mitigating Compounding Error via Video Representation Regularization",
       "authors": [
-        "Robert Geirhos",
-        "Yuxuan Li",
-        "Thaddäus Wiedemer",
-        "Neha Kalibhat",
-        "Zi Wang",
-        "Mani Malek",
-        "Oyvind Tafjord",
-        "Kevin Swersky",
-        "Been Kim",
-        "Priyank Jaini"
+        "Taiye Chen",
+        "Qi Zhang",
+        "Yisen Wang"
       ],
-      "abstract": "In the age of foundation models, a model is only as good as its prompt. For this reason, prompt engineering has become an essential technique for improving language model performance. Since video models are currently becoming foundation models for visual tasks (e.g., visual reasoning), we here ask whether they similarly benefit from visual prompt engineering: automatically modifying the task image to improve model performance. For example, for a visual physics reasoning task (\"Where does the ball land, after passing a set of obstacles?\"), an abstract sketch-like scene can be turned into a photorealistic version with a simple call to an image editing model. We find that visual prompt engineering, or VIPE for short, improves video reasoning performance across tasks. In fact, for video models, visual prompt engineering can be even more effective than classic text-based prompt engineering or test-time scaling. Ultimately, just as text-based prompt engineering systematically improves language model performance, visual prompt engineering can serve as a simple, compute-efficient approach to elicit better visual reasoning performance from video models. Example videos on our project page at https://visual-prompt-engineering.github.io/.",
-      "url": "http://arxiv.org/abs/2607.25537v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.25537v1",
-      "tldr": "视觉提示工程（VIPE）能够有效提升视频模型在视觉推理任务中的表现。",
-      "affiliations": [
-        "Google DeepMind"
-      ],
-      "score": 4.7574,
+      "abstract": "Video diffusion-based world models enable long autoregressive video generation for robotics, autonomous driving and simulation tasks, yet sliding-window autoregressive inference suffers from severe error accumulation that degrades frame quality over time. Although this phenomenon has been widely observed, the underlying mechanism of compounding error and how to achieve stable long-horizon generation remain largely unresolved. In this paper, we investigate the internal representation dynamics of video world models and discover that compounding error is tightly coupled with dimensional collapse of hidden representations. Specifically, the effective rank of model representations sharply decreases at the onset of generation drift, revealing a strong connection between representational degradation and long-term rollout instability. Furthermore, we find that pure training data scaling fails to boost model resistance to error drift, contradicting mainstream scaling paradigms. To address this problem, we propose video representation regularization, a lightweight training constraint that stabilizes latent representations and suppresses iterative error accumulation. Compared with Diffusion Forcing, our method achieves improvements from 38.65 to 55.56 and from 44.37 to 72.08 on the Aesthetic Quality and Imaging Quality metrics of VBench. Our work establishes the first connection between autoregressive video drifting and model internal representations, adopts erank as a quantitative metric for error accumulation, reveals counterintuitive scaling limitations for video world models, and presents a simple yet effective regularization strategy to improve long video generation robustness.",
+      "url": "http://arxiv.org/abs/2607.27036v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.27036v1",
+      "tldr": "该论文提出了一种视频表示正则化方法，以减轻视频生成过程中的累积误差，从而提高长视频生成的鲁棒性。",
+      "affiliations": [],
+      "score": 4.9527,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.25337",
-      "title": "Temporal-Distance JEPA: Plan-Aware Representation Learning for Latent World Model Predictive Control",
+      "arxiv_id": "2607.27180",
+      "title": "HumanCLAW: Can Vision-Language Models Act Through a Body?",
       "authors": [
-        "Jiaxin Bai",
-        "Jiaxuan Xiong"
+        "Siyao Li",
+        "Jiawei Gu",
+        "Shuai Liu",
+        "Kairui Hu",
+        "Zekun Li",
+        "Linjie Li",
+        "Chengcheng Tang",
+        "Po-Chen Wu",
+        "Ivan Shugurov",
+        "Lingni Ma",
+        "Michael Zollhoefer",
+        "Sizhe An",
+        "Abhay Mittal",
+        "Amy Zhao",
+        "Ranjay Krishna",
+        "Manling Li",
+        "Ziwei Liu",
+        "Chuan Guo"
       ],
-      "abstract": "Joint-Embedding Predictive Architectures (JEPAs) learn world models by predicting in representation space rather than reconstructing pixels, making them a natural backbone for latent model predictive control from offline demonstration logs. JEPA-style training optimizes short-horizon latent prediction, whereas planning requires a multi-step ranking of imagined futures by goal progress. Prior JEPA planners often inherit that ranking from embedding geometry, typically latent Euclidean distance, which arises as a byproduct of representation learning rather than as a progress cost mined from the logs. We propose temporal-distance JEPA (TD-JEPA), which retains the LeWM encoder--predictor backbone and mines a directed temporal cost from reward-free trajectories: same-trajectory step order supplies positive targets, cross-trajectory pairs act as heuristic negatives, and a rollout-consistency term matches the planner horizon. The mined supervision serves two roles: as the deployed planning cost when progress is topological, and as a representation signal that improves Euclidean planning when contact geometry dominates. Under locked evaluation, deploying the mined cost raises Two-Room success to 100.0% versus LeWM's 97.4%, while shared Euclidean planning on the same temporally trained checkpoint raises OGB-Cube by 14.2 points over LeWM and improves Push-T. Against LeWM and the concurrent RC-aux baseline under locked evaluation, TD-JEPA matches or exceeds both methods on every environment. Ablations show that the directed head, cross-trajectory negatives, and rollout consistency each contribute. TD-JEPA narrows the train--plan gap for JEPA world-model planners by discovering temporal progress structure in offline logs and co-designing cost form with plan-time deployment. Code is available at https://github.com/HKBU-KnowComp/TD-JEPA.",
-      "url": "http://arxiv.org/abs/2607.25337v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.25337v1",
-      "tldr": "提出了一种名为TD-JEPA的模型，通过从离线日志中挖掘时间距离信息，缩小了JEPA世界模型规划器的训练-规划差距，提高了预测控制性能。",
+      "abstract": "Evaluating whether a vision-language model (VLM) can act through a physical body is challenging. The outcome of an action couples the VLM's decision with motor control. When a task fails, it is hard to tell whether the VLM made a bad choice or the motor controller simply failed to execute it, e.g., losing balance and falling. In this work, we introduce HumanCLAW, an evaluation framework that decouples action decision-making from low-level execution. At every step, a harnessed, off-the-shelf VLM issues an atomic skill command, and the command is translated into a sub-second chunk of continuous full-body motion with real physical consequences, including gravity and collisions. The body can therefore act freely in the physical world, while execution-side disturbances, balance and motor errors, are factored out. What remains measurable is the model's action intelligence: its moment-to-moment choice of what the body should execute next. Based on this framework, we build HumanCLAW-Bench: 1,218 long-horizon, egocentric find-navigate-interact episodes across 41 indoor scenes. We test nine state-of-the-art VLMs and find that none solves the benchmark; the best model reaches only a 16.8% success rate. Recognizing the target is not the bottleneck. What current VLMs lack is embodied self-awareness: they lose track of their own body, failing to tell where it is, whether it has reached the goal, or whether it has hit an obstacle.",
+      "url": "http://arxiv.org/abs/2607.27180v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.27180v1",
+      "tldr": "《HumanCLAW：视觉-语言模型能否通过身体行动？》研究了一个视觉-语言模型能否通过物理身体执行动作，并引入了HumanCLAW框架来评估模型的行动智能。",
       "affiliations": [
-        "Hong Kong Baptist University"
+        "University of Washington",
+        "Meta",
+        "Nanyang Technological University",
+        "Brown University",
+        "Northwestern University"
       ],
-      "score": 4.5861,
+      "score": 4.9118,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.25106",
-      "title": "IMPRINT: Image-Conditioned Query Enrichment for Long-Tail Object Goal Navigation",
+      "arxiv_id": "2607.26903",
+      "title": "From Passive Video to Editable Experience: Physically Grounded Experience Synthesis for Embodied Intelligence",
       "authors": [
-        "Jelin Raphael Akkara",
-        "Filippo Ziliotto",
-        "Luciano Serafini",
-        "Lamberto Ballan",
-        "Tommaso Campari"
+        "Jia Luo"
       ],
-      "abstract": "Embodied AI increasingly relies on queryable semantic maps built from pre-trained vision-language models to enable zero-shot Object Goal Navigation (ObjectNav). However, existing approaches typically depend on text-only queries, which become less reliable as semantic specificity increases toward fine-grained object categories. We introduce IMPRINT, a zero-shot plug-and-play framework that enriches textual object queries with web-sourced images to improve grounding in queryable maps. Retrieved images are encoded using a vision-language model, matched against the semantic map to produce similarity maps, and aggregated to yield context-aware localization. Notably, this requires no training or modification of the underlying navigation policy. To explicitly evaluate long-tail behavior, we present HSSD-rare, a new ObjectNav benchmark built on Habitat Synthetic Scenes and featuring semantically specific subcategories. Across both OVON and HSSD-rare, image-conditioned queries consistently improve object grounding and yield end-to-end navigation gains. Further analysis reveals that translating localization gains to navigation performance depends critically on downstream detection quality, highlighting a key systems bottleneck in long-tail embodied navigation.",
-      "url": "http://arxiv.org/abs/2607.25106v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.25106v1",
-      "tldr": "IMPRINT通过将网络图像与文本查询相结合，显著提升了长尾物体目标导航的定位精度和导航性能。",
+      "abstract": "The key bottleneck in embodied AI is not model architecture but data. Although billions of human manipulation videos exist online, robots cannot directly learn from them due to the embodiment gap between human morphology and robot hardware. We introduce Pegasus, a low-resource framework that bridges this gap by translating human demonstrations into robot-learnable data through structured knowledge transfer. Instead of relying on raw video prompts, Pegasus constructs a graph-based intermediate representation: a Task Graph extracted from human videos is transformed through Affordance and Constraint Graphs into a Robot Planning Graph for robot-conditioned video generation. A hierarchical affordance latent space models the relationship between object states, affordances, and tasks, enabling generalization beyond object identities. A closed-loop physics verifier further filters invalid generations using kinematic feasibility, collision constraints, and joint limits. We evaluate Pegasus across a range of egocentric manipulation benchmarks, including GTEA Gaze+ and EPIC-KITCHENS-100, and diverse robot embodiments, assessing Task Correctness, Executability, State Consistency, and Learnability. Results demonstrate reliable cross-embodiment translation and show that robot data generation can be reframed from a hardware collection problem into a scalable, low-resource knowledge transfer problem.",
+      "url": "http://arxiv.org/abs/2607.26903v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.26903v1",
+      "tldr": "Pegasus通过将人类演示转换为机器人可学习的数据，解决了具身智能中数据瓶颈问题，实现了跨机器人形态的数据生成。",
       "affiliations": [
-        "University of Padova, Italy",
-        "Fondazione Bruno Kessler (FBK), Trento, Italy"
+        "Huazhong University of Science and Technology"
       ],
-      "score": 4.5148,
+      "score": 4.8714,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.26005",
-      "title": "Pictura: Perspective-View Self-Play at Scale for Driving",
+      "arxiv_id": "2607.26336",
+      "title": "Learning Implicit Causal World Models from Multi-Agent Demonstrations",
       "authors": [
-        "Yuan Yin",
-        "Elias Ramzi",
-        "Marc Lafon",
-        "Valentin Charraut",
-        "Victor Bares",
-        "Yihong Xu",
-        "Éloi Zablocki",
-        "Alexandre Boulch",
-        "Thibault Buhet",
-        "Andrei Bursuc",
-        "Matthieu Cord"
+        "Jasorsi Ghosh"
       ],
-      "abstract": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents. This assumes that perception is solved and introduces a representation gap with the partial observation of a deployed agent driving from the perspective view of egocentric cameras. A common fix, distilling the privileged policy into a camera-input student, leaves the student imitating decisions its own view cannot justify. Instead, we establish perspective-view self-play as a practical training regime. We introduce Pictura, a GPU-accelerated multi-agent driving simulator that renders each agent's egocentric view at every step, mitigating the representation gap at its source. Pictura sustains up to 500K agent-steps/s (2M images/s) on a single H100. Using Pictura, we train Alberti by self-play with plain PPO. It is the first large-scale driving self-play policy trained directly from perspective images, without privileged observations. Training spans 50B agent steps for ~35M km of driving. It approaches the driving performance of its privileged vectorized counterpart, and transfers zero-shot to Waymo Open Motion Dataset layouts re-rendered in Pictura, where it outperforms privileged vectorized agents. Project page: https://valeoai.github.io/Pictura/",
-      "url": "http://arxiv.org/abs/2607.26005v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.26005v1",
-      "tldr": "Pictura通过在GPU加速的驾驶模拟器中实现多智能体视角自我游戏，直接从视角图像训练出大型自动驾驶策略，从而有效缩小了训练模型和实际部署之间的差距。",
-      "affiliations": [
-        "Sorbonne Université, CNRS, ISIR, F-75005 Paris, France",
-        "Valeo Brain, Créteil, France",
-        "valeo.ai, Paris, France"
-      ],
-      "score": 4.3721,
+      "abstract": "In model-based reinforcement learning, world models exist as internal simulators, but their training often conflates statistical correlations with causal mechanisms. This problem is exacerbated in multi-agent systems where physical transitions are intertwined with strategic agent intents, causing world models to fail under distribution shift. We introduce Implicit Causal World Models to recover environmental dynamics from offline demonstrations without requiring pre-defined causal graphs. By incorporating policy variance, we render world models discoverable via the sequential backdoor condition. Evaluations across coordination tasks (Two-Door, Navigation, and Giveway) demonstrate that these models provide interpretable causal representations under both full and partial observability, with model accuracy scaling directly with interventional strength.",
+      "url": "http://arxiv.org/abs/2607.26336v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.26336v1",
+      "tldr": "提出了一种从多智能体演示中学习隐含因果世界模型的方法，通过政策方差和序列后门条件，使模型能够发现环境动态，并在各种协调任务中提供可解释的因果表示。",
+      "affiliations": [],
+      "score": 4.7241,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2607.25527",
-      "title": "Argus-Unified: Towards A Compact and Economical Unified Model for Image Understanding and Generation",
+      "arxiv_id": "2607.26910",
+      "title": "CinemaTraj: Composing Atomic Camera Trajectories for 3D Scenes with LLM Agents",
       "authors": [
-        "Weiming Zhuang",
-        "Jiabo Huang",
-        "Jingtao Li",
-        "Zhizhong Li",
-        "Chen Chen",
-        "Sina Sajadmanesh",
-        "Lingjuan Lyu"
+        "Qianru Li",
+        "Xuyang Chen",
+        "Erkin Türköz",
+        "Lu Liu",
+        "Xuqin Wang",
+        "Liqiu Meng",
+        "Tao Wu",
+        "Yanfeng Zhang"
       ],
-      "abstract": "Unifying visual understanding and generation in one model holds immense promise, but remains challenging and expensive due to heavy compute and data demands and conflicts between the visual features needed for these two capabilities. To address these challenges, we present Argus-Unified, a compact, effective and unified multimodal model built with low demand on computation and data. Instead of aligning modalities from scratch, Argus-Unified effectively leverages pretrained vision-language models (VLMs) that provide strong multimodal priors. Specifically, we introduce hybrid visual tokens that preserve continuous tokens for understanding while learning discrete tokens for generation from a frozen unified vision encoder. Our training pipeline includes two stages: the first stage learns a quantizer and image decoder on top of the frozen vision encoder, the second stage trains the LLM initialized from a pretrained VLM for the unified multimodal modeling. Using by far the least amount of data (15.6M) and the lowest cost (~$2,000), we demonstrate that unified multimodal models can be trained economically while achieving strong performance in both understanding and generation. Notably, our model attains state-of-the-art multimodal understanding on GQA, POPE, and VQAv2, and competitive generation quality compared to models with dedicated vision encoders (e.g., Janus, Janus-Pro), all at ~10x lower cost and with ~5x less data. We envision Argus-Unified as a useful baseline that lowers the development barrier for unified models.",
-      "url": "http://arxiv.org/abs/2607.25527v1",
-      "pdf_url": "https://arxiv.org/pdf/2607.25527v1",
-      "tldr": "Argus-Unified模型通过有效利用预训练的视觉语言模型，实现了一种低计算和数据需求的紧凑型多模态模型，在图像理解和生成方面取得了优异的性能。",
+      "abstract": "Automatically generating cinematically expressive camera trajectories through 3D scenes from natural language descriptions is a challenging task of high practical value, with applications ranging from real-estate advertising to virtual tour creation. Existing methods either lack true 3D spatial awareness by relying on 2D image priors, or treat trajectory generation as a geometric path planning problem divorced from cinematographic semantics. We present CinemaTraj, a framework that reframes camera trajectory planning as a language-grounded spatial reasoning problem. Given a set of RGB-D images and a user prompt, CinemaTraj equips an LLM agent with a structured 3D scene graph: the agent decomposes the prompt into a sequence of atomic cinematographic movements (dolly, orbit, crane, pan, tilt, zoom, arc). Each movement is instantiated via a novel parametric trajectory representation that is both cinematographically expressive and optimizable for collision avoidance. The scene graph acts as a structured spatial prior, grounding the agent's reasoning in accurate geometric and semantic knowledge of the environment. CinemaTraj further generates synchronized voiceover and subtitles aligned with camera motion, producing narrated cinematic video outputs. We evaluate CinemaTraj on real-world ScanNet++ environments, and show that it produces prompt-faithful, collision-free trajectories with high cinematographic quality, outperforming existing approaches on prompt alignment, trajectory quality, and safety metrics.",
+      "url": "http://arxiv.org/abs/2607.26910v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.26910v1",
+      "tldr": "CinemaTraj：利用LLM代理，从自然语言描述中自动生成具有电影表现力的3D场景摄像机轨迹。",
       "affiliations": [
-        "Sony AI"
+        "Technical University of Munich",
+        "Huawei Dresden Research Center"
       ],
-      "score": 4.3163,
+      "score": 4.6425,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2607.26769",
+      "title": "See2Think: Do Multimodal Models Really Use Intermediate Visual States?",
+      "authors": [
+        "Siyu Yan",
+        "Zhuoran Yan",
+        "Haiying Xu",
+        "Panhao Zhou",
+        "Jingyu Chen",
+        "Chenhao Ji",
+        "Shuo Cao",
+        "Yongheng Zhang",
+        "Haoze Liu",
+        "Siyu Zhang",
+        "Xiwen Gu",
+        "Yihao Liu",
+        "Alex Jinpeng Wang"
+      ],
+      "abstract": "Multimodal large language models increasingly use sketches, annotations, tools, and intermediate images during reasoning, but it remains unclear whether they truly rely on these visual states. Existing benchmarks are limited both by task collections with narrow coverage or partially text-solvable samples and by evaluations that emphasize final answers without diagnosing how intermediate visual states are generated, rendered, and used. We introduce See2Think, a unified evaluation framework comprising See2ThinkBench and Visual Action-of-Thought (VAoT). See2ThinkBench contains 1,200 open-ended, visually dependent problems across 12 task categories spanning 2D structured, 3D scene, and real-world reasoning. VAoT records textual thoughts, visual actions, rendered states, and subsequent reasoning under four controlled inference settings. Evaluating representative proprietary and open-source multimodal models, we find that visual reasoning is strongly model- and environment-dependent, with no single setting consistently dominating across tasks. Process analysis further shows that models usually select relevant visual operations, while faithful rendering remains the clearest bottleneck and high feedback uptake does not necessarily translate into accuracy gains. Under task-relevant corrupted feedback, models exhibit behavioral dependence on visual states, with accuracy dropping by over 10 percentage points in controlled interventions.",
+      "url": "http://arxiv.org/abs/2607.26769v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.26769v1",
+      "tldr": "这项研究通过See2Think框架探讨了多模态模型在推理过程中是否真正依赖中间视觉状态，发现视觉推理高度依赖于模型和环境，并揭示了视觉操作选择、渲染真实性和反馈获取之间的关系。",
+      "affiliations": [
+        "Shanghai AI Laboratory",
+        "Fudan University",
+        "The Hong Kong University of Science and Technology",
+        "The Hong Kong University of Science and Technology (Guangzhou)",
+        "Wuhan University",
+        "Central South University",
+        "University of Science and Technology of China"
+      ],
+      "score": 4.6182,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2607.27201",
+      "title": "Mental World Modeling",
+      "authors": [
+        "Hao Fei",
+        "Yiran Zhao"
+      ],
+      "abstract": "World models enable a predictive substrate for planning and action, yet existing formulations merely answer a physical question: what/where it is, and how will it evolve. Human behavior, however, is driven by hidden mental state (what a person believes, wants, intends, feels, and considers socially permissible), so a model that tracks the physical scene but not what each agent knows and believes about it predicts the wrong action for the right-looking scene. We formulate Mental World Modeling (MWM), a generic theoretical framework that makes mental variables core components of a world model rather than posthoc rationales: MWM aintains a coupled physical-mental world state, renders a target-specific partial observation, and simulates how candidate actions jointly update both components. We instantiate the framework in MENTIS, a training-free and fully inspectable baseline that decomposes the process into state parsing, target-observation generation, action decomposition, coupled physical and mental transition, and branch-level value evaluation. On a manually constructed, quality-controlled dataset of situated decision scenarios spanning text, image, and sounding-video stories, experiments with 8 modern LLM-based world models demonstrate that explicitly modeling the mental state is essential for predicting human decisions. Deeper analyses further expose the bottlenecks of current mental world modeling. We expect MWM as a next stage of world modeling, from simulating physical scenes to simulating the minds that act in them.",
+      "url": "http://arxiv.org/abs/2607.27201v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.27201v1",
+      "tldr": "提出了心理世界建模（MWM）理论框架，将心理变量作为世界模型的核心组成部分，通过模拟候选动作如何同时更新物理和心理健康状态，从而更准确地预测人类决策。",
+      "affiliations": [],
+      "score": 4.5204,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2607.26165",
+      "title": "DVPSFormer: Efficient Online Depth-aware Video Panoptic Segmentation for Autonomous Driving",
+      "authors": [
+        "Yung-Hsu Yang",
+        "Luigi Piccinelli",
+        "Siyuan Li",
+        "Mattia Segu",
+        "Lei Ke",
+        "Martin Danelljan",
+        "Yuqian Fu",
+        "Zuria Bauer",
+        "Fisher Yu",
+        "Hermann Blum",
+        "Marc Pollefeys"
+      ],
+      "abstract": "Safe autonomous navigation requires a holistic understanding of dynamic environments, necessitating the simultaneous estimation of metric depth, semantic segmentation, and instance trajectories. While depth-aware video panoptic segmentation (DVPS) unifies these tasks, existing approaches often rely on computationally expensive, multi-stage pipelines or offline tracking, rendering them unsuitable for real-time decision-making. To address this, we propose DVPSFormer, a unified online architecture designed for efficient 4D scene understanding. Central to our approach is explicit scene discretization (ESD), a novel mechanism that leverages segmentation queries to represent foreground and background regions, enabling a discrete-to-continuous (D2C) depth head to decode metric depth in a single pass. This tightly couples semantic and geometric learning while significantly reducing latency. Furthermore, we propose an online majority voting (OMV) mechanism that exploits temporal consistency to refine classification during instance tracking. DVPSFormer establishes a new state-of-the-art on the Cityscapes-DVPS and SemKITTI-DVPS benchmarks, offering a streamlined solution for online robotic perception. Code and models are available at https://royyang0714.github.io/DVPSFormer.",
+      "url": "http://arxiv.org/abs/2607.26165v1",
+      "pdf_url": "https://arxiv.org/pdf/2607.26165v1",
+      "tldr": "提出了DVPSFormer，一种高效在线深度感知视频全景分割方法，实现了对动态环境的高度理解，为自动驾驶提供实时决策支持。",
+      "affiliations": [],
+      "score": 4.5145,
       "source": "arxiv"
     }
   ]
