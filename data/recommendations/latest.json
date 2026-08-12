@@ -1,234 +1,238 @@
 {
   "date": "2026-08-12",
-  "generated_at": "2026-08-12T00:03:45Z",
+  "generated_at": "2026-08-12T23:21:48Z",
   "count": 10,
   "sources": [
     "arxiv"
   ],
   "papers": [
     {
-      "arxiv_id": "2608.09730",
-      "title": "World Tokens: Enhancing Embodied Policies with Training-Time World Modeling",
+      "arxiv_id": "2608.10976",
+      "title": "XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving",
       "authors": [
-        "Qu Tang",
-        "Benhui Zhuang",
-        "Bo Yuan",
-        "Xue Yu",
-        "Longteng Guo",
-        "Junlan Feng"
+        "Foundation Model Team",
+        "XPeng Inc"
       ],
-      "abstract": "Vision-language-action (VLA) models are a widely adopted paradigm for embodied policies. They excel at efficient closed-loop control but do not explicitly model how physical scenes evolve as a task unfolds. Recently emerging world-action models (WAMs) leverage pretrained video world models to capture spatiotemporal evolution, yet retaining future generation or a large video backbone in the control loop substantially increases inference cost. We introduce World Tokens, an embodied policy architecture built around a World Adapter that bridges visual-language understanding, world-dynamics modeling, and action generation. It uses world modeling during training to enhance the action policy while preserving efficient deployment. Specifically, the World Adapter transforms VLM features into a fixed set of world tokens, which condition a jointly fine-tuned future-video denoiser and simultaneously serve as the action expert's sole visual-language context. This shared conditioning allows gradients from future-video denoising to directly shape the representation used for action prediction, while exclusive routing prevents the policy from bypassing that representation. At deployment, the world-model branch is removed, leaving only the VLM, World Adapter, and action expert, with no online video-model inference. With a 2B backbone and no embodied action pretraining, World Tokens is highly competitive on LIBERO, attains the best reported averages on SIMPLER, substantially improves real-world R1 Pro success over a matched action-only baseline, and generates each action chunk at VLA-level latency.",
-      "url": "http://arxiv.org/abs/2608.09730v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.09730v1",
-      "tldr": "世界令牌：通过训练时世界建模增强具身策略",
-      "affiliations": [
-        "Zhongguancun Academy",
-        "JIUTIAN Research"
-      ],
-      "score": 5.7704,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2608.07584",
-      "title": "ComplexityWorld: Benchmarking Vision-Language Models on Verifiable Visual Decision Making",
-      "authors": [
-        "Ningxin Pan",
-        "Hanyu Li",
-        "Yehui Tang"
-      ],
-      "abstract": "Vision-language models (VLMs) have made rapid progress in visual perception and increasingly support real-world tasks that depend on images. Many such tasks, however, require more than rec- ognizing what an image contains: a model must use visual evidence to make a complete decision whose parts jointly satisfy global constraints. We introduce COMPLEXITYWORLD, a benchmark of 390 tasks across 39 domain-inspired visual worlds and 29 decision categories. Each task is generated from a hidden structured specification, rendered as a visual scene, and scored by an exe- cutable verifier that accepts any feasible solution. Under direct inference, all evaluated models ex- cept GPT-5.6-Sol remain below 40% verifier ac- ceptance rate (VAR), while GPT-5.6-Sol reaches 75.6%. Performance improves substantially when the same decision information is made explicit in structured form, yet varies sharply across equiva- lent visual presentations. Agent scaffolds provide smaller, model-dependent gains. Together, these results reveal a persistent visual-to-decision bot- tleneck that additional inference alone does not remove.",
-      "url": "http://arxiv.org/abs/2608.07584v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.07584v1",
-      "tldr": "ComplexityWorld：通过在可验证视觉决策制作中评估视觉-语言模型，揭示了视觉到决策的瓶颈。",
-      "affiliations": [
-        "Samsung Research, Beijing, China",
-        "Peking University, Beijing, China"
-      ],
-      "score": 4.9426,
-      "source": "arxiv"
-    },
-    {
-      "arxiv_id": "2608.07585",
-      "title": "LAVE: Latent Visual Evidence-Enhanced Planning for Video Tool-use Agents",
-      "authors": [
-        "Zijian Wang",
-        "Junnan Zhu",
-        "Rongzhen Li",
-        "Xiao Liu",
-        "Guohui Xiang",
-        "Quan Lu",
-        "Lijia Liu",
-        "Yining Wang",
-        "Jiang Zhong",
-        "Kaiwen Wei"
-      ],
-      "abstract": "Long-video understanding requires models to efficiently acquire and reuse sparse visual evidence from long and redundant video streams. Recent video tool-use agents address this challenge by iteratively invoking visual Tools at different temporal scales, but their Tool-Planner communication typically relies on textual observations. Such text-only interfaces provide lossy summaries of Tool computations, causing previously computed visual evidence not verbalized to be discarded and unavailable for subsequent planning. We identify this limitation as the Tool observation bottleneck and propose Latent Visual Evidence-Enhanced Planning (LAVE), a training-free framework for reusing latent visual evidence from completed Tool calls. LAVE introduces a dual-channel observation interface: the visible channel preserves the original textual trajectory, while the latent channel stores pre-verbal visual updates with their Tool roles, source-frame timestamps, and visual locations. During planning, LAVE retrieves evidence relevant to the current Planner state but not covered by textual observations, and integrates it through bounded timestamp-aligned latent updates with entropy-constrained frame-time routing. This enables video agents to reuse existing visual computation without additional training, frame replay, or modifications to the original orchestration. Extensive experiments on Video-MME, LongVideoBench, and CG-Bench show that LAVE consistently improves video tool-use agents across backbones. Under a comparable frame budget, LAVE improves the Video-MME overall score by 3.76 points over the strongest baseline, demonstrating the effectiveness of latent visual evidence reuse for multi-step video-agent planning.",
-      "url": "http://arxiv.org/abs/2608.07585v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.07585v1",
-      "tldr": "LAVE通过引入双重观察接口，在视频工具使用代理中实现了对潜在视觉证据的无监督重用，从而显著提升了多步视频代理规划的效果。",
+      "abstract": "Vision-Language-Action (VLA) models can connect scene understanding, semantic reasoning, and trajectory generation for autonomous driving. However, verbose natural-language Chain-of-Thought (CoT) is poorly suited to real-time control because it is open-ended, costly to decode, and difficult to optimize as an action-facing representation. We propose XCoT-VLA, which replaces descriptive rationales with compact executable CoT tokens learned from automatically constructed Reason-Action supervision. Logged trajectories provide action evidence, while scene context supplies causal semantics. The predicted XCoT sequence remains in context and conditions fixed trajectory queries through shared multimodal self-attention. Deterministic token-function routing applies the Reason FFN to XCoT tokens and the Control FFN to trajectory queries for flow-matching trajectory generation. We further introduce XCoT Policy Optimization (XCPO) as an optional refinement extension in the same executable token space. XCoT-VLA reduces longitudinal ADE from 1.645 to 1.323 on a general-distribution set and lateral FDE from 1.616 to 0.648 in lane-change scenarios. By representing driving-oriented reasoning with only 2-6 executable XCoT tokens, our method substantially reduces autoregressive reasoning overhead and remains within the real-time planning budget. These results demonstrate that driving-oriented reasoning can be compact, executable, and directly connected to trajectory generation.",
+      "url": "http://arxiv.org/abs/2608.10976v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10976v1",
+      "tldr": "XCoT-VLA通过使用紧凑的可执行思维链（CoT）标记来提高视觉-语言-动作（VLA）模型在自动驾驶中的实时控制能力。",
       "affiliations": [],
-      "score": 4.9229,
+      "score": 5.1336,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2608.07746",
-      "title": "LUCID: Latent-Skill Unified Control via Imagined Dynamics for Long-Horizon Humanoid Loco-Manipulation",
+      "arxiv_id": "2608.10278",
+      "title": "Chain of Spatial Thoughts: Modality-Agnostic Spatial Grounding for Vision Language Models",
       "authors": [
-        "Cheng Guo",
-        "Mingzhe Ni",
-        "Angelo Cangelosi",
-        "Arash Ajoudani"
+        "Hunter Schofield",
+        "Mohammed Elmahgiubi",
+        "Mohammad Mahdavian",
+        "Richard Shi",
+        "Jinjun Shan",
+        "Amir Rasouli",
+        "Dongfeng Bai"
       ],
-      "abstract": "Long-horizon humanoid loco-manipulation requires composing versatile whole-body skills and reliable high-level decision making. Existing methods often coordinate pretrained skills with scripted planners, finite-state machines or task-specific model-free policies, restricting their ability to handle complex task sequences. To address this limitation, we propose \\textbf{LUCID}, a hierarchical model-based reinforcement learning framework that plans over reusable skills through imagined rollouts of a learned dynamics model. LUCID first trains a structured latent-conditioned low-level policy via adversarial imitation and then freezes it while jointly learning a high-level policy and macro-dynamics world model. The world model predicts the temporally extended state transitions induced by latent decisions, enabling high-level policy optimization through imagined rollouts. We evaluate our framework across various simulated multi-object rearrangement scenarios. Experimental results show that LUCID improves the full-task success and partial-completion rates compared to prior baseline methods, demonstrating its effectiveness in complex sequential loco-manipulation tasks.",
-      "url": "http://arxiv.org/abs/2608.07746v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.07746v1",
-      "tldr": "LUCID通过想象动态的潜在技能统一控制，实现了长周期人形机器人运动和操作的有效性。",
+      "abstract": "Spatial understanding is fundamental to embodied intelligence, underpinning applications such as robotic manipulation, embodied navigation, and autonomous driving. Although recent vision-language models (VLMs) have achieved impressive performance on spatial reasoning benchmarks, state-of-the-art approaches typically rely on additional spatial encoders or architectural modifications during inference, increasing computational cost. We introduce Space Tokens, a lightweight, architecture-agnostic framework that equips VLMs with explicit continuous spatial representations without requiring additional inference-time modules. By distilling scene-level 3D geometry and object-centric spatial attributes into continuous latent tokens, our method enables these modalities to be directly incorporated into a chain-of-thought reasoning process, thereby improving the VLM's spatial reasoning capabilities. At the same time, the learned representations can be explicitly decoded to verify that they encode meaningful geometric information, while the unified token interface remains extensible to additional modalities. Experiments on VSI-Bench improve Qwen3-VL-8B by 4.3% and SenseNova-SI-1.3 by 1.3%, while achieving state-of-the-art performance on object size (79.2%) and room size estimation (75.7%). These results demonstrate that continuous spatial tokens provide an effective, interpretable, and computationally efficient mechanism for integrating geometric reasoning into large vision-language models.",
+      "url": "http://arxiv.org/abs/2608.10278v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10278v1",
+      "tldr": "该方法通过引入名为“空间令牌”的轻量级、架构无关的框架，为视觉语言模型提供连续的空间表示，从而显著提高了其空间推理能力。",
       "affiliations": [
-        "University of Manchester",
-        "Italian Institute of Technology"
+        "Huawei Technologies Canada",
+        "University of Toronto",
+        "York University"
       ],
-      "score": 4.8631,
+      "score": 5.002,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2608.09926",
-      "title": "Learning How the World Evolves: Extrapolative Video World Models via Latent Dynamics Reasoning",
+      "arxiv_id": "2608.10413",
+      "title": "DriveVLA-M0: Failure-Aware Memory Augmentation for Autonomous Driving",
       "authors": [
-        "Haodong Li",
-        "Shaoteng Liu",
-        "Tianyu Wang",
-        "Chongjian Ge",
-        "Sihui Ji",
-        "Jiahan Zhang",
-        "Xin Lin",
-        "Haolin Lu",
-        "Zhe Lin",
-        "Manmohan Chandraker"
+        "Zebin Xing",
+        "Yupeng Zheng",
+        "Qiang Chen",
+        "Linbo Wang",
+        "Yichen Zhang",
+        "Pengxuan Yang",
+        "Junli Wang",
+        "Deheng Qian",
+        "Xiaoqing Ye",
+        "Junyu Han",
+        "Yifeng Pan",
+        "Qichao Zhang",
+        "Dongbin Zhao"
       ],
-      "abstract": "The world evolves following its dynamics, i.e., its laws of motion. However, leading video diffusion models largely fit the pixels without modeling how the pixels transit over time. Thus, they render visually plausible frames but may not accurately obey the laws. To capture the dynamics purely from pixels, we introduce Latent Dynamics Reasoning (LDR). LDR casts the latent transition as an explicit kinematic integration, where the lower-order dynamics are integrated numerically and the model regresses only the third- and higher-order residual that drives the rollout. For this integration to extrapolate better, LDR runs it on a structured latent rather than dense convolutional features. Following PhyWorld, we validate LDR on a controlled white-box physics benchmark spanning five tasks (uniform motion, parabola, collision, bouncing, looming), focusing on out-of-distribution scenarios that reveal whether a model has truly learned the underlying dynamics. LDR extrapolates the learned dynamics far better: the gap between its in- and out-of-distribution error is over 20$\\times$ smaller than the video diffusion baseline's, under both single- and joint-task training at 256$^2$ resolution, while using 26$\\times$ fewer parameters and running 143$\\times$ faster. LDR can even generalize under severe shift: for example, trained only on red balls moving left-to-right, it correctly predicts the motion of a blue square moving right-to-left. To our knowledge, this is the first video world model that extrapolates learned dynamics beyond its training distribution. Project page: https://lat-dyn-reason.github.io/",
-      "url": "http://arxiv.org/abs/2608.09926v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.09926v1",
-      "tldr": "提出了一种名为“潜在动力学推理”（LDR）的新方法，通过分析像素背后的动力学来预测视频帧，显著优于现有视频扩散模型，并能将学习到的动力学推广到训练分布之外。",
+      "abstract": "Vision-Language-Action (VLA) models have recently emerged as a promising paradigm for end-to-end autonomous driving by enabling unified reasoning across perception, language, and planning. However, existing approaches lack mechanisms to exploit past failures or adapt to distribution shifts, causing the model to persistently underperform on similar scenarios where it has previously failed. In this paper, we propose DriveVLA-M0, a retrieval-augmented VLA with failure-aware latent memory. We construct a latent memory pool that stores failure cases along with their structure scene representations and expert trajectory labels, and design a dedicated Retrieve Model that decouples static road structure and dynamic agent interactions to enable structurally grounded retrieval. At inference time, retrieved cases are injected into the model via a lightweight decoupled LoRA-based test-time training (TTT) mechanism, allowing targeted and scenario-specific correction without modifying the backbone. Extensive experiments on NAVSIMv1 and NAVSIMv2 benchmark demonstrate that our approach consistently outperforms prior methods, achieving 94.1 PDMS on Navtest and 47.0 EPDMS on Navhard with only 26.44 ms TTT backward latency overhead. Furthermore, we show that DriveVLA-M0 scales effectively with additional memory, enabling training-free performance gains through memory expansion. The code is available at https://github.com/ZebinX/DriveVLA-M0.",
+      "url": "http://arxiv.org/abs/2608.10413v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10413v1",
+      "tldr": "提出DriveVLA-M0，一种具有故障感知潜记忆的检索增强型VLA模型，通过结构化检索和测试时训练，显著提升自动驾驶的鲁棒性和安全性。",
       "affiliations": [
-        "UCSD",
-        "Adobe"
+        "Institute of Automation, Chinese Academy of Sciences",
+        "Chongqing Chang'an Technology Co., Ltd."
       ],
-      "score": 4.8447,
+      "score": 4.9619,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2608.09564",
-      "title": "From Semantic Grounding to Decision Optimization: A Unified Framework for Long-Horizon UAV Vision-Language Navigation",
+      "arxiv_id": "2608.10393",
+      "title": "Hidden in Plain Sight: Diffusion-Based Unrestricted Robotic Attacks on Vision-Language-Action Models",
       "authors": [
-        "Zeyuan Ma",
-        "Jiaxin Chen",
-        "Di Huang"
+        "Jiahui Han",
+        "Yuhui Yao",
+        "Xin Wang",
+        "Jiafei Cao",
+        "Mingxuan Zhang",
+        "Danfeng Shan",
+        "Huiqi Deng",
+        "Guanchu Wang",
+        "Xia Hu"
       ],
-      "abstract": "UAV vision-language navigation (UAV-VLN) focuses on enabling an aerial agent to follow natural-language instructions in open 3D environments from egocentric visual observations. Current approaches suffer from three coupled issues: weak grounding of instruction-relevant landmarks in visual observations, insufficient exploitation of long-horizon history, and unstable decisions under local traps or repeated exploration. To address these issues, we propose a unified semantic-to-decision framework. First, we present an instruction-grounded semantic enhancement module that injects object-level semantics and relative spatial cues into the current observation state. Subsequently, we develop a relevance-aware dynamic temporal aggregation strategy that reweights the full history buffer while converting a few high-relevance frames into structured landmark prompts for the decoder. Finally, we devise a topology-aware decision method that combines local-optimum cognition with group-relative policy optimization under progress, goal, semantic, and path-compliance rewards. Experiments on the widely used AerialVLN and OpenFly benchmarks clearly demonstrate that our method achieves state-of-the-art performance.",
-      "url": "http://arxiv.org/abs/2608.09564v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.09564v1",
-      "tldr": "提出了一种统一的语义到决策框架，以解决长时程无人机视觉语言导航中的地标定位、历史信息利用和决策稳定性问题。",
+      "abstract": "Vision-Language-Action (VLA) models have shown strong capabilities in controlling robots across diverse manipulation tasks. However, their adversarial robustness remains largely underexplored, and exploiting this weakness can lead to physical-world harm. Existing attacks on VLA models often rely on pixel-space perturbations or white-box access, resulting in noticeable artifacts and limited deployability in real-world robotic systems. In this work, we propose DURA, a diffusion-based unrestricted robotic attack that generates visually natural adversarial patches for VLA models. DURA supports both white-box and black-box attack settings, where the black-box setting requires only the predicted actions of the victim model. By optimizing along the latent trajectory of a pretrained diffusion model, DURA generates visually natural patches while steering the robot toward attacker-specified target actions. Extensive experiments in both simulation and the real physical world show that DURA consistently outperforms existing methods. Our findings expose a safety risk for physically deployed VLA models and call for stronger defenses.",
+      "url": "http://arxiv.org/abs/2608.10393v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10393v1",
+      "tldr": "本研究提出了一种名为DURA的基于扩散的机器人攻击方法，用于对视觉-语言-动作（VLA）模型进行攻击，生成视觉自然且语义合理的对抗性补丁，从而揭示VLA模型在现实部署中的安全隐患。",
       "affiliations": [
-        "State Key Laboratory of Virtual Reality Technology and Systems, Beihang University",
-        "School of Computer Science and Engineering, Beihang University"
+        "1",
+        "2",
+        "3"
       ],
-      "score": 4.7397,
+      "score": 4.9189,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2608.07870",
-      "title": "V-Simba: Unleashing the Architectural Potential of RL in Visual Continuous Control",
+      "arxiv_id": "2608.10107",
+      "title": "4D-WAM: 4D Consistent World Modeling for Autonomous Driving",
       "authors": [
-        "Donghu Kim",
-        "Youngdo Lee",
-        "Hojoon Lee",
-        "Johan Obando-Ceron",
-        "Byungkun Lee",
-        "Aaron Courville",
-        "Pablo Samuel Castro",
-        "Jaegul Choo",
-        "Clare Lyle"
+        "Jiacheng Fu",
+        "Yibo Yuan",
+        "Meng Tian",
+        "Yue Li",
+        "Jiangtong Zhu",
+        "Jianhua Han",
+        "Yueyi Zhang",
+        "Jianwu Fang",
+        "Jianru Xue",
+        "Hang Xu",
+        "Zhiwei Xiong"
       ],
-      "abstract": "Improving sample efficiency remains a core challenge in reinforcement learning (RL), especially in real-world settings like robotics, where data collection is costly. This challenge is pronounced in visual RL, where high-dimensional inputs often obscure learning signals. While prior work in visual RL has focused on algorithmic solutions, such as better dynamics models or exploration strategies, recent advances in state-based RL show that architectural design alone can lead to significant gains in sample efficiency. This raises an important question: Can these architectural principles transfer to visual RL? In response, we introduce V-Simba, a simple yet effective visual RL architecture inspired by the Simba architecture from state-based RL. Built on top of Soft Actor-Critic (SAC) with data augmentation, V-Simba modifies the architecture by adding normalization layers to stabilize training and using pointwise convolutions to reduce computation. Despite its simplicity, V-Simba matches or outperforms the state-of-the-art methods across the DMC, Adroit, and Meta-World benchmarks, while being more computationally efficient than DrQ-v2. We make our code publicly available at https://github.com/DAVIAN-Robotics/V-Simba.",
-      "url": "http://arxiv.org/abs/2608.07870v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.07870v1",
-      "tldr": "V-Simba：一种基于状态强化学习架构的视觉强化学习新架构，通过添加归一化层和点卷积，提高了样本效率和计算效率，在多个视觉连续控制任务中优于现有方法。",
+      "abstract": "Emerging World-Action Models (WAMs) have demonstrated promising performance in autonomous driving by jointly modeling future driving scene evolution and trajectory planning. However, existing WAMs are typically trained with video data, which is only 2D projections of the underlying 4D driving scene. Consequently, WAMs fail to understand and capture the structure of 4D scenes and thus generate visually plausible yet 4D inconsistent future predictions that mislead downstream planning. To alleviate this issue, we present 4D-WAM, a model that leverages geometric foundation models for training-time supervision to enable 4D consistent world modeling. Specifically, we feed WAM-predicted future frames into a geometric foundation model, and use 4D-aware responses to define a 4D consistency loss. This loss encourages the model to understand, represent, and predict physically consistent 4D scenes during training, without additional inference cost. Moreover, we identify an early-decision phenomenon in WAMs and propose a decision-oriented timestep sampling strategy that emphasizes supervision at early, high-noise stages, where driving decisions are primarily formed. By propagating 4D supervision to this critical decision-formation phase, the proposed strategy further improves trajectory planning. Extensive experiments demonstrate that 4D-WAM effectively models 4D consistent scene evolution and achieves state-of-the-art performance on challenging NAVSIM-v1 and NAVSIM-v2 benchmarks.",
+      "url": "http://arxiv.org/abs/2608.10107v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10107v1",
+      "tldr": "4D-WAM通过结合几何基础模型进行训练时监督，实现了自动驾驶中的4D一致世界建模，显著提升了轨迹规划性能。",
+      "affiliations": [
+        "Yinwang Intelligent Technology Co., Ltd.",
+        "Midea Group",
+        "University of Science and Technology of China",
+        "Xi'an Jiaotong University"
+      ],
+      "score": 4.8016,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2608.10864",
+      "title": "Multi-View Relational Distillation for Spatial Reasoning with Vision-Language Models",
+      "authors": [
+        "Kiet T. Nguyen",
+        "Hanbo Shim",
+        "Jinwoo Kim",
+        "Seunghoon Hong"
+      ],
+      "abstract": "Vision-language models (VLMs) have achieved strong image and video understanding, yet their visual-spatial representations remain geometrically fragile, leading to failures in spatial reasoning needed for embodied AI, robotics, and autonomous driving. Prior approaches to geometry grounding either fine-tune VLMs on spatial question answering, which can perpetuate spurious visual representations, or fuse features from large geometry-grounded vision models, which substantially increases model size at inference. Knowledge distillation from geometry-grounded vision models offers an alternative, but directly matching multi-view teacher features can disrupt the pretrained alignment between visual and textual representations, degrading object- and language-semantic capabilities. We propose multi-view relational distillation (MVRD), which distills patch-wise cosine similarities across views instead of the teacher features themselves. These relations encode geometric correspondences adequate for spatial understanding, while leaving the student representation underdetermined, allowing it to remain close to its pretrained vision- language space. Across representative VLMs, MVRD improves visual-spatial reasoning, outperforming supervised fine-tuning and feature distillation while approaching feature fusion methods with considerably fewer added parameters and lower latency. We show that MVRD makes visual representations more geometric while retaining language alignment, and generalizes to 3D scene understanding tasks such as object grounding, dense captioning, and question answering.",
+      "url": "http://arxiv.org/abs/2608.10864v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10864v1",
+      "tldr": "提出了一种名为MVRD的多视图关系蒸馏方法，通过蒸馏多视角特征间的余弦相似度，有效提升了视觉语言模型的空间推理能力，同时保持语言对齐。",
+      "affiliations": [
+        "KAIST"
+      ],
+      "score": 4.6433,
+      "source": "arxiv"
+    },
+    {
+      "arxiv_id": "2608.10932",
+      "title": "Temporally Grounded Compositional Camera Motion Understanding via Geometric Knowledge Distillation",
+      "authors": [
+        "Dazhao Du",
+        "Shiyan Du",
+        "Jian Liu",
+        "Yongjian Yu",
+        "Bohai Gu",
+        "Tao Han",
+        "Hualuo Liu",
+        "Eric Liu",
+        "Yujia Zhang",
+        "Xi Chen",
+        "Song Guo"
+      ],
+      "abstract": "Understanding camera motion is fundamental to video perception, with applications in spatial intelligence and controllable video generation. Multimodal large language models (MLLMs) provide a natural interface for this task, but existing work typically assigns one or more labels to an entire clip. Such clip-level recognition overlooks two defining properties of real camera motion: it can change within a shot, and multiple movements can occur simultaneously. We therefore formulate camera-motion understanding as temporally grounded, compositional recognition, which requires a model to localize motion-consistent intervals and identify every movement active within each interval. We introduce CamChoreo, a benchmark of 4,229 real single-shot clips with expert-annotated temporal segments. Its annotations use a compact vocabulary of 20 direction-aware labels, and nearly half of the segments contain compound camera motion, with multiple movement primitives active simultaneously. Recognizing such fine-grained, compositional motion is hard for current MLLMs, whose visual encoders emphasize semantic content rather than the geometric evidence on which camera motion depends. Directly injecting features from a frozen 3D foundation model addresses this gap, but requires running the expensive geometry model on every input; we refer to this baseline as CamInject. We instead propose CamDistill, which distills the same geometric knowledge into lightweight camera tokens during training and removes the 3D model at inference. CamDistill matches the accuracy of direct feature injection without running the 3D teacher at inference. Together, CamChoreo and CamDistill advance camera-motion understanding from clip-level labeling to temporally grounded, compositional recognition. Project page: https://ddz16.github.io/cammotion.github.io/.",
+      "url": "http://arxiv.org/abs/2608.10932v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10932v1",
+      "tldr": "提出了一种基于几何知识蒸馏的时序定位组合相机运动理解方法，通过CamChoreo基准和CamDistill模型，实现了从剪辑级标签到时序定位组合识别的突破。",
       "affiliations": [],
-      "score": 4.7386,
+      "score": 4.5415,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2608.09512",
-      "title": "Renormalising Generative Models for Active Inference: Foundations, Derivations, and Verification",
+      "arxiv_id": "2608.10949",
+      "title": "StreamFlow: Dynamic Memory Flows for Streaming Video Understanding",
       "authors": [
-        "Karim Zaghw",
-        "Andrew Pashea",
-        "Marc Pritsch",
-        "Wouter Nuijten",
-        "Karl Friston",
-        "Lancelot Da Costa"
+        "Muxin Fu",
+        "Yifan Zhang",
+        "Wentao Zhang",
+        "Fangming Guo",
+        "Qian Chen",
+        "Guibin Zhang",
+        "Shuicheng Yan",
+        "Bo An"
       ],
-      "abstract": "Active inference offers a unified framework for perception, learning, and action, but scaling discrete active-inference models to rich spatial and temporal domains remains difficult. Renormalising generative models (RGMs) address this challenge by composing discrete generative models across spatial and temporal scales, coarse-graining lower-level states and paths into higher-level causes for objects, events, and action. However, fully reproducing and adapting the framework remains difficult: the mathematical exposition is compact, and the reference implementations are deeply integrated within specialized software environments, leaving many algorithmic details implicit. This paper addresses these challenges by providing a self-contained, derivation-oriented account of RGMs together with an open, verified implementation. We explain how the hierarchy is built, how beliefs and actions are updated within it, and how information is passed between levels. Where the published equations and implementation differ in emphasis, we make those choices explicit and explain their modelling consequences. By clarifying the theory and separating it from its original implementation context, this work lowers practical barriers to entry and makes RGMs more transparent, auditable, and reproducible, providing a foundation for future quantitative evaluation and development on machine-learning benchmarks.",
-      "url": "http://arxiv.org/abs/2608.09512v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.09512v1",
-      "tldr": "本文提出了一种新的归一化生成模型（RGM）方法，通过在时空尺度上组合离散生成模型，将低级状态和路径粗化为高级原因，以解决将离散主动推理模型扩展到丰富时空域的难题。",
+      "abstract": "Streaming video understanding requires multimodal large language models (MLLMs) to preserve relevant evidence from continuously evolving streams under strict causality and bounded memory. Yet existing paradigms remain limited: model-based methods require intrusive backbone updates, while memory-based methods expend substantial visual-encoding computation on temporally redundant content and rely on rigid access to visual history. To address these limitations, we introduce StreamFlow, an efficient visual memory framework that enables dynamic, on-demand access to historical visual information. StreamFlow combines a lightweight, dynamics-aware mid-term memory that filters temporal redundancy before visual encoding with a latent long-term memory that consolidates historical video content into visual latents accessible to subsequent reasoning. During generation, an attention-guided retrieval mechanism injects relevant visual latents when the model's reliance on visual evidence weakens. StreamFlow achieves state-of-the-art streaming video understanding performance, reaching 67.73% overall accuracy on StreamingBench, while also delivering strong performance on offline long-video benchmarks. Relative to the vanilla setting, it improves the visual attention score (VAS) by 59.1% while reducing end-to-end latency and peak memory by 50.4% and 21.1%, respectively, enabling more visually grounded and efficient reasoning.",
+      "url": "http://arxiv.org/abs/2608.10949v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10949v1",
+      "tldr": "StreamFlow通过引入一种高效的视频记忆框架，实现动态访问历史视觉信息，从而显著提升实时视频理解性能。",
       "affiliations": [
-        "Division of the Social Sciences, University of Chicago, Chicago, IL, USA",
-        "Department of Electrical Engineering, Eindhoven University of Technology, Eindhoven, The Netherlands",
-        "Heidelberg University, Heidelberg, Germany",
-        "Max Planck Institute for Intelligent Systems, Tübingen, Germany",
-        "Wellcome Centre for Human Neuroimaging, UCL Queen Square Institute of Neurology, University College London, London, UK",
-        "University of Tübingen, Tübingen, Germany"
+        "Tongji University",
+        "Nanyang Technological University",
+        "The Hong Kong University of Science and Technology",
+        "National University of Singapore",
+        "University of Michigan"
       ],
-      "score": 4.7181,
+      "score": 4.5355,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2608.09537",
-      "title": "verdi: retrieval is not transfer for continual world model optimization",
+      "arxiv_id": "2608.10145",
+      "title": "The Evaluation Protocol Determines the Result: An Independent Reproduction of LeWorldModel on TwoRoom",
       "authors": [
-        "Junyu Wu",
-        "Shiqin Nie",
-        "Youyi Kou",
-        "Baohua Yin",
-        "Guocai Yao",
-        "Qingyu Chen",
-        "Jingheng Ma",
-        "Shiji Zhou",
-        "Hongyong Song",
-        "Mingchen Zhuge",
-        "Sen Cui",
-        "Changshui Zhang"
+        "Joyjeet Singh"
       ],
-      "abstract": "Foundation world models have made remarkable progress in planning, simulation, and embodied intelligence. However, optimizing a pretrained world model toward a user-specified objective remains difficult: each campaign typically rediscovers optimization strategies from scratch, and the resulting knowledge rarely transfers to the next model. Existing research agents automate the optimization loop but treat successful strategies as directly reusable recipes, without principled safeguards for when transfer is appropriate. We argue instead that retrieval is not transfer: a strategy validated on one model is at best an optimization hypothesis for another, and becomes transferable knowledge only after target-side experimental valida- tion. Guided by this principle, we propose VERDI , a continual framework for evidence-licensed world model optimization. VERDI characterizes each world model through shared inference-time probes to construct an Optimization Fin- gerprint, retrieves relevant prior experience as ranked hypotheses, and validates every candidate under a frozen target-side verifier before admitting it as reusable evidence; contradictions among nearby fingerprints further trigger probe evolution, continually refining the diagnostic representation itself. Experiments on Ctrl-World, the Cosmos family, and RoboCoin show that VERDI reduces search cost by 68%, GPU cost by 69%, and negative transfer from 0.34 to 0.06, while predicting transfer outcomes with 83% sign accuracy.",
-      "url": "http://arxiv.org/abs/2608.09537v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.09537v1",
-      "tldr": "VERDI 框架通过检索而非直接迁移，有效降低了世界模型优化成本，并提高了知识迁移的准确性。",
+      "abstract": "LeWorldModel trains a latent world model with a prediction loss and a single anti-collapse regulariser, and reports approximately 87% of goals reached on TwoRoom, its simplest diagnostic environment. We reproduce that result by independent reimplementation on roughly $25 of rented compute, with all evaluation on one laptop CPU.\n  We reach 94.0% at the repository's evaluation goal offset, against 84.0% for the authors' own released checkpoint measured under our protocol on identical episodes, and we reproduce the reported representation result directly (position probe Pearson r = 0.9988 against a reported 0.996). Reaching that point required four conventions that determine the outcome and appear in no released configuration file: dense action gathering across a frameskip block, a programmatically-set action-encoder width, ImageNet pixel normalisation, and action z-scoring. A reproducer following the released configurations alone obtains a model whose predictor cannot converge.\n  The evaluation protocol is itself contested by the released material. The paper's appendix and the repository's configuration specify different goal offsets and step budgets; on the authors' own weights these yield 14.0% and 84.0%, and only the configuration's values reproduce the reported figure. On fifty identical episodes, changing nothing but how the goal is constructed moves that checkpoint from 84.0% to 8.0%.\n  Two findings generalise. One-step prediction accuracy does not predict long-horizon planning success: across three checkpoints spanning a sevenfold range in prediction error, including the authors' own, it orders short-horizon success monotonically and fails to order long-horizon success at all. And a batch normalisation layer inflated our reported validation loss by up to a factor of 300, concealing a training loss that was flat throughout.",
+      "url": "http://arxiv.org/abs/2608.10145v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10145v1",
+      "tldr": "复现LeWorldModel在TwoRoom上的实验，发现评价协议对结果影响巨大，并揭示了一些未公开的改进方法和潜在问题。",
       "affiliations": [],
-      "score": 4.6866,
+      "score": 4.4951,
       "source": "arxiv"
     },
     {
-      "arxiv_id": "2608.08600",
-      "title": "Population-Scalable Multi-Agent World Modeling",
+      "arxiv_id": "2608.10981",
+      "title": "ThinkAfford: Affordance-Centric Reasoning for Fine-Grained 3D Grounding in Cluttered Scenes",
       "authors": [
-        "Renjie Zhao",
-        "Yuxiang Wu",
-        "Mingyu Zhang",
-        "Jiaxin Li",
-        "Sisi Li",
-        "Yimin Sheng",
-        "Tianxi Tan",
-        "Zhenkai Zhang",
-        "Jianyi Zhu",
-        "Yong-Lu Li"
+        "Xinrui Lin",
+        "Sha Zhang",
+        "Shumin Wang",
+        "Zenghuan Zhu",
+        "Jiajun Deng",
+        "Yanyong Zhang"
       ],
-      "abstract": "World models have recently achieved impressive progress in visual prediction and interactive generation, but extending them to multi-agent environments introduces a fundamental scalability challenge. Existing methods generally assume a fixed number of agents during training and inference, which ties the model to a pre-determined agent population and limits inference-time scalability. Our key insight is that cross-view consistency should arise from a shared world state whose evolution does not assume a predefined number of agents, while agent-specific observations should be generated by querying this state through a unified rendering interface. Based on this insight, we propose Khora, a scalable multi-agent world model that supports inference-time expansion to arbitrary numbers of agents without retraining. Our framework decouples world-state evolution from visual rendering and introduces a population-agnostic rendering mechanism for incorporating other agent information. This design maintains cross-view consistency through the shared world state rather than through dense interactions among observation streams inside the expensive video generator, enabling approximately linear practical scaling with the number of queried views. Qualitative experiments demonstrate that our approach generalizes to unseen numbers of agents while maintaining visual quality and multi-agent consistency. We further implement a real-time interactive system to demonstrate scalable open-world simulation.",
-      "url": "http://arxiv.org/abs/2608.08600v1",
-      "pdf_url": "https://arxiv.org/pdf/2608.08600v1",
-      "tldr": "该研究提出了一种名为Khora的可扩展多智能体世界模型，能够实现推理时任意数量的智能体扩展，无需重新训练，从而解决多智能体环境中世界模型的可扩展性问题。",
-      "affiliations": [],
-      "score": 4.686,
+      "abstract": "Task-driven 3D affordance grounding aims to localize the functional region in a cluttered 3D scene that enables an action specified by a natural-language instruction. Existing methods either predict 3D masks directly or construct them by selecting and fusing intermediate 2D/3D regions. However, they remain vulnerable to two intertwined failure modes: the predicted or selected regions may miss the target interaction area or have unsuitable granularity, while language grounding may confuse visually similar alternatives under relational instructions. To this end, we introduce ThinkAfford, which decouples high-recall affordance proposal generation from instruction-grounded reasoning. Specifically, the Affordance Proposal Generation module first uses learnable affordance prompts and multi-level visual features to predict interaction-conditioned heatmaps, extracting a variable number of fine-grained proposals without parsed object or part names as segmentation prompts. Visual-Prompted Affordance Reasoning then reasons over labeled proposal overlays using the full instruction, returning identifiers in a structured \"think-then-answer\" response. Moreover, Group Relative Policy Optimization uses proposal-level rewards from lifted 3D overlap to align VPAR selection with final 3D grounding. On the SceneFun3D validation split, ThinkAfford achieves 10.69% AP50 and 25.46% AP25 under the official evaluator, outperforming comparable 3D open-vocabulary and vision-language-model-based 2D-to-3D baselines. Module-level diagnostics further show that APG attains 77.5% recall at 25% intersection-over-union, while GRPO-trained VPAR achieves 72.1% selection accuracy on APG-covered queries, compared with 63.4% under supervised fine-tuning.",
+      "url": "http://arxiv.org/abs/2608.10981v1",
+      "pdf_url": "https://arxiv.org/pdf/2608.10981v1",
+      "tldr": "ThinkAfford通过解耦高召回力可及性提案生成和指令推理，在复杂场景中实现了细粒度的3D定位。",
+      "affiliations": [
+        "University of Science and Technology of China, Hefei, China",
+        "The Chinese University of Hong Kong, Hong Kong SAR, China"
+      ],
+      "score": 4.4609,
       "source": "arxiv"
     }
   ]
